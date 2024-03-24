@@ -1,0 +1,263 @@
+import DropdownList from '../ActivityTypes'; // Adjust the path accordingly
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useContentTypes } from "@/data/contentType";
+import LoadingSpinner from '@/components/spinners/LoadingSpinner';
+import { GetUserInfo } from "@/data/user_data";
+import { fa } from '@faker-js/faker';
+const ActivityContent = () => {
+
+  const [selectedOption, setSelectedOption] = useState('');
+  const [tag, setTag] = useState("");
+  const [title, setTitle] = useState("");
+  const [location, setLocation] = useState("");
+  const [price, setPrice] = useState("");
+  const [activityType, setActivityType] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [map_url, setMapUrl] = useState("");
+  const [minimum_duration, setMinimumDuration] = useState("");
+  const [group_size, setGroupSize] = useState("");
+  const [number_of_reviews, setNumberOfReviews] = useState("");
+  const [reviews_comment, setReviewsComment] = useState("");
+  const [overview, setOverview] = useState("");
+  const [whats_included, setWhatsIncluded] = useState("");
+  const [highlights, setHighlights] = useState("");
+  const [cancellation_policy, setCancellationPolicy] = useState("");
+  const [important_information, setImportantInformation] = useState("");
+  const [additional_information, setAdditionalInformation] = useState("")
+
+  const [loading, setLoading] = useState(false);
+
+
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
+
+  const activityTypes = useContentTypes();
+  console.log("Activity Types", activityTypes)
+  //   const userInfo = GetUserInfo();
+  // console.log("userInfour", userInfo);
+
+  const submit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    console.log("loading before", loading);
+
+    const res = await fetch(baseURL + '/activities', {
+      method: "POST",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        tag,
+        title,
+        location,
+        price,
+        activity_type: activityType,
+        latitude,
+        longitude,
+        map_url,
+        minimum_duration,
+        group_size,
+        number_of_reviews,
+        reviews_comment,
+        overview,
+        whats_included,
+        highlights,
+        cancellation_policy,
+        important_information,
+        additional_information,
+      }),
+
+
+
+    });
+
+    const body = await res.json();
+    setTimeout(() => {
+      setLoading(false);
+      document.getElementById("SubmitForm").reset();
+
+    }
+      , 1000);
+
+  };
+
+  const handleSelect = (value) => {
+    setSelectedOption(value);
+    setActivityType(value);
+    console.log("Selected Option", value);
+    // You can perform any additional actions based on the selected option here
+  };
+
+  return (
+    <form id="SubmitForm" className="row y-gap-20" onSubmit={submit}>
+      {loading ? (<LoadingSpinner />) : (
+
+        <div className="row x-gap-20 y-gap-20">
+          <div className="col-12">
+            <div className="form-input" style={{ border: '2px solid #ddd', borderRadius: '4px', width: '400px', height: '50px' }}>
+              <DropdownList required className="lh-1 text-16 text-light-1" options={activityTypes} onSelect={handleSelect} >
+              </DropdownList>
+            </div>
+          </div>
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text" onChange={e => setTag(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Optional Tag:
+                "likely to sell out*",
+                "best seller",
+                "top rated",
+                "New Program",
+              </label>
+            </div>
+          </div>
+          {/* End Tag */}
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text" required onChange={e => setTitle(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Title</label>
+            </div>
+          </div>
+          {/* End Title */}
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text" required onChange={e => setLocation(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Location</label>
+            </div>
+          </div>
+          {/* End Location */}
+
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text"  onChange={e => setPrice(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Price</label>
+            </div>
+          </div>
+          {/* End Price */}
+
+
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text"  onChange={e => setLatitude(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Latitude Optional</label>
+            </div>
+          </div>
+          {/* End Latitude */}
+      
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text"  onChange={e => setLongitude(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Longitude Optional</label>
+            </div>
+          </div>
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text" required onChange={e => setMapUrl(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Google Map Iframe: </label>
+            </div>
+          </div>
+          {/* End Longitude */}
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text" required onChange={e => setMinimumDuration(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Minimum Duration in hours</label>
+            </div>
+          </div>
+          {/* End Minimum Duration */}
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text" required onChange={e => setGroupSize(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Minimum Group Size</label>
+            </div>
+          </div>
+          {/* End Group Size */}
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text" required onChange={e => setNumberOfReviews(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Number of Reviews</label>
+            </div>
+          </div>
+          {/* End Number of Review */}
+          <div className="col-12">
+            <div className="form-input ">
+              <input type="text" defaultValue={"Brilliant"} required onChange={e => setReviewsComment(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Reviews Comment</label>
+            </div>
+          </div>
+          {/* End Number of Reviews Comment */}
+
+          <div className="col-12">
+            <div className="form-input ">
+              <textarea required rows={5} defaultValue={""} onChange={e => setOverview(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Overviw</label>
+            </div>
+          </div>
+            {/* End Overview */}
+            <div className="col-12">
+            <div className="form-input ">
+              <textarea required rows={5} defaultValue={""} onChange={e => setWhatsIncluded(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">
+                What's Included: (Use pipe char "|" separated values. The header is the first value)
+
+              </label>
+            </div>
+          </div>
+          {/* End Whats Included */}
+          <div className="col-12">
+            <div className="form-input ">
+              <textarea required rows={5} defaultValue={""} onChange={e => setHighlights(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">
+                Highlights: (Use pipe char "|" separated values. The header is the first value)
+              </label>
+            </div>
+          </div>
+          {/* End Overview */}
+    
+          {/* End Whats Included */}
+          <div className="col-12">
+            <div className="form-input ">
+              <textarea rows={5} defaultValue={""} onChange={e => setImportantInformation(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">
+              Optional Important Information: (Use pipe char "|" separated values. The header is the first value)
+              </label>
+            </div>
+          </div>
+          <div className="col-12">
+            <div className="form-input ">
+              <textarea rows={5} defaultValue={""} onChange={e => setAdditionalInformation(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">
+              Optional Additonal Information: (Use pipe char "|" separated values. The header is the first value)
+              </label>
+            </div>
+          </div>
+          <div className="col-12">
+            <div className="form-input ">
+              <textarea required rows={5} defaultValue={`
+              Cancellation Policy|
+              You can cancel up to 24 hours in advance of the experience for a full refund.|
+              For a full refund you must cancel at least 24 hours before the experience’s start time.|
+              If you cancel less than 24 hours before the experience’s start time the amount you paid will not be refunded.|
+              Any changes made less than 24 hours before the experience’s start time will not be accepted.|
+              Cut-off times are based on the experience’s local time.`} onChange={e => setCancellationPolicy(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Cancellation Policy: long Text</label>
+            </div>
+          </div>
+          {/* End Content */}
+
+          <div className="d-inline-block pt-30">
+            <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+              Save Changes <div className="icon-arrow-top-right ml-15" />
+            </button>
+          </div>
+          {/* End Content */}
+
+        </div>
+      )}
+
+    </form>
+  );
+};
+
+export default ActivityContent;
