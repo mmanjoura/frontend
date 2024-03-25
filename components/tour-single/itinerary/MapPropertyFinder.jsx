@@ -5,7 +5,7 @@ import GoogleMapReact from "google-map-react";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-export default function MapPropertyFinder({tour}) {
+export default function MapPropertyFinder({props}) {
   const defaultProps = {
     center: {
       lat: 10.99835602,
@@ -16,6 +16,6 @@ export default function MapPropertyFinder({tour}) {
 
 
   return (
-    <div dangerouslySetInnerHTML={{ __html: tour?.map_url }} />
+    <div dangerouslySetInnerHTML={{ __html: props?.map_url }} />
   );
 }

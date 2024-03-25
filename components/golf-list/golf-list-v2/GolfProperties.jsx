@@ -4,7 +4,6 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
-import golfData from "../../../data/golfs-data";
 import isTextMatched from "../../../utils/isTextMatched";
 import Link from "next/link";
 

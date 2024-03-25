@@ -10,11 +10,36 @@ import Link from "next/link";
 const BookingTable = () => {
   const [activeTab, setActiveTab] = useState(0);
   const tours = useToursData();
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
   if (!tours) return null;
   console.log("Home Page Tours Data: ", tours);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+    
+      const response = await fetch(baseURL + `/tours/${id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      if (response.ok) {
+        // Handle successful deletion (update local state, show a success message, etc.)
+        console.log('Product deleted successfully');
+        window.location.reload();
+      } else {
+        // Handle deletion failure (show an error message, etc.)
+        console.error('Failed to delete product');
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
   };
 
   return (
@@ -88,9 +113,9 @@ const BookingTable = () => {
                   <td>
                     <div className="row x-gap-10 y-gap-10 items-center">
                       <div className="col-auto">
-                        <button className="flex-center bg-light-2 rounded-4 size-35">
-                          <i className="icon-eye text-16 text-light-1" />
-                        </button>
+                      <Link href={`/tour-single/${data.id}`}>
+                              <i className="icon-eye text-16 text-light-1" />
+                      </Link>
                       </div>
                           <div className="col-auto">
                             <button className="flex-center bg-light-2 rounded-4 size-35" >
@@ -100,7 +125,7 @@ const BookingTable = () => {
                             </button>
                           </div>
                       <div className="col-auto">
-                        <button className="flex-center bg-light-2 rounded-4 size-35">
+                        <button className="flex-center bg-light-2 rounded-4 size-35" onClick={() => handleDelete(data.id)} >
                           <i className="icon-trash-2 text-16 text-light-1" />
                         </button>
                       </div>

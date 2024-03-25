@@ -16,6 +16,7 @@ import MapPropertyFinder from "@/components/golf-single/MapPropertyFinder";
 import GalleryGolfSlider from "@/components/golf-single/GalleryGolfSlider";
 import { useGolfsData } from "@/data/golfs-data";
 import Itinerary from "@/components/golf-single/itinerary";
+import Faq from "@/components/faq/Faq";
 
 
 const GofSingleV1Dynamic = ({ params }) => {
@@ -130,10 +131,11 @@ const GofSingleV1Dynamic = ({ params }) => {
       <section className="border-top-light  mt-40 pt-40">
         <div className="container">
           <h3 className="text-22 fw-500 mb-20">Itinerary</h3>
-          <Itinerary golf = {golf} />
+          <Itinerary props = {golf} />
         </div>
       </section>
       {/* End MapPropertyFinder */}
+      
 
       <section className="pt-40">
         <div className="container">
@@ -144,6 +146,36 @@ const GofSingleV1Dynamic = ({ params }) => {
           </div>
         </div>
         </div>
+      </section>
+
+           {/* End Faq about sections */}
+        <section className="mt-40">
+        <div className="container ">
+          <div className="pt-40 border-top-light">
+            <div className="row y-gap-20">
+              <div className="col-lg-4">
+                <h2 className="text-22 fw-500">
+                  FAQs
+                
+                </h2>
+              </div>
+              {/* End .row */}
+
+              <div className="col-lg-8">
+                <div
+                  className="accordion -simple row y-gap-20 js-accordion"
+                  id="Faq1"
+                >
+                  <Faq props={golf}/>
+                </div>
+              </div>
+              {/* End .col */}
+            </div>
+            {/* End .row */}
+          </div>
+          {/* End .pt-40 */}
+        </div>
+        {/* End .container */}
       </section>
 
 

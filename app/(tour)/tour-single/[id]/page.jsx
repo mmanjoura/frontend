@@ -18,6 +18,7 @@ import Golf2 from "@/components/golfs/Golf2";
 
 
 
+
 const TourSingleV1Dynamic = ({ params }) => {
   const id = params.id;
   const toursData = useToursData();
@@ -159,7 +160,7 @@ const TourSingleV1Dynamic = ({ params }) => {
       <section className="border-top-light  mt-40 pt-40">
         <div className="container">
           <h3 className="text-22 fw-500 mb-20">Itinerary</h3>
-          <Itinerary tour = {tour} />
+          <Itinerary props = {tour} />
         </div>
       </section>
       <section className="border-top-light  mt-40 pt-40">
@@ -171,6 +172,36 @@ const TourSingleV1Dynamic = ({ params }) => {
           </div>
         </div>
         </div>
+      </section>
+
+                 {/* End Faq about sections */}
+                 <section className="mt-40">
+        <div className="container ">
+          <div className="pt-40 border-top-light">
+            <div className="row y-gap-20">
+              <div className="col-lg-4">
+                <h2 className="text-22 fw-500">
+                  FAQs
+                
+                </h2>
+              </div>
+              {/* End .row */}
+
+              <div className="col-lg-8">
+                <div
+                  className="accordion -simple row y-gap-20 js-accordion"
+                  id="Faq1"
+                >
+                  <Faq props={tour}/>
+                </div>
+              </div>
+              {/* End .col */}
+            </div>
+            {/* End .row */}
+          </div>
+          {/* End .pt-40 */}
+        </div>
+        {/* End .container */}
       </section>
       
       {/* End Itinerary */}

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import {useContentTypes} from "@/data/contentType";
-import LoadingSpinner from '@/components/Spinners/LoadingSpinner';
+import LoadingSpinner from '@/components/spinners/LoadingSpinner';
 
 const ActivityContent = ({params}) => {
 

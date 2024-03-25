@@ -64,7 +64,8 @@ const GolfContent = () => {
         highlights,
         important_information,
         additional_information,
-        cancellation_policy,
+        cancellation_policy, 
+        
       }),
 
 
@@ -78,6 +79,8 @@ const GolfContent = () => {
 
     }
       , 1000);
+
+      console.log("Body", body);
 
   };
 
@@ -158,8 +161,8 @@ const GolfContent = () => {
           {/* End Longitude */}
           <div className="col-12">
             <div className="form-input ">
-              <input type="text" defaultValue={"offering 18 hole"}  required onChange={e => setMinimumDuration(e.target.value)} />
-              <label className="lh-1 text-16 text-light-1">No of course holes </label>
+              <input type="text"  required onChange={e => setMinimumDuration(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">offering 18 hole </label>
             </div>
           </div>
           {/* End Minimum Duration */}
@@ -179,8 +182,8 @@ const GolfContent = () => {
           {/* End Number of Review */}
           <div className="col-12">
             <div className="form-input ">
-              <input type="text" required defaultValue={"Excellent"} onChange={e => setReviewsComment(e.target.value)} />
-              <label className="lh-1 text-16 text-light-1">Reviews Comment </label>
+              <input type="text" required nChange={e => setReviewsComment(e.target.value)} />
+              <label className="lh-1 text-16 text-light-1">Reviews Comment: Excellent </label>
             </div>
           </div>
           {/* End Number of Reviews Comment */}
@@ -232,7 +235,7 @@ const GolfContent = () => {
           </div>
           <div className="col-12">
             <div className="form-input ">
-              <textarea required rows={5} defaultValue={" Cancellation Policy| You can cancel up to 24 hours in advance of the experience for a full refund.| For a full refund you must cancel at least 24 hours before the experience’s start time.| If you cancel less than 24 hours before the experience’s start time the amount you paid will not be refunded.| Any changes made less than 24 hours before the experience’s start time will not be accepted.| Cut-off times are based on the experience’s local time."} onChange={e => setCancellationPolicy(e.target.value)} />
+              <textarea required rows={5}  onChange={e => setCancellationPolicy(e.target.value)} />
               <label className="lh-1 text-16 text-light-1">Cancellation Policy: long Text</label>
             </div>
           </div>

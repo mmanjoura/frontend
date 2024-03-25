@@ -20,6 +20,8 @@ import ImportantInfo from "@/components/activity-single/ImportantInfo";
 import SlideGallery from "@/components/activity-single/SlideGallery";
 import MapPropertyFinder from "@/components/activity-single/MapPropertyFinder";
 import { useActivitiesData } from "@/data/activities-data";
+import Itinerary from "@/components/activity-single/itinerary";
+
 
 
 const ActivitySingleV1Dynamic = ({ params }) => {
@@ -147,39 +149,57 @@ const ActivitySingleV1Dynamic = ({ params }) => {
         {/* End .container */}
       </section>
       {/* End important info */}
-
+      
       <section className="border-top-light  mt-40 pt-40">
         <div className="container">
-          <h3 className="text-22 fw-500 mb-20">Activity&apos;s Location</h3>
-          <div className=" rounded-4 overflow-hidden map-500">
-            <MapPropertyFinder activity={activity}/>
-          </div>
+          <h3 className="text-22 fw-500 mb-20">Itinerary</h3>
+          <Itinerary props = {activity} />
         </div>
       </section>
 
-          <section className="border-top-light  mt-40 pt-40">
-        <div className="container">
-        <div className="col-md-6">
-          <h5 className="text-16 fw-500">
-          {activity?.cancellation_policy.split("|").slice(0, 1).map((item, index) => (
-                      <div key={index}>
-                        <li>{item}</li>
-                      </div>
-                    ))}
-          </h5>
-          <div className="text-15 mt-10">
-          {activity?.cancellation_policy?.split("|").slice(1, 10).map((item, index) => (
-              <div key={index}>
-                <li>{item}</li>
-              </div>
-        ))}
-          </div>
-        </div>
-        </div>
-      </section>
+
       {/* End Itinerary */}
 
+      <section className="pt-40">
+        <div className="container">
+        <div className="col-md-6">
+          <h5 className="text-16 fw-500">Cancellation policy</h5>
+          <div className="text-15 mt-10">
+            {activity?.cancellation_policy}
+          </div>
+        </div>
+        </div>
+      </section>
+
       {/* End Faq about sections */}
+      <section className="mt-40">
+        <div className="container ">
+          <div className="pt-40 border-top-light">
+            <div className="row y-gap-20">
+              <div className="col-lg-4">
+                <h2 className="text-22 fw-500">
+                  FAQs
+                
+                </h2>
+              </div>
+              {/* End .row */}
+
+              <div className="col-lg-8">
+                <div
+                  className="accordion -simple row y-gap-20 js-accordion"
+                  id="Faq1"
+                >
+                  <Faq props={activity}/>
+                </div>
+              </div>
+              {/* End .col */}
+            </div>
+            {/* End .row */}
+          </div>
+          {/* End .pt-40 */}
+        </div>
+        {/* End .container */}
+      </section>
 
 
 
