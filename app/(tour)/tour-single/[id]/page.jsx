@@ -1,7 +1,7 @@
 'use client';
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
-import Header11 from "@/components/header/header-11";
+import ProductHeader from "@/components/header/product-header";
 import TopBreadCrumb from "@/components/tour-single/TopBreadCrumb";
 import ReplyForm from "@/components/tour-single/ReplyForm";
 import ReplyFormReview2 from "@/components/tour-single/ReplyFormReview2";
@@ -14,7 +14,7 @@ import ImportantInfo from "@/components/tour-single/ImportantInfo";
 import AdditionalInfo from "@/components/tour-single/AdditonalInfo";
 import TourGallery from "@/components/tour-single/TourGallery";
 import { useToursData } from "@/data/tours-data";
-import Golf2 from "@/components/golfs/Golf2";
+import Golf from "@/components/golfs/Golf";
 
 
 
@@ -34,7 +34,7 @@ const TourSingleV1Dynamic = ({ params }) => {
       <div className="header-margin"></div>
       {/* header top margin */}
 
-      <Header11 />
+      <ProductHeader />
       {/* End Header 1 */}
 
       <TopBreadCrumb tour = {tour}/>
@@ -253,7 +253,7 @@ const TourSingleV1Dynamic = ({ params }) => {
 
             <div className="col-auto">
               <Link
-                href="/golf-list-v2"
+                href="/golf-list"
                 className="button -md -blue-1 bg-blue-1-05 text-blue-1"
               >
                 More <div className="icon-arrow-top-right ml-15" />
@@ -264,7 +264,7 @@ const TourSingleV1Dynamic = ({ params }) => {
           {/* End .row */}
 
           <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Golf2 />
+            <Golf />
           </div>
           {/* End .row */}
         </div>

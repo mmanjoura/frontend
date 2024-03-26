@@ -122,7 +122,7 @@ const MobileMenu = () => {
             {/* End  All Categories Menu */}
 
             <MenuItem
-             onClick={()=>router.push("/tour-list-v2")}
+             onClick={()=>router.push("/tour-list")}
              className={
               pathname === "/Tours"
                 ? "menu-active-link"
@@ -133,7 +133,7 @@ const MobileMenu = () => {
               Tours
             </MenuItem>
             <MenuItem
-             onClick={()=>router.push("/activity-list-v2")}
+             onClick={()=>router.push("/activity-list")}
              className={
               pathname === "/Activities"
                 ? "menu-active-link"
@@ -145,7 +145,7 @@ const MobileMenu = () => {
             </MenuItem>
 
             <MenuItem
-             onClick={()=>router.push("/golf-list-v2")}
+             onClick={()=>router.push("/golf-list")}
              className={
               pathname === "/golfs"
                 ? "menu-active-link"

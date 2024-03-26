@@ -216,7 +216,7 @@ export const categorieMegaMenuItems = [
               },
               {
                 name: "Tour List v2",
-                routePath: "/tour-list-v2",
+                routePath: "/tour-list",
               },
             ],
           },
@@ -258,7 +258,7 @@ export const categorieMegaMenuItems = [
               },
               {
                 name: "Activity List v2",
-                routePath: "/activity-list-v2",
+                routePath: "/activity-list",
               },
             ],
           },
@@ -505,7 +505,7 @@ export const categorieMobileItems = [
           },
           {
             name: "Tour List v2",
-            routePath: "/tour-list-v2",
+            routePath: "/tour-list",
           },
         ],
       },
@@ -539,7 +539,7 @@ export const categorieMobileItems = [
           },
           {
             name: "Activity List v2",
-            routePath: "/activity-list-v2",
+            routePath: "/activity-list",
           },
         ],
       },

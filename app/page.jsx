@@ -1,5 +1,5 @@
 import Wrapper from "@/components/layout/Wrapper";
-import MainHome from "../app/(homes)/home_5/page";
+import MainHome from "../app/(homes)/home/page";
 
 export const metadata = {
   title: "Niya Voyage - Activities, Tours, Golf in Morocco",

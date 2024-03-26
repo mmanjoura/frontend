@@ -1,18 +1,15 @@
 'use client';
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
-import Header11 from "@/components/header/header-11";
+import ProductHeader from "@/components/header/product-header";
 import Overview from "@/components/golf-single/Overview";
 import TopBreadCrumb from "@/components/golf-single/TopBreadCrumb";
 import SidebarRight from "@/components/golf-single/SidebarRight";
 import ReviewProgress from "@/components/golf-single/guest-reviews/ReviewProgress";
-import DetailsReview from "@/components/golf-single/guest-reviews/DetailsReview";
 import ReplyForm from "@/components/golf-single/ReplyForm";
 import ReplyFormReview from "@/components/golf-single/ReplyFormReview";
-import Facilities from "@/components/golf-single/Facilities";
 import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
-import MapPropertyFinder from "@/components/golf-single/MapPropertyFinder";
 import GalleryGolfSlider from "@/components/golf-single/GalleryGolfSlider";
 import { useGolfsData } from "@/data/golfs-data";
 import Itinerary from "@/components/golf-single/itinerary";
@@ -34,7 +31,7 @@ const GofSingleV1Dynamic = ({ params }) => {
       <div className="header-margin"></div>
       {/* header top margin */}
 
-      <Header11 />
+      <ProductHeader />
       {/* End Header 1 */}
 
       <TopBreadCrumb golf = {golf}/>

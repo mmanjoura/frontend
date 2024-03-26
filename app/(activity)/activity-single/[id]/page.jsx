@@ -1,24 +1,19 @@
 'use client';
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
-import activityData from "@/data/activity";
-import Header11 from "@/components/header/header-11";
+import ProductHeader from "@/components/header/product-header";
 import Overview from "@/components/activity-single/Overview";
 import TourSnapShot from "@/components/activity-single/TourSnapShot";
 import TopBreadCrumb from "@/components/activity-single/TopBreadCrumb";
-import SidebarRight from "@/components/activity-single/SidebarRight";
-import ReviewProgress2 from "@/components/activity-single/guest-reviews/ReviewProgress2";
-import DetailsReview2 from "@/components/activity-single/guest-reviews/DetailsReview2";
 import ReplyForm from "@/components/activity-single/ReplyForm";
 import ReplyFormReview2 from "@/components/activity-single/ReplyFormReview2";
 import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
-import Tours3 from "@/components/tours/Tours3";
+import Tours from "@/components/tours/Tours";
 import Faq from "@/components/faq/Faq";
 import Link from "next/link";
 import ImportantInfo from "@/components/activity-single/ImportantInfo";
 import SlideGallery from "@/components/activity-single/SlideGallery";
-import MapPropertyFinder from "@/components/activity-single/MapPropertyFinder";
 import { useActivitiesData } from "@/data/activities-data";
 import Itinerary from "@/components/activity-single/itinerary";
 
@@ -39,7 +34,7 @@ const ActivitySingleV1Dynamic = ({ params }) => {
       <div className="header-margin"></div>
       {/* header top margin */}
 
-      <Header11 />
+      <ProductHeader />
       {/* End Header 1 */}
 
       <TopBreadCrumb activity = {activity} />
@@ -259,7 +254,7 @@ const ActivitySingleV1Dynamic = ({ params }) => {
           {/* End .row */}
 
           <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Tours3 />
+            <Tours />
           </div>
           {/* End .row */}
         </div>

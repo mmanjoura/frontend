@@ -26,9 +26,9 @@ module.exports = [
     title: "Other Services",
     menuList: [
       // { name: "Car hire", routerPath: "/" },
-      { name: "Activity Finder", routerPath: "./activity-list-v2" },
-      { name: "Tour List", routerPath: "./tour-list-v2" },
-      { name: "Golf List", routerPath: "/golf-list-v2" },
+      { name: "Activity Finder", routerPath: "./activity-list" },
+      { name: "Tour List", routerPath: "./tour-list" },
+      { name: "Golf List", routerPath: "/golf-list" },
       // { name: "Cruise Ticket", routerPath: "/" },
       // { name: "Holiday Rental", routerPath: "/" },
       // { name: "Travel Agents", routerPath: "/" },

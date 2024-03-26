@@ -2,7 +2,6 @@
 'use client'
 import React, { useState } from "react";
 import DropdownList from '../components/TourTypes';
-import {getAll} from "../../../../../data/tours";
 import { useToursData } from "@/data/tours-data";
 
 const ImagesTabContent = (imageType) => {
