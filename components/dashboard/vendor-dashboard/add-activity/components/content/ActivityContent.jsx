@@ -46,6 +46,8 @@ const ActivityContent = () => {
     const res = await fetch(baseURL + '/activities', {
       method: "POST",
       credentials: 'include',
+      
+      
       headers: {
         "Content-Type": "application/json",
       },
