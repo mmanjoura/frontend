@@ -11,6 +11,7 @@ const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
 
   const handleSubmit = async (e) => {
@@ -40,6 +41,7 @@ const ContactForm = () => {
 
     }
       , 1000);
+      setSubmitSuccess(true);
   };
   
   if (loading) {
@@ -47,6 +49,14 @@ const ContactForm = () => {
   }
 
   return (
+    <div>
+        {submitSuccess && (
+        <div className="success-message">        
+          <span style={{ color: 'green' }}>
+          <i className="icon-check text-10 mr-10" ></i>
+            Thank you: Message submitted successfully.</span>
+        </div>
+      )}
     <form className="row y-gap-20 pt-20" onSubmit={handleSubmit} id = "SubmitForm">
       <div className="col-12">
         <div className="form-input">
@@ -89,6 +99,7 @@ const ContactForm = () => {
         </button>
       </div>
     </form>
+    </div>
   );
 };
 

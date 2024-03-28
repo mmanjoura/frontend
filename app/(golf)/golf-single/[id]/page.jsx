@@ -6,8 +6,8 @@ import Overview from "@/components/golf-single/Overview";
 import TopBreadCrumb from "@/components/golf-single/TopBreadCrumb";
 import SidebarRight from "@/components/golf-single/SidebarRight";
 import ReviewProgress from "@/components/golf-single/guest-reviews/ReviewProgress";
-import ReplyForm from "@/components/golf-single/ReplyForm";
-import ReplyFormReview from "@/components/golf-single/ReplyFormReview";
+import ReplyForm from "@/components/reply-form/ReplyForm";
+// import ReplyFormReview from "@/components/golf-single/ReplyFormReview";
 import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
 import GalleryGolfSlider from "@/components/golf-single/GalleryGolfSlider";
@@ -213,7 +213,7 @@ const GofSingleV1Dynamic = ({ params }) => {
               </div>
               {/* End .row */}
 
-              <ReplyFormReview />
+              {/* <ReplyFormReview /> */}
               {/* End ReplyFormReview */}
 
               <ReplyForm />

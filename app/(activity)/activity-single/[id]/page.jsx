@@ -5,8 +5,8 @@ import ProductHeader from "@/components/header/product-header";
 import Overview from "@/components/activity-single/Overview";
 import TourSnapShot from "@/components/activity-single/TourSnapShot";
 import TopBreadCrumb from "@/components/activity-single/TopBreadCrumb";
-import ReplyForm from "@/components/activity-single/ReplyForm";
-import ReplyFormReview2 from "@/components/activity-single/ReplyFormReview2";
+import ReplyForm from "@/components/reply-form/ReplyForm";
+// import ReplyFormReview2 from "@/components/activity-single/ReplyFormReview2";
 import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
 import Tours from "@/components/tours/Tours";
@@ -212,7 +212,7 @@ const ActivitySingleV1Dynamic = ({ params }) => {
               </div>
               {/* End .row */}
 
-              <ReplyFormReview2 />
+              {/* <ReplyFormReview2 /> */}
               {/* End ReplyFormReview */}
             </div>
             {/* End .col-xl-3 */}

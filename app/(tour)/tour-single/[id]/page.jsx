@@ -3,8 +3,8 @@ import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
 import ProductHeader from "@/components/header/product-header";
 import TopBreadCrumb from "@/components/tour-single/TopBreadCrumb";
-import ReplyForm from "@/components/tour-single/ReplyForm";
-import ReplyFormReview2 from "@/components/tour-single/ReplyFormReview2";
+import ReplyForm from "@/components/reply-form/ReplyForm";
+// import ReplyFormReview2 from "@/components/tour-single/ReplyFormReview2";
 import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
 import Faq from "@/components/faq/Faq";
@@ -218,7 +218,7 @@ const TourSingleV1Dynamic = ({ params }) => {
               </div>
               {/* End .row */}
 
-              <ReplyFormReview2 />
+              {/* <ReplyFormReview2 /> */}
               {/* End ReplyFormReview */}
             </div>
             {/* End .col-xl-3 */}
