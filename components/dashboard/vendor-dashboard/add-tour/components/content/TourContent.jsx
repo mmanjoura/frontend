@@ -8,6 +8,8 @@ const TourContent = () => {
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
   const [selectedOption, setSelectedOption] = useState('');
   const [tag, setTag] = useState("");
+
+
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");

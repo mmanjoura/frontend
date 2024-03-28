@@ -14,7 +14,7 @@ const SidebarRight = ({ activity }) => {
           {/* End div */}
 
           <div className="row y-gap-20 pt-30">
-            <FilterBox />
+            <FilterBox props = {activity}/>
           </div>
           {/* End div */}
 

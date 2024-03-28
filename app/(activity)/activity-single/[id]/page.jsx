@@ -16,6 +16,7 @@ import ImportantInfo from "@/components/activity-single/ImportantInfo";
 import SlideGallery from "@/components/activity-single/SlideGallery";
 import { useActivitiesData } from "@/data/activities-data";
 import Itinerary from "@/components/activity-single/itinerary";
+import SidebarRight from "@/components/activity-single/SidebarRight";
 
 
 
@@ -118,7 +119,7 @@ const ActivitySingleV1Dynamic = ({ params }) => {
             {/* End .col-xl-8 */}
 
             <div className="col-xl-4">
-              {/* <SidebarRight activity={activity} /> */}
+              <SidebarRight activity={activity} />
             </div>
             {/* End .col-xl-4 */}
           </div>
