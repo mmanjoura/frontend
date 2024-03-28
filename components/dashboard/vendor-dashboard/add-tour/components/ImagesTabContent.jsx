@@ -7,7 +7,7 @@ import LoadingSpinner from '@/components/spinners/LoadingSpinner';
 
 
 
-const ImagesTabContent = (imageType) => {
+const ImagesTabContent = (props) => {
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
   const [images, setImages] = useState([]);
   const [error, setError] = useState("");
@@ -73,7 +73,7 @@ const ImagesTabContent = (imageType) => {
 
 
 
-    fetch(baseURL + '/uploadImage?image='+imageType.imageType+'&category='+imageType.category+'&id='+selectedOption, {
+    fetch(baseURL + '/uploadImage?category='+props.category+'&id='+selectedOption, {
       method: 'POST',
       credentials: 'include',
       body: formData

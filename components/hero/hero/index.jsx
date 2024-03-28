@@ -1,26 +1,26 @@
-'use client';
+// 'use client';
 import MainFilterSearchBox from "./MainFilterSearchBox";
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 const Index = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://static.elfsight.com/platform/platform.js';
-    script.defer = true;
-    document.head.appendChild(script);
+  // useEffect(() => {
+  //   const script = document.createElement('script');
+  //   script.src = 'https://static.elfsight.com/platform/platform.js';
+  //   script.defer = true;
+  //   document.head.appendChild(script);
 
-    return () => {
-      // Cleanup: Remove the script when the component unmounts
-      document.head.removeChild(script);
-    };
-  }, []);
+  //   return () => {
+  //     // Cleanup: Remove the script when the component unmounts
+  //     document.head.removeChild(script);
+  //   };
+  // }, []);
 
   return (
     <section className="masthead -type-5">
-      <div className="masthead__bg">
+      {/* <div className="masthead__bg">
         <img alt="image" src="/img/masthead/5/bg.svg" className="js-lazy" />
         <div className="elfsight-app-22e21c9f-992b-491e-ad6d-969dbd09c21a" data-elfsight-app-lazy></div>
-      </div>
+      </div> */}
       {/* End bg image */}
 
       <div className="container">

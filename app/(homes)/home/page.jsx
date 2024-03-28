@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import HomeHeader from "@/components/header/home-header";
-import Hero5 from "@/components/hero/hero-5";
+import Hero from "@/components/hero/hero";
 import Link from "next/link";
 import Footer4 from "@/components/footer/footer-4";
 import Tours from "@/components/tours/Tours";
@@ -10,6 +10,7 @@ import Golf from "@/components/golfs/Golf";
 import DiscountsBanner from "@/components/home/home/DiscountsBanner";
 import WhyChooseUs from "@/components/home/home/WhyChooseUs";
 import Testimonial from "@/components/home/home/Testimonial";
+import TestimonialLeftCol from "@/components/home/home/TestimonialLeftCol";
 import Activity from "@/components/activity/Activity";
 
 export const metadata = {
@@ -43,7 +44,7 @@ const home = () => {
       <HomeHeader />
       {/* End Header 5 */}
 
-      <Hero5 />
+      <Hero />
       {/* End Hero 5 */}
 
       <section className="layout-pt-lg layout-pb-md">
@@ -182,9 +183,9 @@ const home = () => {
 
 
 
-      <section className="section-bg layout-pt-lg md:pt-0 md:pb-60 sm:pb-40 layout-pb-lg bg-blue-1-05">
+      {/* <section className="section-bg layout-pt-lg md:pt-0 md:pb-60 sm:pb-40 layout-pb-lg bg-blue-1-05">
         <WhyChooseUs />
-      </section>
+      </section> */}
       {/* End whycosse Section */}
 
       <section className="layout-pt-md layout-pb-md">
@@ -212,6 +213,30 @@ const home = () => {
         {/* End .container */}
       </section>
       {/* End blog Section */}
+
+      
+      <section className="layout-pt-lg layout-pb-lg bg-blue-2">
+        <div className="container">
+          <div className="row y-gap-40 justify-between">
+            <div className="col-xl-5 col-lg-6" data-aos="fade-up">
+              <TestimonialLeftCol />
+            </div>
+            {/* End col */}
+
+            <div className="col-lg-6">
+              <div
+                className="overflow-hidden js-testimonials-slider-3"
+                data-aos="fade-up"
+                data-aos-delay="50"
+              >
+                <Testimonial />
+              </div>
+            </div>
+          </div>
+          {/* End .row */}
+        </div>
+        {/* End container */}
+      </section>
 
       <CallToActions />
       {/* End CallToActions */}

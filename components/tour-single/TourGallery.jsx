@@ -37,7 +37,7 @@ export default function TourGallery({tour}) {
                     prevEl: ".js-img-prev",
                   }}
                 >
-                  {tour?.images?.map((slide, i) => (
+                  {tour?.gallery_images?.map((slide, i) => (
                     <SwiperSlide key={i}>
                       <Image
                         width={451}
@@ -53,7 +53,7 @@ export default function TourGallery({tour}) {
                 </Swiper>
 
                 <Gallery>
-                  {tour?.images?.map((slide, i) => (
+                  {tour?.gallery_images?.map((slide, i) => (
                     <div
                       className="absolute px-10 py-10 col-12 h-full d-flex justify-end items-end z-2 bottom-0 end-0"
                       key={i}

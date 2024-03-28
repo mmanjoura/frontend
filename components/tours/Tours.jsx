@@ -64,7 +64,7 @@ console.log("Home Page Tours Data: ", tours);
                           }}
                           navigation={true}
                         >
-                          {item?.images?.map((slide, i) => (
+                          {item?.slide_images?.map((slide, i) => (
                             <SwiperSlide key={i}>
                               <Image
                                 width={300}
