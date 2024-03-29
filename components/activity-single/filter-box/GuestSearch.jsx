@@ -3,9 +3,8 @@
 
 import React, { useState } from "react";
 const counters = [
-  { name: "Adults", defaultValue: 2 },
-  { name: "Children", defaultValue: 1 },
-  { name: "Rooms", defaultValue: 1 },
+  { name: "Adults", defaultValue: 0 },
+  { name: "Children", defaultValue: 0 },
 ];
 
 const Counter = ({ name, defaultValue, onCounterChange }) => {
@@ -63,19 +62,19 @@ const Counter = ({ name, defaultValue, onCounterChange }) => {
 
 const GuestSearch = ({ onGuestChange }) => {
   const [guestCounts, setGuestCounts] = useState({
-    Adults: 1,
+    Adults: 0,
     Children: 0,
-    Rooms: 1,
+
   });
   const handleCounterChange = (name, value) => {
     setGuestCounts((prevState) => ({ ...prevState, [name]: value }));
     onGuestChange(guestCounts);
   };
 
-  const handleGuestChange = (guests) => {
-    setGuestCounts(guests);
-    console.log("Selected Guests", guests);
-  }
+  // const handleGuestChange = (guests) => {
+  //   setGuestCounts(guests);
+  //   console.log("Selected Guests", guests);
+  // }
   return (
     <div className="searchMenu-guests px-20 py-10 border-light rounded-4 js-form-dd js-form-counters">
       <div
@@ -88,8 +87,7 @@ const GuestSearch = ({ onGuestChange }) => {
         <div className="text-15 text-light-1 ls-2 lh-16">
           <span className="js-count-adult">{guestCounts.Adults}</span> adults -{" "}
           <span className="js-count-child">{guestCounts.Children}</span>{" "}
-          childeren - <span className="js-count-room">{guestCounts.Rooms}</span>{" "}
-          room
+          childeren 
         </div>
       </div>
       {/* End guest */}

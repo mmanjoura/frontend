@@ -4,16 +4,16 @@
 import React, { useState } from "react";
 import DatePicker, { DateObject } from "react-multi-date-picker";
 
-const DateSearch = ({onDateChange }) => {
+const DateSearch = ({onDateChange} ) => {
 
   const [dates, setDates] = useState([
-    new DateObject().setDay(5),
-    new DateObject().setDay(14).add(1, "month"),
+    new DateObject(),//.setDay(5),
+    new DateObject(),//.setDay(14).add(1, "month"),
   ]);
 
 
 
-  const handleDatesChange = (newDates) => {
+  const handleDateChange = (newDates) => {
     setDates(newDates);
     onDateChange(newDates); // Call the callback function with the selected dates
   };
@@ -24,7 +24,7 @@ const DateSearch = ({onDateChange }) => {
         inputClass="custom_input-picker"
         containerClassName="custom_container-picker"
         value={dates}
-        onChange={handleDatesChange}
+        onChange={handleDateChange}
         numberOfMonths={2}
         offsetY={10}
         range

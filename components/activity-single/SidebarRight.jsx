@@ -1,4 +1,4 @@
-import FilterBox from "../../components/activity-single/filter-box";
+import FilterBox from "@/components/activity-single/filter-box";
 
 const SidebarRight = ({ activity }) => {
   return (
@@ -14,7 +14,7 @@ const SidebarRight = ({ activity }) => {
           {/* End div */}
 
           <div className="row y-gap-20 pt-30">
-            <FilterBox props = {activity}/>
+            <FilterBox activity = {activity}  />
           </div>
           {/* End div */}
 
