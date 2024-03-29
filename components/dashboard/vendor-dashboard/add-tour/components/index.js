@@ -19,7 +19,7 @@ const Index = () => {
     {
       label: "Images",
       labelNo: 2,
-      content: <ImagesTabContent props= {"Tour"} />,
+      content: <ImagesTabContent category= {"Tour"} />,
     },
     {
       label: "Itinerary",

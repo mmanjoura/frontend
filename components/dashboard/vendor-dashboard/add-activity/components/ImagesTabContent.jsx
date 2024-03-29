@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import DropdownList from '../components/ActivityTypes';
 import {useActivitiesData} from "../../../../../data/activities-data";
 import LoadingSpinner from '@/components/spinners/LoadingSpinner';
+import { slide_width, slide_height, gallery_width, gallery_height } from '@/components/common/imageConstants';
+
 
 
 
@@ -74,7 +76,7 @@ const ImagesTabContent = (imageType) => {
 
     console.log('imageType:', imageType);
 
-    fetch(baseURL + '/uploadImage?image='+imageType.imageType+'&category='+imageType.category+'&id='+selectedOption, {
+    fetch(baseURL + '/uploadImage?image='+imageType.imageType+'&category='+imageType.category+'&id='+selectedOption+'&slide_width='+slide_width+'&slide_height='+slide_height+'&gallery_width='+gallery_width+'&gallery_height='+gallery_height, {
       method: 'POST',
       credentials: 'include',
       body: formData

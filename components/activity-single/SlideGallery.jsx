@@ -36,7 +36,7 @@ const SlideGallery = ({activity}) => {
             },
           }}
         >
-          {activity?.images.map((slide, i) => (
+          {activity?.gallery_images.map((slide, i) => (
             <SwiperSlide key={i}>
               <div className="ratio ratio-64:45">
                 <img src={slide?.img} alt="image" className="rounded-4 img-ratio" />
@@ -46,12 +46,12 @@ const SlideGallery = ({activity}) => {
         </Swiper>
 
         <Gallery>
-          {activity?.images?.map((slide, i) => (
+          {activity?.slide_images?.map((slide, i) => (
             <div
               className="absolute px-10 py-10 col-12  d-flex justify-end items-end z-2 bottom-0 end-0"
               key={i}
             >
-              <Item width={700} height={450} original={slide.img} thumbnail={slide.img}>
+              <Item width={451} height={450} original={slide.img} thumbnail={slide.img}>
                 {({ ref, open }) => (
                   <div
                     className="button -blue-1 px-24 py-15 bg-white text-dark-1 js-gallery"

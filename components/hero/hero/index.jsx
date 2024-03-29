@@ -1,65 +1,77 @@
-// 'use client';
+
+'use client'
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
 import MainFilterSearchBox from "./MainFilterSearchBox";
-// import { useEffect } from 'react';
 
-const Index = () => {
-  // useEffect(() => {
-  //   const script = document.createElement('script');
-  //   script.src = 'https://static.elfsight.com/platform/platform.js';
-  //   script.defer = true;
-  //   document.head.appendChild(script);
-
-  //   return () => {
-  //     // Cleanup: Remove the script when the component unmounts
-  //     document.head.removeChild(script);
-  //   };
-  // }, []);
-
+const index = () => {
   return (
-    <section className="masthead -type-5">
-      {/* <div className="masthead__bg">
-        <img alt="image" src="/img/masthead/5/bg.svg" className="js-lazy" />
-        <div className="elfsight-app-22e21c9f-992b-491e-ad6d-969dbd09c21a" data-elfsight-app-lazy></div>
-      </div> */}
-      {/* End bg image */}
+    <>
+      <section className="masthead -type-4">
+        <div className="masthead-slider overflow-x-hidden js-masthead-slider-4">
+          <Swiper
+            modules={[Navigation]}
+            className="vh-100"
+            loop={true}
+            navigation={{
+              nextEl: ".hero4-next-active",
+              prevEl: ".hero4-prev-active",
+            }}
+          >
+            <SwiperSlide>
+              <div className="masthead__image">
+                <img alt="image" src="/img/masthead/4/assoufid-4-panorama.webp" />
+              </div>
+            </SwiperSlide>
+          </Swiper>
 
-      <div className="container">
-        <div className="row">
-          <div className="col-xl-9">
-            <h1
-              className="text-60 lg:text-40 md:text-30"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              Best Travel{" "}
-              <span className="text-blue-1 relative">
-                Niya Voyage{" "}
-                <span className="-line">
-                  <img src="/img/general/line.png" alt="image" />
-                </span>
-              </span>
-            </h1>
-            <p className="mt-20" data-aos="fade-up" data-aos-delay="500">
-            Experience the diverse array of exhilarating golf, activities, and tour packages available. 
-            From arranging <br></br>
-            hotel reservations to discovering vacation packages, searching for budget-friendly packages, 
-              <br className="lg:d-none" /> and exploring captivating events, we offer a comprehensive range of travel options to suit your preferences.
-            </p>
-
-            {/* <MainFilterSearchBox /> */}
-            {/* End filter content */}
+          <div className="masthead__content">
+            <div className="container">
+              <div className="row justify-center">
+                <div className="col-xl-9">
+                  <div
+                    className="text-center"
+                    data-aos="fade-up"
+                    data-aos-delay="300"
+                    data-aos-offset="0"
+                  >
+                    <h1 className="text-60 lg:text-40 md:text-30 text-white">
+                      Niya Voyage - Morocco
+                    </h1>
+                    <p className="text-white mt-5">
+                      Discover amzaing places at exclusive deals
+                    </p>
+              
+                  </div>
+                  {/* End text-center */}
+                  {/* <MainFilterSearchBox /> */}
+                  {/* End tab-filter */}
+                </div>
+              </div>
+            </div>
           </div>
+          {/* End .slider-masthead__content*/}
         </div>
-      </div>
-      {/* End .container */}
+        {/* End slider */}
 
-      <div className="masthead__image" data-aos="fade">
-        <img src="/img/masthead/5/home.webp" alt="image" />
-      </div>  
+        <div className="masthead-slider__nav -prev js-prev">
+          <button className="button -outline-white size-50 flex-center text-white rounded-full hero4-prev-active">
+            <i className="icon-arrow-left" />
+          </button>
+        </div>
+        {/* End prev navigation */}
 
-      {/* End .masthead__image */}
-    </section>
+        <div className="masthead-slider__nav -next js-next">
+          <button className="button -outline-white size-50 flex-center text-white rounded-full hero4-next-active">
+            <i className="icon-arrow-right" />
+          </button>
+        </div>
+        {/* End next navigation */}
+      </section>
+      {/* End section */}
+    </>
   );
 };
 
-export default Index;
+export default index;

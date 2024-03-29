@@ -14,7 +14,7 @@ import ImportantInfo from "@/components/tour-single/ImportantInfo";
 import AdditionalInfo from "@/components/tour-single/AdditonalInfo";
 import TourGallery from "@/components/tour-single/TourGallery";
 import { useToursData } from "@/data/tours-data";
-import Golf from "@/components/golfs/Golf";
+import Golf from "@/components/golfs/Golfs";
 
 const TourSingleV1Dynamic = ({ params }) => {
   const id = params.id;

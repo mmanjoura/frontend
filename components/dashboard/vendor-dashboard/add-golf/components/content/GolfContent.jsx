@@ -182,7 +182,7 @@ const GolfContent = () => {
           {/* End Number of Review */}
           <div className="col-12">
             <div className="form-input ">
-              <input type="text" required nChange={e => setReviewsComment(e.target.value)} />
+              <input type="text" required onChange={e => setReviewsComment(e.target.value)} />
               <label className="lh-1 text-16 text-light-1">Reviews Comment: Excellent </label>
             </div>
           </div>

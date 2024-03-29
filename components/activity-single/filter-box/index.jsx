@@ -49,6 +49,7 @@ const index = ({activity}) => {
     const data = await res.json();
     setLoading(false);
     push('/booking?productType=activity&productId=' + activity?.id);
+  
    
   };
 

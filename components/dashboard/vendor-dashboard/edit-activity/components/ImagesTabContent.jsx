@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import DropdownList from './ActivityTypes';
 import LoadingSpinner from '@/components/spinners/LoadingSpinner';
 import {  useActivitiesData } from "@/data/activities-data";
+import { slide_width, slide_height, gallery_width, gallery_height } from '@/components/common/imageConstants';
 
 
 const ImagesTabContent = (imageType) => {
@@ -72,7 +73,7 @@ const ImagesTabContent = (imageType) => {
       formData.append('files', files[i]);
     }
 
-    fetch(baseURL + '/uploadImage?image='+imageType.imageType+'&category='+imageType.category+'&id='+selectedOption, {
+    fetch(baseURL + '/uploadImage?image='+imageType.imageType+'&category='+imageType.category+'&id='+selectedOption+'&slide_width='+slide_width+'&slide_height='+slide_height+'&gallery_width='+gallery_width+'&gallery_height='+gallery_height, {
       method: 'POST',
       credentials: 'include',
       body: formData

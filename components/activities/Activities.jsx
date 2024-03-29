@@ -3,61 +3,60 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Slider from "react-slick";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import isTextMatched from "../../utils/isTextMatched";
-import { useToursData } from "@/data/tours-data";
-import Slider from "react-slick";
+import { useActivitiesData } from "@/data/activities-data";
 
-const Tours = () => {
-
-const tours = useToursData();
-if (!tours) return null;
-console.log("Home Page Tours Data: ", tours);
-
-var itemSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
-
-function ArrowSlick(props) {
-  let className =
-    props.type === "next"
-      ? "slick_arrow-between slick_arrow -next arrow-md flex-center button -blue-1 bg-white shadow-1 size-30 rounded-full sm:d-none js-next"
-      : "slick_arrow-between slick_arrow -prev arrow-md flex-center button -blue-1 bg-white shadow-1 size-30 rounded-full sm:d-none js-prev";
-  className += " arrow";
-  const char =
-    props.type === "next" ? (
-      <>
-        <i className="icon icon-chevron-right text-12"></i>
-      </>
-    ) : (
-      <>
-        <span className="icon icon-chevron-left text-12"></span>
-      </>
+const Activities = () => {
+  const activities = useActivitiesData();
+  if (!activities) return null;
+  console.log("Home Page activities Data: ", activities);
+  
+  var itemSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+  
+  function ArrowSlick(props) {
+    let className =
+      props.type === "next"
+        ? "slick_arrow-between slick_arrow -next arrow-md flex-center button -blue-1 bg-white shadow-1 size-30 rounded-full sm:d-none js-next"
+        : "slick_arrow-between slick_arrow -prev arrow-md flex-center button -blue-1 bg-white shadow-1 size-30 rounded-full sm:d-none js-prev";
+    className += " arrow";
+    const char =
+      props.type === "next" ? (
+        <>
+          <i className="icon icon-chevron-right text-12"></i>
+        </>
+      ) : (
+        <>
+          <span className="icon icon-chevron-left text-12"></span>
+        </>
+      );
+    return (
+      <button className={className} onClick={props.onClick}>
+        {char}
+      </button>
     );
-  return (
-    <button className={className} onClick={props.onClick}>
-      {char}
-    </button>
-  );
-}
-
-
-  return (
-    <>
-       {tours?.data.slice(0, 8).map((item) => (
-        <div
+  }
+  
+  
+    return (
+      <>
+         {activities?.data.slice(0, 8).map((item) => (
+          <div
           className="col-xl-3 col-lg-3 col-sm-6"
           key={item?.id}
           data-aos="fade"
           data-aos-delay={item.animation}
         >
           <Link
-            href={`/tour-single/${item.id}`}
+            href={`/activity-single/${item.id}`}
             className="hotelsCard -type-1 hover-inside-slider"
           >
             <div className="hotelsCard__image">
@@ -161,9 +160,9 @@ function ArrowSlick(props) {
                 </div>
           </Link>
         </div>
-      ))}
-    </>
-  );
+        ))}
+      </>
+    );
 };
 
-export default Tours;
+export default Activities;

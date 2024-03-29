@@ -68,7 +68,7 @@ const ActivitySingleV1Dynamic = ({ params }) => {
                           <span className="text-15 fw-500 text-dark-1">
                             {activity?.number_of_reviews}
                           </span>
-                          {activity?.numberOffReviews} reviews
+                          {activity?.number_of_reviews} reviews
                         </div>
                       </div>
                     </div>

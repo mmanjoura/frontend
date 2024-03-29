@@ -32,19 +32,19 @@ const GalleryGolfSlider = ( {golf}) => {
               lazy={true}
               loop={true}
             >
-              {golf?.images?.map((item, i) => (
+              {golf?.gallery_images?.map((item, i) => (
                 <SwiperSlide key={i}>
                   <Item
-                    width={600}
-                    height={400}
+                    width={451}
+                    height={375}
                     original={item?.img}
                     thumbnail={item?.img}
                   >
                     {({ ref, open }) => (
                       <Image
-                        width={800}
-                        height={600}
-                        src={item.img}
+                        width={451}
+                        height={375}
+                        src={item?.img}
                         ref={ref}
                         onClick={open}
                         alt="large slide"
@@ -78,13 +78,13 @@ const GalleryGolfSlider = ( {golf}) => {
           modules={[Thumbs]}
           spaceBetween={12}
         >
-          {golf?.images.map((item, i) => (
+          {golf?.gallery_images?.map((item, i) => (
             <SwiperSlide
               key={i}
               className="cruiseSlider-slides__item  rounded-4"
             >
               <Image
-                width={131}
+                width={150}
                 height={109}
                 src={item.img}
                 alt="small size slide"

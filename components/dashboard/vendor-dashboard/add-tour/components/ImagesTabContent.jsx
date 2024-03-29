@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import DropdownList from './TourTypes';
 import {useToursData} from "../../../../../data/tours-data";
 import LoadingSpinner from '@/components/spinners/LoadingSpinner';
+import { slide_width, slide_height, gallery_width, gallery_height } from '@/components/common/imageConstants';
 
 
 
-const ImagesTabContent = (props) => {
+const ImagesTabContent = (category) => {
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
   const [images, setImages] = useState([]);
   const [error, setError] = useState("");
@@ -73,7 +74,7 @@ const ImagesTabContent = (props) => {
 
 
 
-    fetch(baseURL + '/uploadImage?category='+props.category+'&id='+selectedOption, {
+    fetch(baseURL + '/uploadImage?category='+category.category+'&id='+selectedOption+'&slide_width='+slide_width+'&slide_height='+slide_height+'&gallery_width='+gallery_width+'&gallery_height='+gallery_height, {
       method: 'POST',
       credentials: 'include',
       body: formData
