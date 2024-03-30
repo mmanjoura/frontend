@@ -48,7 +48,7 @@ const Golfs = () => {
   
     return (
       <>
-         {golfs?.data.slice(0, 8).map((item) => (
+         {golfs?.data.slice(0, 4).map((item) => (
           <div
           className="col-xl-3 col-lg-3 col-sm-6"
           key={item?.id}
@@ -91,11 +91,11 @@ const Golfs = () => {
                 <div className="cardImage__leftBadge">
                   <div
                     className={`py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase ${
-                      isTextMatched(item?.tag, "breakfast included")
+                      isTextMatched(item?.tag, "Best Seller")
                         ? "bg-dark-1 text-white"
                         : ""
                     } ${
-                      isTextMatched(item?.tag, "best seller")
+                      isTextMatched(item?.tag, "Likely to sell out*")
                         ? "bg-blue-1 text-white"
                         : ""
                     } 
@@ -108,7 +108,11 @@ const Golfs = () => {
                        isTextMatched(item?.tag, "top rated")
                          ? "bg-yellow-1 text-dark-1"
                          : ""
-                     }`}
+                     }   ${
+                      isTextMatched(item?.tag, "New Package")
+                        ? "bg-blue-1 text-white"
+                        : ""
+                    }`}
                   >
                     {item?.tag}
                   </div>
@@ -118,9 +122,9 @@ const Golfs = () => {
             <div className="tourCard__content mt-10">
                   <div className="d-flex items-center lh-14 mb-5">
                     <div className="text-14 text-light-1">
-                      {item?.minimum_duration} hours
+                      {item?.minimum_duration}
                     </div>
-                    <div className="size-3 bg-light-1 rounded-full ml-10 mr-10" />
+                
                     <div className="text-14 text-light-1">{item?.tour_type}</div>
                   </div>
                   <h4 className="tourCard__title text-dark-1 text-18 lh-16 fw-500">

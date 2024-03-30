@@ -23,7 +23,7 @@ const ImagesTabContent = (imageType) => {
   const handleFileChange = (event) => {
     const fileList = event.target.files;
     const newImages = [];
-    const maxSize = 1800; // in pixels
+    const maxSize = 2800; // in pixels
 
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];
@@ -74,6 +74,16 @@ const ImagesTabContent = (imageType) => {
     }
 
     console.log('imageType:', imageType);
+
+    // Adding the image Size to the form data
+    // The back end will resize the image to the specified size
+    formData.append('image', imageType.imageType);
+    formData.append('category', imageType.category);
+    formData.append('id', selectedOption);
+    formData.append('home_slide_width', slide_width);
+    formData.append('home_slide_height', slide_height);
+    formData.append('gallery_width', gallery_width);
+    formData.append('gallery_height', gallery_height);
 
     fetch(baseURL + '/uploadImage?image='+imageType.imageType+'&category='+imageType.category+'&id='+selectedOption+'&slide_width='+slide_width+'&slide_height='+slide_height+'&gallery_width='+gallery_width+'&gallery_height='+gallery_height, {
       method: 'POST',

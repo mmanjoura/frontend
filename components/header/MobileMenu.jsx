@@ -120,6 +120,17 @@ const MobileMenu = () => {
               ))}
             </SubMenu> */}
             {/* End  All Categories Menu */}
+            <MenuItem
+             onClick={()=>router.push("/golf-list")}
+             className={
+              pathname === "/golfs"
+                ? "menu-active-link"
+                : ""
+            }
+              
+            >
+              Golfs
+            </MenuItem>
 
             <MenuItem
              onClick={()=>router.push("/tour-list")}
@@ -144,17 +155,7 @@ const MobileMenu = () => {
               Activities
             </MenuItem>
 
-            <MenuItem
-             onClick={()=>router.push("/golf-list")}
-             className={
-              pathname === "/golfs"
-                ? "menu-active-link"
-                : ""
-            }
-              
-            >
-              Golfs
-            </MenuItem>
+      
             {/* End  Desitinations Menu */}
 
             {/* <SubMenu label="Blog" className={ blogItems.some((item=>item.routePath?.split('/')[1] == pathname.split('/')[1])) ? "menu-active-link":''}>

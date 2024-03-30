@@ -75,21 +75,31 @@ const GolfProperties = ({golfs}) => {
               </div>
 
               <div className="cardImage__leftBadge">
-                <div
-                  className={`py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase ${
-                    isTextMatched(item?.tag, "cruise only")
-                      ? "bg-dark-1 text-white"
-                      : ""
-                  } ${
-                    isTextMatched(item?.tag, "best seller")
-                      ? "bg-blue-1 text-white"
-                      : ""
-                  }  ${
-                    isTextMatched(item?.tag, "top rated")
-                      ? "bg-yellow-1 text-dark-1"
-                      : ""
-                  }`}
-                >
+              <div
+                    className={`py-5 px-15 rounded-right-4 text-12 lh-16 fw-500 uppercase ${
+                      isTextMatched(item?.tag, "Best Seller")
+                        ? "bg-dark-1 text-white"
+                        : ""
+                    } ${
+                      isTextMatched(item?.tag, "Likely to sell out*")
+                        ? "bg-blue-1 text-white"
+                        : ""
+                    } 
+                    } ${
+                      isTextMatched(item?.tag, "-25% today")
+                        ? "bg-brown-1 text-white"
+                        : ""
+                    } 
+                     ${
+                       isTextMatched(item?.tag, "top rated")
+                         ? "bg-yellow-1 text-dark-1"
+                         : ""
+                     }   ${
+                      isTextMatched(item?.tag, "New Package")
+                        ? "bg-blue-1 text-white"
+                        : ""
+                    }`}
+                  >
                   {item.tag}
                 </div>
               </div>
@@ -105,10 +115,10 @@ const GolfProperties = ({golfs}) => {
 
                   </div>
                   <h4 className="tourCard__title text-dark-1 text-18 lh-16 fw-500">
-                    <span>{item?.title.substring(0, 15)} ...</span>
+                    <span>{item?.title.substring(0, 30)} ...</span>
                   </h4>
                   <p className="text-light-1 lh-14 text-14 mt-5">
-                    {item?.location.substring(0, 24)}
+                    {item?.location.substring(0, 30)}
                   </p>
 
                   <div className="row justify-between items-center pt-15">

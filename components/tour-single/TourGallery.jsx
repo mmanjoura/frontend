@@ -103,9 +103,9 @@ export default function TourGallery({tour}) {
             </div>
             {/* End .col-xl-8 */}
 
-            {/* <div className="col-xl-4">
+            <div className="col-xl-4">
               <SidebarRight tour={tour} />
-            </div> */}
+            </div>
             {/* End .col-xl-4 */}
           </div>
           {/* End .row */}

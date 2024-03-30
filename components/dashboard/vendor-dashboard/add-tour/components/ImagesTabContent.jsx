@@ -22,7 +22,7 @@ const ImagesTabContent = (category) => {
   const handleFileChange = (event) => {
     const fileList = event.target.files;
     const newImages = [];
-    const maxSize = 1800; // in pixels
+    const maxSize = 2800; // in pixels
 
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];

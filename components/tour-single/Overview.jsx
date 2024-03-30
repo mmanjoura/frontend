@@ -26,13 +26,7 @@ const Overview = ({ tour }) => {
             ))}
           </ul>
         </div>
-      </div>
-
-      {/* End overview */}
-
-      <div className="mt-40 border-top-light">
-        <div className="row x-gap-40 y-gap-40 pt-40">
-          <div className="col-12">
+        <div className="col-12">
             <h3 className="text-22 fw-500">
               {tour?.whats_included.split("|").slice(0, 1).map((item, index) => (
                 <div key={index}>
@@ -52,8 +46,10 @@ const Overview = ({ tour }) => {
               </div>
             </div>
           </div>
-        </div>
       </div>
+
+      {/* End overview */}
+
     </>
   );
 };

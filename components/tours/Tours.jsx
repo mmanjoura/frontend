@@ -121,8 +121,8 @@ function ArrowSlick(props) {
                     <div className="text-14 text-light-1">
                       {item?.minimum_duration} hours
                     </div>
-                    <div className="size-3 bg-light-1 rounded-full ml-10 mr-10" />
-                    <div className="text-14 text-light-1">{item?.tour_type}</div>
+                  
+                    {/* <div className="text-14 text-light-1">{item?.tour_type}</div> */}
                   </div>
                   <h4 className="tourCard__title text-dark-1 text-18 lh-16 fw-500">
                     <span>{item?.title}</span>

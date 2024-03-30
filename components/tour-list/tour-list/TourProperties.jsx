@@ -60,7 +60,7 @@ const TourProperties = ( {tours}) => {
                   nextArrow={<Arrow type="next" />}
                   prevArrow={<Arrow type="prev" />}
                 >
-                  {item?.images?.map((slide, i) => (
+                  {item?.slide_images?.map((slide, i) => (
                     <div className="cardImage ratio ratio-1:1" key={i}>
                       <div className="cardImage__content ">
                         <Image

@@ -52,6 +52,39 @@ const home = () => {
           <div className="row y-gap-20 justify-between items-end">
             <div className="col-auto">
               <div className="sectionTitle -md">
+                <h2 className="sectionTitle__title">Premier Golfing Destinations in Morocco</h2>
+                <p className=" sectionTitle__text mt-5 sm:mt-0">
+                Embark on an unforgettable golfing journey in Morocco, where lush greens meet stunning landscapes, promising an experience of a lifetime filled with leisure and excitement. 
+                </p>
+              </div>
+            </div>
+            {/* End .col */}
+
+            <div className="col-auto">
+              <Link
+                href="./golf-list"
+                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+              >
+                More <div className="icon-arrow-top-right ml-15" />
+              </Link>
+            </div>
+            {/* End .col */}
+          </div>
+          {/* End .row */}
+
+          <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
+            <Golfs />
+          </div>
+          {/* End .row */}
+        </div>
+        {/* End .container */}
+      </section>
+
+      <section className="layout-pt-lg layout-pb-md">
+        <div className="container">
+          <div className="row y-gap-20 justify-between items-end">
+            <div className="col-auto">
+              <div className="sectionTitle -md">
                 <h2 className="sectionTitle__title">Most Popular Tours</h2>
                 <p className=" sectionTitle__text mt-5 sm:mt-0">
                 Discover our most popular tours, curated to provide unforgettable experiences and memories that last a lifetime. 
@@ -108,39 +141,6 @@ const home = () => {
 
           <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
             <Activities />
-          </div>
-          {/* End .row */}
-        </div>
-        {/* End .container */}
-      </section>
-
-      <section className="layout-pt-lg layout-pb-md">
-        <div className="container">
-          <div className="row y-gap-20 justify-between items-end">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Premier Golfing Destinations in Morocco</h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                Embark on an unforgettable golfing journey in Morocco, where lush greens meet stunning landscapes, promising an experience of a lifetime filled with leisure and excitement. 
-                </p>
-              </div>
-            </div>
-            {/* End .col */}
-
-            <div className="col-auto">
-              <Link
-                href="./tour-list"
-                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-              >
-                More <div className="icon-arrow-top-right ml-15" />
-              </Link>
-            </div>
-            {/* End .col */}
-          </div>
-          {/* End .row */}
-
-          <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Golfs />
           </div>
           {/* End .row */}
         </div>

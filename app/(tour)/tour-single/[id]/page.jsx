@@ -106,7 +106,7 @@ const TourSingleV1Dynamic = ({ params }) => {
       {ImportantInfo   && (
         <section className="pt-40">
           <div className="container">
-            <div className="pt-40 border-top-light">
+         
               <div className="row x-gap-40 y-gap-40">
                 <div className="col-auto">
                   <h3 className="text-22 fw-500">
@@ -120,7 +120,7 @@ const TourSingleV1Dynamic = ({ params }) => {
               </div>
               {/* End row */}
               <ImportantInfo tour={tour} />
-            </div>
+           
             {/* End pt-40 */}
           </div>
           {/* End .container */}
@@ -133,7 +133,7 @@ const TourSingleV1Dynamic = ({ params }) => {
       { AdditionalInfo.length > 1   && (
       <section className="pt-40">
         <div className="container">
-          <div className="pt-40 border-top-light">
+        
             <div className="row x-gap-40 y-gap-40">
               <div className="col-auto">
                 <h3 className="text-22 fw-500">
@@ -147,7 +147,7 @@ const TourSingleV1Dynamic = ({ params }) => {
             </div>
             {/* End row */}
             <AdditionalInfo tour = {tour} />
-          </div>
+          
           {/* End pt-40 */}
         </div>
         {/* End .container */}
