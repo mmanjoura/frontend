@@ -129,7 +129,7 @@ const home = () => {
 
             <div className="col-auto">
               <Link
-                href="./tour-list"
+                href="./activity-list"
                 className="button -md -blue-1 bg-blue-1-05 text-blue-1"
               >
                 More <div className="icon-arrow-top-right ml-15" />

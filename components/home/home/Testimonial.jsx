@@ -40,7 +40,7 @@ const Testimonial = () => {
                 </div>
               </div>
             </div>
-            <p className="text-18 fw-500 text-dark-1 mt-30 sm:mt-20">
+            <p className="mt-20">
               {item.message}
             </p>
           </SwiperSlide>

@@ -56,7 +56,7 @@ const ReviewProgress = () => {
                 <div className="progressBar mt-10">
                   <div className="progressBar__bg bg-blue-2" />
                   <div
-                    className="progressBar__bar bg-dark-1"
+                    className="progressBar__bar bg-yellow-1"
                     style={{ width: item.progressPercent }}
                   />
                 </div>
