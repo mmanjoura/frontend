@@ -52,13 +52,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch}) => {
       </div>
       {/* End popular filter */}
 
-      <div className="sidebar__item">
-        <h5 className="text-18 fw-500 mb-10">Other</h5>
-        <div className="sidebar-checkbox">
-          <OthersFilter />
-        </div>
-        {/* End Sidebar-checkbox */}
-      </div>
+
       {/* End Aminities filter */}
 
       <div className="sidebar__item pb-30">
@@ -80,13 +74,6 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch}) => {
       {/* End style filter */}
 
 
-      <div className="sidebar__item">
-        <h5 className="text-18 fw-500 mb-10">Popular Attractions</h5>
-        <div className="sidebar-checkbox">
-          <PopularAttractions />
-        </div>
-        {/* End Sidebar-checkbox */}
-      </div>
       {/* End Popular Attractions */}
     </>
   );
