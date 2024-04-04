@@ -1,11 +1,29 @@
 import DateSearch from "../common/DateSearch";
 import LocationSearch from "./LocationSearch";
+import { useState } from 'react';
 
-const MainFilterSearchBox = () => {
+const MainFilterSearchBox = ({onSearch, onDateSearch, onLocationSearch}) => {
+
+  const [selectedDate, setSelectedDate] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const handleClick = () =>{
+    
+    onSearch(selectedDate, selectedLocation)
+  };
+
+ const handleDateSearch = (date) => {
+    setSelectedDate(date);
+    onDateSearch(date);
+  }
+  const handleLocationSearch = (location) => {
+    setSelectedLocation(location);
+    onLocationSearch(location);
+  }
+
   return (
     <>
       <div className="col-12">
-        <LocationSearch />
+        <LocationSearch onLocationSearch = {handleLocationSearch}  />
         {/* End Location */}
       </div>
       {/* End .col-12 */}
@@ -18,7 +36,7 @@ const MainFilterSearchBox = () => {
               <h4 className="text-15 fw-500 ls-2 lh-16">
                 Check in - Check out
               </h4>
-              <DateSearch />
+              <DateSearch onDateSearch={handleDateSearch}  />
             </div>
           </div>
         </div>
@@ -28,7 +46,7 @@ const MainFilterSearchBox = () => {
 
       <div className="col-12">
         <div className="button-item h-full">
-          <button className="button -dark-1 py-15 px-40 h-full col-12 rounded-0 bg-blue-1 text-white">
+          <button className="button -dark-1 py-15 px-40 h-full col-12 rounded-0 bg-blue-1 text-white" onClick = {handleClick}>
             <i className="icon-search text-20 mr-10" />
             Search
           </button>

@@ -1,11 +1,32 @@
+'use client'; 
 import CategoryTypes from "../sidebar/CategoryTypes";
 import OthersFilter from "../sidebar/OthersFilter";
 import Duration from "../sidebar/Duration";
 import Languages from "../sidebar/Languages";
 import PirceSlider from "../sidebar/PirceSlider";
 import MainFilterSearchBox from "./MainFilterSearchBox";
+import { useState } from "react";
 
-const Sidebar = ({tours}) => {
+const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch}) => {
+  const [selectedDate, setSelectedDate] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const handleDateSearch = (date) => {
+
+    setSelectedDate(date);
+    onDateSearch(date);
+  }
+
+  const handleLocationSearch = (location) => {
+
+      setSelectedLocation(location);
+      onLocationSearch(location);  
+  };
+
+  const handleClick = () => {
+    onSearch(selectedDate, selectedLocation);
+  }
+
+
   return (
     <>
       <div className="sidebar__item -no-border">
@@ -13,7 +34,7 @@ const Sidebar = ({tours}) => {
           <h5 className="text-18 fw-500 mb-10">Search Tours</h5>
 
           <div className="row y-gap-20 pt-20">
-            <MainFilterSearchBox />
+            <MainFilterSearchBox onSearch = {handleClick}  onDateSearch = {handleDateSearch} onLocationSearch = {handleLocationSearch}/>
           </div>
         </div>
       </div>

@@ -10,30 +10,26 @@ const MainFilterSearchBox = ({golfs, onSearch, onDateSearch, onLocationSearch}) 
   const { push } = useRouter();
   
   // if there is data in the golfs array, return null
-  if (!golfs) return null;
-  console.log("Golfs: ", golfs);
+  // if (!golfs) return null;
+  // console.log("Golfs: ", golfs);
 
-  // Search Filters
+
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   
   
   const handleClick = () =>{
     
-    // console.log("Date on Main Filter Search: ", selectedDate);
-    // console.log("Location on Main Filter Search: ", selectedLocation);
     onSearch(selectedDate, selectedLocation)
   };
 
  const handleDateSearch = (date) => {
     setSelectedDate(date);
     onDateSearch(date);
-    console.log("Date on  main Filter Search: ", date);
   }
   const handleLocationSearch = (location) => {
     setSelectedLocation(location);
     onLocationSearch(location);
-    console.log("Location On main Filter Search:", location);
   }
   return (
     <>

@@ -19,10 +19,13 @@ const index = () => {
   if (!golfs) return null;
 
   const handleDateSearch = (date) => {
-        if (date.length > 1) {
-          setSelectedDate(date);
-    }
 
+    if (date.length > 1) {
+      setSelectedDate(date);
+      // format dates in the format DD/MM/YYYY
+      console.log("Selected Date: ", (date?.[0]).string.format("DD/MM/YYYY"));
+      console.log("Selected Date: ", (date?.[1]).string.format("DD/MM/YYYY"));
+    }
   };
 
   const handleLocationSearch = (location) => {
@@ -97,8 +100,8 @@ const index = () => {
               {/* End mt--30 */}
               <div className="row y-gap-30">
       
-              <GolfProperties golfs={filteredGolfs.length >= 0 ? filteredGolfs : golfs?.data} />
-              { filteredGolfs.length == 0 && <p>There are no golfs courses in this location</p>}
+              <GolfProperties golfs={filteredGolfs.length > 0 ? filteredGolfs : golfs?.data} />
+           
  
 
 

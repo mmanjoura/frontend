@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 
+
 const SearchBar = ({onLocationSearch}) => {
   const [searchValue, setSearchValue] = useState("");
   const [selectedItem, setSelectedItem] = useState("");

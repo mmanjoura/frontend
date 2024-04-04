@@ -7,12 +7,45 @@ import ActivityProperties from "@/components/activity-list/activity-list/Activit
 import Pagination from "@/components/activity-list/common/Pagination";
 import Sidebar from "@/components/activity-list/activity-list/Sidebar";
 import { useActivitiesData } from "@/data/activities-data";
+import { useState } from "react";
 
 
 const index = () => {
+  const [selectedDate, setSelectedDate] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [filteredActivities, setFilteredActivities] = useState([]); // State for filtered golfs
+
   const activities = useActivitiesData();
   if (!activities) return null;
-  console.log("Home Page activities Data: ", activities);
+
+  const handleDateSearch = (date) => {
+
+    if (date.length > 1) {
+      setSelectedDate(date);
+      // format dates in the format DD/MM/YYYY
+      console.log("Selected Date: ", (date?.[0]).string.format("DD/MM/YYYY"));
+      console.log("Selected Date: ", (date?.[1]).string.format("DD/MM/YYYY"));
+    }
+  };
+
+  const handleLocationSearch = (location) => {
+        if (location) {
+          setSelectedLocation(location);
+    }
+  };
+
+  const handleClick = (selectedDate, selectedLocation) => {
+    console.log("---Handling Filter Only filtering on location for now----");
+     // Perform filtering logic here
+     console.log("Selected Location: ", selectedLocation);
+     const filteredActivities = activities?.data?.filter(activity =>
+      activity?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
+    );
+    setFilteredActivities(filteredActivities);
+    console.log("Filtered Activities: ", filteredActivities);
+  };
+
+
   return (
     <>
       {/* End Page Title */}
@@ -28,7 +61,7 @@ const index = () => {
           <div className="row y-gap-30">
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar activities = {activities}/>
+                <Sidebar activities = {activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -52,7 +85,7 @@ const index = () => {
 
                 <div className="offcanvas-body">
                   <aside className="sidebar y-gap-40  xl:d-block">
-                    <Sidebar activities = {activities}/>
+                    <Sidebar activities = {activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
                   </aside>
                 </div>
                 {/* End offcanvas body */}
@@ -66,7 +99,8 @@ const index = () => {
               <div className="mt-30"></div>
               {/* End mt--30 */}
               <div className="row y-gap-30">
-                <ActivityProperties activities = {activities}/>
+                {/* <ActivityProperties activities = {activities}/> */}
+                <ActivityProperties activities={filteredActivities.length > 0 ? filteredActivities : activities?.data} />
               </div>
               {/* End .row */}
               {/* <Pagination activities = {activities}/> */}

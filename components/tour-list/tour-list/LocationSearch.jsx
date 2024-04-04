@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({onLocationSearch}) => {
   const [searchValue, setSearchValue] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -37,7 +37,7 @@ const SearchBar = () => {
 
   const handleOptionClick = (item) => {
     setSearchValue(item.name);
-    setSelectedItem(item);
+    onLocationSearch(item.name);
   };
 
   return (

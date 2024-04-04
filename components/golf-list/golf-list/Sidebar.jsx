@@ -14,18 +14,13 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
   const handleDateSearch = (date) => {
 
       setSelectedDate(date);
-      console.log("Date on Side Bar: ", date);
       onDateSearch(date);
-      // onSearch(selectedDate, selectedLocation);
     }
 
     const handleLocationSearch = (location) => {
 
-        console.log("Location on Side Bar: ", location);
         setSelectedLocation(location);
-        onLocationSearch(location);
-        // onSearch(selectedDate, selectedLocation);
-  
+        onLocationSearch(location);  
     };
 
     const handleClick = () => {

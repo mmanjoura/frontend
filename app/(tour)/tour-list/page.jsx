@@ -6,11 +6,49 @@ import TopHeaderFilter from "@/components/tour-list/tour-list/TopHeaderFilter";
 import TourProperties from "@/components/tour-list/tour-list/TourProperties";
 import Sidebar from "@/components/tour-list/tour-list/Sidebar";
 import { useToursData } from "@/data/tours-data";
+import { useState, useEffect } from "react";
 
 const index = () => {
 
+  const [selectedDate, setSelectedDate] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [filteredTours, setFilteredTours] = useState([]); // State for filtered golfs
+
   const tours = useToursData();
 if (!tours) return null;
+
+const handleDateSearch = (date) => {
+  if (date.length > 1) {
+    setSelectedDate(date);
+}
+
+};
+
+const handleLocationSearch = (location) => {
+  if (location) {
+    setSelectedLocation(location);
+}
+};
+
+const handleClick = (selectedDate, selectedLocation) => {
+console.log("---Handling Filter Only filtering on location for now----");
+// Perform filtering logic here
+console.log("Selected Location: ", selectedLocation);
+console.log("Selected Start Date: ", selectedDate[0]?.format("DD-MM-YYYY"));
+console.log("Selected End Date: ", selectedDate[1]?.format("DD-MM-YYYY"));
+
+const filteredTours = tours?.data?.filter(tour =>
+tour?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
+);
+setFilteredTours(filteredTours);
+console.log("Filtered Tours: ", filteredTours);
+};
+
+
+
+
+
+
 console.log("Home Page Tours Data: ", tours);
 
   return (
@@ -28,7 +66,7 @@ console.log("Home Page Tours Data: ", tours);
           <div className="row y-gap-30">
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar tours = {tours}/>
+                <Sidebar tours = {tours} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -66,7 +104,8 @@ console.log("Home Page Tours Data: ", tours);
               <div className="mt-30"></div>
               {/* End mt--30 */}
               <div className="row y-gap-30">
-                <TourProperties tours = {tours} />
+                {/* <TourProperties tours = {tours} /> */}
+                <TourProperties tours={filteredTours.length > 0 ? filteredTours : tours?.data} />
               </div>
               {/* End .row */}
               {/* <Pagination tours = {tours} /> */}

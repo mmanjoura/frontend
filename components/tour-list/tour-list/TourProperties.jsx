@@ -41,7 +41,7 @@ const TourProperties = ( {tours}) => {
 
   return (
     <>
-      {tours?.data?.slice(0, 9).map((item) => (
+      {tours?.slice(0, 9).map((item) => (
         <div
           className="col-lg-4 col-sm-6"
           key={item?.id}

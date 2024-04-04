@@ -41,7 +41,7 @@ const ActivityProperties = ( {activities}) => {
 
   return (
     <>
-      {activities?.data?.slice(0, 9).map((item) => (
+      {activities?.slice(0, 9).map((item) => (
         <div
           className="col-lg-4 col-sm-6"
           key={item?.id}
