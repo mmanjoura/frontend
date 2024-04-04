@@ -90,7 +90,7 @@ console.log("Home Page Tours Data: ", tours);
 
                 <div className="offcanvas-body">
                   <aside className="sidebar y-gap-40  xl:d-block">
-                    <Sidebar tours = {tours} />
+                    <Sidebar tours = {tours} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
                   </aside>
                 </div>
                 {/* End offcanvas body */}

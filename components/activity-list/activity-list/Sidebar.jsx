@@ -46,7 +46,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch}) => {
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Activity Types</h5>
         <div className="sidebar-checkbox">
-          <ActivityTypes />
+          <ActivityTypes activities = {activities}/>
         </div>
         {/* End Sidebar-checkbox */}
       </div>

@@ -1,15 +1,8 @@
 import { useContentTypesData } from "@/data/contentTypes_data"
 
-const CategoryTypes = () => {
+const CategoryTypes = ({golfs}) => {
   const contentTypes = useContentTypesData();
 if (!contentTypes) return null;
-  const categories = [
-    { name: "Tours", count: 92 },
-    { name: "Attractions", count: 45 },
-    { name: "Day Trips", count: 21 },
-    { name: "Outdoor Activities", count: 78 },
-    { name: "Concerts & Shows", count: 679 },
-  ];
 
   return (
     <>
@@ -28,7 +21,11 @@ if (!contentTypes) return null;
             </div>
           </div>
           <div className="col-auto">
-            <div className="text-15 text-light-1">{activityType.count}</div>
+            <div className="text-15 text-light-1">{
+              golfs?.data?.filter(golf =>
+                golf?.activity_type.includes(index + 1)
+              ).length
+            }</div>
           </div>
         </div>
       ))}
