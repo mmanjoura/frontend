@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useContentTypes } from "@/data/contentType";
 import LoadingSpinner from '@/components/spinners/LoadingSpinner';
-// import { GetUserInfo } from "@/data/user_data";
+import { GetUserInfo } from "@/data/user_data";
 import { fa } from '@faker-js/faker';
 const ActivityContent = () => {
 
@@ -34,8 +34,8 @@ const ActivityContent = () => {
 
   const activityTypes = useContentTypes();
   console.log("Activity Types", activityTypes)
-  //   const userInfo = GetUserInfo();
-  // console.log("userInfo", userInfo);
+    const userInfo = GetUserInfo();
+  console.log("userInfo", userInfo);
 
   const submit = async (e) => {
     e.preventDefault();

@@ -8,9 +8,11 @@ import isTextMatched from "../../../utils/isTextMatched";
 import Link from "next/link";
 
 const GolfProperties = ({golfs}) => {
+
+    console.log("filtered Golfs: ", golfs);
   return (
     <>
-      {golfs?.data?.map((item) => (
+      {golfs?.map((item) => (
         <div
           key={item?.id}
           className="col-lg-4 col-sm-6"

@@ -1,10 +1,36 @@
+'use client';
 import CategoryTypes from "../sidebar/CategoryTypes";
 import OthersFilter from "../sidebar/OthersFilter";
 import Duration from "../sidebar/Duration";
 import PirceSlider from "../sidebar/PirceSlider";
 import MainFilterSearchBox from "./MainFilterSearchBox";
+import { useState } from "react";
 
-const Sidebar = ({golfs}) => {
+const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
+  const [selectedDate, setSelectedDate] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
+
+
+  const handleDateSearch = (date) => {
+
+      setSelectedDate(date);
+      console.log("Date on Side Bar: ", date);
+      onDateSearch(date);
+      // onSearch(selectedDate, selectedLocation);
+    }
+
+    const handleLocationSearch = (location) => {
+
+        console.log("Location on Side Bar: ", location);
+        setSelectedLocation(location);
+        onLocationSearch(location);
+        // onSearch(selectedDate, selectedLocation);
+  
+    };
+
+    const handleClick = () => {
+      onSearch(selectedDate, selectedLocation);
+    }
   return (
     <>
       <div className="sidebar__item -no-border">
@@ -12,7 +38,7 @@ const Sidebar = ({golfs}) => {
           <h5 className="text-18 fw-500 mb-10">Search Golfs</h5>
 
           <div className="row y-gap-20 pt-20">
-            <MainFilterSearchBox golfs = {golfs} />
+            <MainFilterSearchBox golfs = {golfs} onSearch = {handleClick}  onDateSearch = {handleDateSearch} onLocationSearch = {handleLocationSearch}/>
           </div>
         </div>
       </div>
@@ -59,5 +85,6 @@ const Sidebar = ({golfs}) => {
     </>
   );
 };
+
 
 export default Sidebar;

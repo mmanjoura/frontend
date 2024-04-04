@@ -3,9 +3,9 @@
 
 import { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({onLocationSearch}) => {
   const [searchValue, setSearchValue] = useState("");
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState("");
 
   const locationSearchContent = [
     {
@@ -20,7 +20,7 @@ const SearchBar = () => {
     },
     {
       id: 4,
-      name: "Marakech",
+      name: "Marrakech",
       address: "Palm Golf / Assoufid Golf Marrakech",
     },
     {
@@ -33,7 +33,7 @@ const SearchBar = () => {
 
   const handleOptionClick = (item) => {
     setSearchValue(item.name);
-    setSelectedItem(item);
+    onLocationSearch(item.name);
   };
 
   return (

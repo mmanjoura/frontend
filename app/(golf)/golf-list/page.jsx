@@ -6,12 +6,42 @@ import TopHeaderFilter from "@/components/golf-list/golf-list/TopHeaderFilter";
 import GolfProperties from "@/components/golf-list/golf-list/GolfProperties";
 import Sidebar from "@/components/golf-list/golf-list/Sidebar";
 import { useGolfsData } from "@/data/golfs-data";
+import { useState, useEffect } from "react";
 
 
 const index = () => {
-  const golfs = useGolfsData();
+  const [selectedDate, setSelectedDate] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [filteredGolfs, setFilteredGolfs] = useState([]); // State for filtered golfs
+
+  const golfs = useGolfsData()
+
   if (!golfs) return null;
-  console.log(" golfs Data: ", golfs);
+
+  const handleDateSearch = (date) => {
+        if (date.length > 1) {
+          setSelectedDate(date);
+    }
+
+  };
+
+  const handleLocationSearch = (location) => {
+        if (location) {
+          setSelectedLocation(location);
+    }
+  };
+
+  const handleClick = (selectedDate, selectedLocation) => {
+    console.log("---Handling Filter Only filtering on location for now----");
+     // Perform filtering logic here
+     console.log("Selected Location: ", selectedLocation);
+     const filteredGolfs = golfs?.data?.filter(golf =>
+      golf?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
+    );
+    setFilteredGolfs(filteredGolfs);
+    console.log("Filtered Golfs: ", filteredGolfs);
+  };
+
 
   return (
     <>
@@ -28,7 +58,7 @@ const index = () => {
           <div className="row y-gap-30">
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar golfs = {golfs} />
+                <Sidebar golfs={golfs} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -52,7 +82,7 @@ const index = () => {
 
                 <div className="offcanvas-body">
                   <aside className="sidebar y-gap-40  xl:d-block">
-                    <Sidebar golfs = {golfs} />
+                    <Sidebar golfs={golfs} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
                   </aside>
                 </div>
                 {/* End offcanvas body */}
@@ -62,11 +92,16 @@ const index = () => {
             {/* End col */}
 
             <div className="col-xl-9 ">
-              <TopHeaderFilter golfs = {golfs} />
+              <TopHeaderFilter golfs={golfs} />
               <div className="mt-30"></div>
               {/* End mt--30 */}
               <div className="row y-gap-30">
-                <GolfProperties golfs = {golfs} />
+      
+              <GolfProperties golfs={filteredGolfs.length >= 0 ? filteredGolfs : golfs?.data} />
+              { filteredGolfs.length == 0 && <p>There are no golfs courses in this location</p>}
+ 
+
+
               </div>
               {/* End .row */}
               {/* <Pagination golfs = {golfs} /> */}
