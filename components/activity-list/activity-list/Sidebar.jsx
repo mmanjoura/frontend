@@ -7,11 +7,10 @@ import PopularAttractions from "../sidebar/PopularAttractions";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import { useState } from "react";
 
-const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch}) => {
+const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter}) => {
 
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
-
 
   const handleDateSearch = (date) => {
 
@@ -25,10 +24,14 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch}) => {
         onLocationSearch(location);  
     };
 
-    const handleClick = () => {
+    const handleSearchClick = () => {
       onSearch(selectedDate, selectedLocation);
     }
 
+    const handleFilteredActivities = (selectedTypeFilter) => { 
+      onTypeCheckedFilter(selectedTypeFilter);
+  };
+  
 
   return (
     <>
@@ -37,7 +40,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch}) => {
           <h5 className="text-18 fw-500 mb-10">Search Activiy</h5>
 
           <div className="row y-gap-20 pt-20">
-            <MainFilterSearchBox  onSearch = {handleClick}  onDateSearch = {handleDateSearch} onLocationSearch = {handleLocationSearch}/>
+            <MainFilterSearchBox  onSearch = {handleSearchClick}  onDateSearch = {handleDateSearch} onLocationSearch = {handleLocationSearch}/>
           </div>
         </div>
       </div>
@@ -46,7 +49,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch}) => {
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Activity Types</h5>
         <div className="sidebar-checkbox">
-          <ActivityTypes activities = {activities}/>
+          <ActivityTypes activities = {activities} onTypeCheckedFilter = {handleFilteredActivities}/>
         </div>
         {/* End Sidebar-checkbox */}
       </div>

@@ -21,7 +21,6 @@ const handleDateSearch = (date) => {
   if (date.length > 1) {
     setSelectedDate(date);
 }
-
 };
 
 const handleLocationSearch = (location) => {
@@ -37,19 +36,14 @@ console.log("Selected Location: ", selectedLocation);
 console.log("Selected Start Date: ", selectedDate[0]?.format("DD-MM-YYYY"));
 console.log("Selected End Date: ", selectedDate[1]?.format("DD-MM-YYYY"));
 
+//  Get the filtered tours based on the selected location
 const filteredTours = tours?.data?.filter(tour =>
 tour?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
 );
+//  Set the filtered tours
 setFilteredTours(filteredTours);
 console.log("Filtered Tours: ", filteredTours);
 };
-
-
-
-
-
-
-console.log("Home Page Tours Data: ", tours);
 
   return (
     <>

@@ -22,9 +22,6 @@ const index = () => {
 
     if (date.length > 1) {
       setSelectedDate(date);
-      // format dates in the format DD/MM/YYYY
-      console.log("Selected Date: ", (date?.[0]).string.format("DD/MM/YYYY"));
-      console.log("Selected Date: ", (date?.[1]).string.format("DD/MM/YYYY"));
     }
   };
 
@@ -38,9 +35,14 @@ const index = () => {
     console.log("---Handling Filter Only filtering on location for now----");
      // Perform filtering logic here
      console.log("Selected Location: ", selectedLocation);
+     console.log("Selected Start Date: ", selectedDate[0]?.format("DD-MM-YYYY"));
+     console.log("Selected End Date: ", selectedDate[1]?.format("DD-MM-YYYY"));
+
+     //  Get the filtered golfs based on the selected location
      const filteredGolfs = golfs?.data?.filter(golf =>
       golf?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
     );
+    //  Set the filtered golfs
     setFilteredGolfs(filteredGolfs);
     console.log("Filtered Golfs: ", filteredGolfs);
   };
@@ -98,13 +100,8 @@ const index = () => {
               <TopHeaderFilter golfs={golfs} />
               <div className="mt-30"></div>
               {/* End mt--30 */}
-              <div className="row y-gap-30">
-      
+              <div className="row y-gap-30">      
               <GolfProperties golfs={filteredGolfs.length > 0 ? filteredGolfs : golfs?.data} />
-           
- 
-
-
               </div>
               {/* End .row */}
               {/* <Pagination golfs = {golfs} /> */}

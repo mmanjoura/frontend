@@ -1,30 +1,25 @@
-'use client'
+'use client';
 import CallToActions from "@/components/common/CallToActions";
 import ProductHeader from "@/components/header/product-header";
 import DefaultFooter from "@/components/footer/default";
 import TopHeaderFilter from "@/components/activity-list/activity-list/TopHeaderFilter";
 import ActivityProperties from "@/components/activity-list/activity-list/ActivityProperties";
-import Pagination from "@/components/activity-list/common/Pagination";
 import Sidebar from "@/components/activity-list/activity-list/Sidebar";
 import { useActivitiesData } from "@/data/activities-data";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 
 const index = () => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [filteredActivities, setFilteredActivities] = useState([]); // State for filtered golfs
+  const [filteredActivities, setFilteredActivities] = useState([]); 
 
-  const activities = useActivitiesData();
+  const activities = useActivitiesData()
+
   if (!activities) return null;
 
   const handleDateSearch = (date) => {
-
     if (date.length > 1) {
       setSelectedDate(date);
-      // format dates in the format DD/MM/YYYY
-      console.log("Selected Date: ", (date?.[0]).string.format("DD/MM/YYYY"));
-      console.log("Selected Date: ", (date?.[1]).string.format("DD/MM/YYYY"));
     }
   };
 
@@ -36,20 +31,22 @@ const index = () => {
 
   const handleClick = (selectedDate, selectedLocation) => {
     console.log("---Handling Filter Only filtering on location for now----");
-     // Perform filtering logic here
      console.log("Selected Location: ", selectedLocation);
+     console.log("Selected Start Date: ", selectedDate[0]?.format("DD-MM-YYYY"));
+     console.log("Selected End Date: ", selectedDate[1]?.format("DD-MM-YYYY"));
+
+    //  Get the filtered activities based on the selected location
      const filteredActivities = activities?.data?.filter(activity =>
       activity?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
     );
+    //  Set the filtered activities
     setFilteredActivities(filteredActivities);
-    console.log("Filtered Activities: ", filteredActivities);
+    console.log("Filtered Golfs: ", filteredActivities);
   };
 
 
   return (
     <>
-      {/* End Page Title */}
-
       <div className="header-margin"></div>
       {/* header top margin */}
 
@@ -61,7 +58,7 @@ const index = () => {
           <div className="row y-gap-30">
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar activities = {activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                <Sidebar activities={activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -72,7 +69,7 @@ const index = () => {
               >
                 <div className="offcanvas-header">
                   <h5 className="offcanvas-title" id="offcanvasLabel">
-                    Filter Activity
+                    Filter Tours
                   </h5>
                   <button
                     type="button"
@@ -85,7 +82,7 @@ const index = () => {
 
                 <div className="offcanvas-body">
                   <aside className="sidebar y-gap-40  xl:d-block">
-                    <Sidebar activities = {activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                    <Sidebar activities={activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
                   </aside>
                 </div>
                 {/* End offcanvas body */}
@@ -95,15 +92,14 @@ const index = () => {
             {/* End col */}
 
             <div className="col-xl-9 ">
-              <TopHeaderFilter activities = {activities}/>
+              <TopHeaderFilter activities={activities} />
               <div className="mt-30"></div>
               {/* End mt--30 */}
-              <div className="row y-gap-30">
-                {/* <ActivityProperties activities = {activities}/> */}
-                <ActivityProperties activities={filteredActivities.length > 0 ? filteredActivities : activities?.data} />
-              </div>
+              <div className="row y-gap-30">      
+              <ActivityProperties activities={filteredActivities.length > 0 ? filteredActivities : activities?.data} />    
+                </div>
               {/* End .row */}
-              {/* <Pagination activities = {activities}/> */}
+              {/* <Pagination golfs = {golfs} /> */}
             </div>
             {/* End .col for right content */}
           </div>

@@ -8,7 +8,7 @@ const MainFilterSearchBox = ({onSearch, onDateSearch, onLocationSearch}) => {
   const [selectedLocation, setSelectedLocation] = useState("");
   
   
-  const handleClick = () =>{
+  const handleSearchClick = () =>{
     
     onSearch(selectedDate, selectedLocation)
   };
@@ -48,7 +48,7 @@ const MainFilterSearchBox = ({onSearch, onDateSearch, onLocationSearch}) => {
 
       <div className="col-12">
         <div className="button-item h-full">
-          <button className="button -dark-1 py-15 px-40 h-full col-12 rounded-0 bg-blue-1 text-white" onClick={handleClick}>
+          <button className="button -dark-1 py-15 px-40 h-full col-12 rounded-0 bg-blue-1 text-white" onClick={handleSearchClick}>
             <i className="icon-search text-20 mr-10" />
             Search
           </button>
