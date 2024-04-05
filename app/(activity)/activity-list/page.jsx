@@ -12,6 +12,7 @@ const index = () => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [filteredActivities, setFilteredActivities] = useState([]); 
+  const [filterByType, setFilterByType] = useState([]); // State for filtered activities
 
   const activities = useActivitiesData()
 
@@ -44,6 +45,15 @@ const index = () => {
     console.log("Filtered Golfs: ", filteredActivities);
   };
 
+  const handleFilteredActivities= (selectedTypeFilter) => {  
+    const filterByType = activities?.data.filter((activity) => activity.activity_type == selectedTypeFilter);
+    setFilterByType(filterByType); 
+
+    console.log("Filtered Activities Type: ", filterByType);
+    console.log("Selected Type Filter: ", selectedTypeFilter);
+};
+
+
 
   return (
     <>
@@ -58,7 +68,7 @@ const index = () => {
           <div className="row y-gap-30">
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar activities={activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                <Sidebar activities={activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} onTypeCheckedFilter = {handleFilteredActivities} />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -82,7 +92,7 @@ const index = () => {
 
                 <div className="offcanvas-body">
                   <aside className="sidebar y-gap-40  xl:d-block">
-                    <Sidebar activities={activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                    <Sidebar activities={activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} onTypeCheckedFilter = {handleFilteredActivities} />
                   </aside>
                 </div>
                 {/* End offcanvas body */}
