@@ -12,13 +12,13 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCh
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
 
-  const handleDateSearch = (date) => {
+  const handleaAtivitiesDateFilter = (date) => {
 
       setSelectedDate(date);
       onDateSearch(date);
     }
 
-    const handleLocationSearch = (location) => {
+    const handleActivitiesLocationFilter = (location) => {
 
         setSelectedLocation(location);
         onLocationSearch(location);  
@@ -28,7 +28,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCh
       onSearch(selectedDate, selectedLocation);
     }
 
-    const handleFilteredActivities = (selectedTypeFilter) => { 
+    const handleActivitiesTypeFilter = (selectedTypeFilter) => { 
       onTypeCheckedFilter(selectedTypeFilter);
   };
   
@@ -40,7 +40,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCh
           <h5 className="text-18 fw-500 mb-10">Search Activiy</h5>
 
           <div className="row y-gap-20 pt-20">
-            <MainFilterSearchBox  onSearch = {handleSearchClick}  onDateSearch = {handleDateSearch} onLocationSearch = {handleLocationSearch}/>
+            <MainFilterSearchBox  onSearch = {handleSearchClick}  onDateSearch = {handleaAtivitiesDateFilter} onLocationSearch = {handleActivitiesLocationFilter}/>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCh
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Activity Types</h5>
         <div className="sidebar-checkbox">
-          <ActivityTypes activities = {activities} onTypeCheckedFilter = {handleFilteredActivities}/>
+          <ActivityTypes activities = {activities} onTypeCheckedFilter = {handleActivitiesTypeFilter}/>
         </div>
         {/* End Sidebar-checkbox */}
       </div>

@@ -13,11 +13,11 @@ const MainFilterSearchBox = ({onSearch, onDateSearch, onLocationSearch}) => {
     onSearch(selectedDate, selectedLocation)
   };
 
- const handleDateSearch = (date) => {
+ const handleaAtivitiesDateFilter = (date) => {
     setSelectedDate(date);
     onDateSearch(date);
   }
-  const handleLocationSearch = (location) => {
+  const handleActivitiesLocationFilter = (location) => {
     setSelectedLocation(location);
     onLocationSearch(location);
   }
@@ -25,7 +25,7 @@ const MainFilterSearchBox = ({onSearch, onDateSearch, onLocationSearch}) => {
   return (
     <>
       <div className="col-12">
-        <LocationSearch onLocationSearch = {handleLocationSearch}  />
+        <LocationSearch onLocationSearch = {handleActivitiesLocationFilter}  />
         {/* End Location */}
       </div>
       {/* End .col-12 */}
@@ -38,7 +38,7 @@ const MainFilterSearchBox = ({onSearch, onDateSearch, onLocationSearch}) => {
               <h4 className="text-15 fw-500 ls-2 lh-16">
                 Check in - Check out
               </h4>
-              <DateSearch onDateSearch={handleDateSearch} />
+              <DateSearch onDateSearch={handleaAtivitiesDateFilter} />
             </div>
           </div>
         </div>

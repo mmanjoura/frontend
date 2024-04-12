@@ -7,43 +7,64 @@ import ActivityProperties from "@/components/activity-list/activity-list/Activit
 import Sidebar from "@/components/activity-list/activity-list/Sidebar";
 import { useActivitiesData } from "@/data/activities-data";
 import { useState, useEffect } from "react";
+import axios from "axios";
+import Constants from "@/utils/constants";
+
 
 const index = () => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [filteredActivities, setFilteredActivities] = useState([]); 
+  const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
 
-  const activities = useActivitiesData()
+  const [activities, setActivities] = useState(null);
+
+  useEffect(() => {
+    axios.get(`${Constants.baseURL}/activities`).then((response) => {
+      setActivities(response?.data);
+    });
+
+  }, [selectedLocation, selectedDate, selectedTypeFilter]);
 
   if (!activities) return null;
 
-  const handleDateSearch = (date) => {
+  const handleClick = (selectedDate, selectedLocation) => {
+    const filterByLocation = activities?.data?.filter(activity =>
+      activity?.location?.includes(selectedLocation)
+    );
+    setActivities({ data: filterByLocation });
+  };
+
+  const handleaAtivitiesDateFilter = (date) => {
     if (date.length > 1) {
       setSelectedDate(date);
     }
+
   };
 
-  const handleLocationSearch = (location) => {
-        if (location) {
-          setSelectedLocation(location);
+  const handleActivitiesLocationFilter = (location) => {
+    if (location) {
+      setSelectedLocation(location);
     }
   };
 
-  const handleClick = (selectedDate, selectedLocation) => {
-    console.log("---Handling Filter Only filtering on location for now----");
-     console.log("Selected Location: ", selectedLocation);
-     console.log("Selected Start Date: ", selectedDate[0]?.format("DD-MM-YYYY"));
-     console.log("Selected End Date: ", selectedDate[1]?.format("DD-MM-YYYY"));
+  const handleActivitiesTypeFilter = (selectedTypeFilter) => {
 
-    //  Get the filtered activities based on the selected location
-     const filteredActivities = activities?.data?.filter(activity =>
-      activity?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
-    );
-    //  Set the filtered activities
-    setFilteredActivities(filteredActivities);
-    console.log("Filtered Golfs: ", filteredActivities);
+    if (selectedTypeFilter != 0) {
+      const filterByType = activities?.data.filter(
+        (activity) => activity.activity_type == selectedTypeFilter
+      );
+      setActivities({ data: filterByType });
+    }
+    if (selectedTypeFilter == 0){
+      setActivities( activities?.data );
+      setSelectedTypeFilter(selectedTypeFilter);
+    }
+  
+
   };
 
+
+  if (!activities) return null;
 
   return (
     <>
@@ -58,7 +79,12 @@ const index = () => {
           <div className="row y-gap-30">
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar activities={activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                <Sidebar activities={activities}
+                  onSearch={handleClick}
+                  onDateSearch={handleaAtivitiesDateFilter}
+                  onLocationSearch={handleActivitiesLocationFilter}
+                  onTypeCheckedFilter={handleActivitiesTypeFilter}
+                />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -82,7 +108,12 @@ const index = () => {
 
                 <div className="offcanvas-body">
                   <aside className="sidebar y-gap-40  xl:d-block">
-                    <Sidebar activities={activities} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                    <Sidebar activities={activities}
+                      onSearch={handleClick}
+                      onDateSearch={handleaAtivitiesDateFilter}
+                      onLocationSearch={handleActivitiesLocationFilter}
+                      onTypeCheckedFilter={handleActivitiesTypeFilter}
+                    />
                   </aside>
                 </div>
                 {/* End offcanvas body */}
@@ -95,9 +126,11 @@ const index = () => {
               <TopHeaderFilter activities={activities} />
               <div className="mt-30"></div>
               {/* End mt--30 */}
-              <div className="row y-gap-30">      
-              <ActivityProperties activities={filteredActivities.length > 0 ? filteredActivities : activities?.data} />    
-                </div>
+              <div className="row y-gap-30">
+                {/* <ActivityProperties activities={filteredActivities.length > 0 ? filteredActivities : activities?.data} />     */}
+                <ActivityProperties activities={activities?.data} />
+
+              </div>
               {/* End .row */}
               {/* <Pagination golfs = {golfs} /> */}
             </div>

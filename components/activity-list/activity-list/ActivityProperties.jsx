@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import isTextMatched from "../../../utils/isTextMatched";
 
 const ActivityProperties = ( {activities}) => {
+
   var itemSettings = {
     dots: true,
     infinite: true,

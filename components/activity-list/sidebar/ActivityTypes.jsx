@@ -2,29 +2,28 @@ import { useContentTypesData } from "@/data/contentTypes_data"
 import { useState } from "react";
 
 const ActivityTypes = ({activities, onTypeCheckedFilter}) => {
-  const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
-
-
+  // const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
 
   const contentTypes = useContentTypesData();
   if (!contentTypes) return null;
 
-  const handleFilteredActivities = (event, activity_id) => {
+console.log("contentTypes", contentTypes?.data);
+
+  const handleActivitiesTypeFilter = (event, activity_id) => {
     if (event.target.checked) {
-      setSelectedTypeFilter(activity_id);
-      onTypeCheckedFilter(selectedTypeFilter);
+      onTypeCheckedFilter(activity_id);
+    }
+    if (!event.target.checked) {
+      onTypeCheckedFilter(0);
     }
   }
-
-
-
   return (
     <>
       {contentTypes?.data?.slice(0, 6).map((activityType, index) => (
         <div key={index} className="row y-gap-10 items-center justify-between">
           <div className="col-auto">
             <div className="form-checkbox d-flex items-center">
-              <input type="checkbox" onChange={(event) => handleFilteredActivities(event, activityType?.id)}  />
+              <input type="checkbox" onChange={(event) => handleActivitiesTypeFilter(event, activityType?.id)}  />
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>

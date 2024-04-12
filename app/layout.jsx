@@ -13,6 +13,7 @@ import "../styles/index.scss";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 
+
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
@@ -40,12 +41,14 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="./favicon.ico" />
       </head>
       <body>
+
         <main>
           <Provider store={store}>
             {children}
             <SrollTop />
           </Provider>
         </main>
+
       </body>
     </html>
   );

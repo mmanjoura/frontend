@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const GolfProperties = ({golfs}) => {
 
-    console.log("filtered Golfs: ", golfs);
+    // console.log("filtered Golfs: ", golfs);
   return (
     <>
       {golfs?.map((item) => (
