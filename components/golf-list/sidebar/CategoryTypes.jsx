@@ -1,12 +1,21 @@
 import { useContentTypesData } from "@/data/contentTypes_data"
 
-const CategoryTypes = ({golfs}) => {
+const CategoryTypes = ({golfs, onTypeCheckedFilter}) => {
   const contentTypes = useContentTypesData();
 if (!contentTypes) return null;
 
+const handleGolfsTypeFilter = (event, golf_id) => {
+  if (event.target.checked) {
+    onTypeCheckedFilter(golf_id);
+  }
+  if (!event.target.checked) {
+    onTypeCheckedFilter(0);
+  }
+}
+
   return (
     <>
-      {contentTypes?.data?.slice(0, 6).map((activityType, index) => (
+      {contentTypes?.data?.slice(0, 6).map((golfType, index) => (
         <div
           className="row y-gap-10 items-center justify-between"
           key={index}
@@ -17,7 +26,7 @@ if (!contentTypes) return null;
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>
-              <div className="text-15 ml-10">{activityType.title}</div>
+              <div className="text-15 ml-10">{golfType?.title}</div>
             </div>
           </div>
           <div className="col-auto">

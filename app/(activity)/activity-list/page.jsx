@@ -12,19 +12,18 @@ import Constants from "@/utils/constants";
 
 
 const index = () => {
+
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
-
   const [activities, setActivities] = useState(null);
 
   useEffect(() => {
     axios.get(`${Constants.baseURL}/activities`).then((response) => {
       setActivities(response?.data);
     });
-
   }, [selectedLocation, selectedDate, selectedTypeFilter]);
-
+  
   if (!activities) return null;
 
   const handleClick = (selectedDate, selectedLocation) => {
@@ -49,17 +48,19 @@ const index = () => {
 
   const handleActivitiesTypeFilter = (selectedTypeFilter) => {
 
-    if (selectedTypeFilter != 0) {
+    if (selectedTypeFilter > 0) {
       const filterByType = activities?.data.filter(
         (activity) => activity.activity_type == selectedTypeFilter
       );
       setActivities({ data: filterByType });
+      console.log("selectedTypeFilter", selectedTypeFilter);
+    } else {
+      console.log("selectedTypeFilter", selectedTypeFilter);
+      axios.get(`${Constants.baseURL}/activities`).then((response) => {
+        setActivities(response?.data);
+      });
     }
-    if (selectedTypeFilter == 0){
-      setActivities( activities?.data );
-      setSelectedTypeFilter(selectedTypeFilter);
-    }
-  
+
 
   };
 

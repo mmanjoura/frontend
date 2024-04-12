@@ -9,10 +9,9 @@ import Link from "next/link";
 
 const GolfProperties = ({golfs}) => {
 
-    // console.log("filtered Golfs: ", golfs);
   return (
     <>
-      {golfs?.map((item) => (
+      {golfs?.data?.map((item) => (
         <div
           key={item?.id}
           className="col-lg-4 col-sm-6"

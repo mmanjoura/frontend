@@ -7,46 +7,64 @@ import GolfProperties from "@/components/golf-list/golf-list/GolfProperties";
 import Sidebar from "@/components/golf-list/golf-list/Sidebar";
 import { useGolfsData } from "@/data/golfs-data";
 import { useState, useEffect } from "react";
+import axios from "axios";
+import Constants from "@/utils/constants";
 
 
 const index = () => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [filteredGolfs, setFilteredGolfs] = useState([]); // State for filtered golfs
+  const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
+  const [golfs, setGolfs] = useState([]); // State for filtered golfs
 
-  const golfs = useGolfsData()
+  // const golfs = useGolfsData()
+  useEffect(() => {
+    axios.get(`${Constants.baseURL}/golfs`).then((response) => {
+      setGolfs(response?.data);
+    });
+  }, [selectedLocation, selectedDate, selectedTypeFilter]);
+  
 
   if (!golfs) return null;
 
-  const handleDateSearch = (date) => {
 
+  const handleClick = (selectedDate, selectedLocation) => {
+    const filterByLocation = golfs?.data?.filter(golf =>
+      golf?.location?.includes(selectedLocation)
+    );
+    setGolfs({ data: filterByLocation });
+  };
+
+  const handleGolfsDateFilter = (date) => {
     if (date.length > 1) {
       setSelectedDate(date);
     }
+
   };
 
-  const handleLocationSearch = (location) => {
-        if (location) {
-          setSelectedLocation(location);
+  const handleGolfsLocationFilter = (location) => {
+    if (location) {
+      setSelectedLocation(location);
     }
   };
 
-  const handleClick = (selectedDate, selectedLocation) => {
-    console.log("---Handling Filter Only filtering on location for now----");
-     // Perform filtering logic here
-     console.log("Selected Location: ", selectedLocation);
-     console.log("Selected Start Date: ", selectedDate[0]?.format("DD-MM-YYYY"));
-     console.log("Selected End Date: ", selectedDate[1]?.format("DD-MM-YYYY"));
+  const handleGolfsTypeFilter = (selectedTypeFilter) => {
 
-     //  Get the filtered golfs based on the selected location
-     const filteredGolfs = golfs?.data?.filter(golf =>
-      golf?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
-    );
-    //  Set the filtered golfs
-    setFilteredGolfs(filteredGolfs);
-    console.log("Filtered Golfs: ", filteredGolfs);
+    if (selectedTypeFilter > 0) {
+      const filterByType = golfs?.data.filter(
+        (golf) => golf.golf_type == selectedTypeFilter
+      );
+      setGolfs({ data: filterByType });
+      console.log("selectedTypeFilter", selectedTypeFilter);
+    } else {
+      console.log("selectedTypeFilter", selectedTypeFilter);
+      axios.get(`${Constants.baseURL}/golfs`).then((response) => {
+        setGolfs(response?.data);
+      });
+    }
+
+
   };
-
 
   return (
     <>
@@ -63,7 +81,12 @@ const index = () => {
           <div className="row y-gap-30">
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar golfs={golfs} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                <Sidebar golfs={golfs} 
+                    onSearch={handleClick} 
+                    onDateSearch={handleGolfsDateFilter} 
+                    onLocationSearch={handleGolfsLocationFilter} 
+                    onTypeCheckedFilter={handleGolfsTypeFilter}
+                    />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -87,7 +110,12 @@ const index = () => {
 
                 <div className="offcanvas-body">
                   <aside className="sidebar y-gap-40  xl:d-block">
-                    <Sidebar golfs={golfs} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                  <Sidebar golfs={golfs} 
+                    onSearch={handleClick} 
+                    onDateSearch={handleGolfsDateFilter} 
+                    onLocationSearch={handleGolfsLocationFilter} 
+                    onTypeCheckedFilter={handleGolfsTypeFilter}
+                    />
                   </aside>
                 </div>
                 {/* End offcanvas body */}
@@ -101,7 +129,8 @@ const index = () => {
               <div className="mt-30"></div>
               {/* End mt--30 */}
               <div className="row y-gap-30">      
-              <GolfProperties golfs={filteredGolfs.length > 0 ? filteredGolfs : golfs?.data} />
+              {/* <GolfProperties golfs={filteredGolfs.length > 0 ? filteredGolfs : golfs?.data} /> */}
+              <GolfProperties golfs={golfs} />
               </div>
               {/* End .row */}
               {/* <Pagination golfs = {golfs} /> */}

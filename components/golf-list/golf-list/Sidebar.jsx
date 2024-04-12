@@ -11,13 +11,13 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
   const [selectedLocation, setSelectedLocation] = useState("");
 
 
-  const handleDateSearch = (date) => {
+  const handleGolfsDateFilter = (date) => {
 
       setSelectedDate(date);
       onDateSearch(date);
     }
 
-    const handleLocationSearch = (location) => {
+    const handleGolfsLocationFilter = (location) => {
 
         setSelectedLocation(location);
         onLocationSearch(location);  
@@ -26,6 +26,10 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
     const handleClick = () => {
       onSearch(selectedDate, selectedLocation);
     }
+    
+  const handleGolfsTypeFilter = (selectedTypeFilter) => {
+    onTypeCheckedFilter(selectedTypeFilter);
+  };
   return (
     <>
       <div className="sidebar__item -no-border">
@@ -33,7 +37,12 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
           <h5 className="text-18 fw-500 mb-10">Search Golfs</h5>
 
           <div className="row y-gap-20 pt-20">
-            <MainFilterSearchBox golfs = {golfs} onSearch = {handleClick}  onDateSearch = {handleDateSearch} onLocationSearch = {handleLocationSearch}/>
+            <MainFilterSearchBox golfs = {golfs} 
+                onSearch = {handleClick}  
+                onDateSearch = {handleGolfsDateFilter} 
+                onLocationSearch = {handleGolfsLocationFilter}
+                
+                />
           </div>
         </div>
       </div>
@@ -42,7 +51,7 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Category Types</h5>
         <div className="sidebar-checkbox">
-          <CategoryTypes golfs = {golfs} />
+          <CategoryTypes golfs = {golfs} onTypeCheckedFilter = {handleGolfsTypeFilter}/>
         </div>
         {/* End Sidebar-checkbox */}
       </div>

@@ -32,6 +32,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCh
       onTypeCheckedFilter(selectedTypeFilter);
   };
   
+  
 
   return (
     <>

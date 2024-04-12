@@ -23,11 +23,11 @@ const MainFilterSearchBox = ({golfs, onSearch, onDateSearch, onLocationSearch}) 
     onSearch(selectedDate, selectedLocation)
   };
 
- const handleDateSearch = (date) => {
+ const handleGolfsDateFilter = (date) => {
     setSelectedDate(date);
     onDateSearch(date);
   }
-  const handleLocationSearch = (location) => {
+  const handleGolfsLocationFilter = (location) => {
     setSelectedLocation(location);
     onLocationSearch(location);
   }
@@ -35,7 +35,7 @@ const MainFilterSearchBox = ({golfs, onSearch, onDateSearch, onLocationSearch}) 
     <>
       <div className="col-12">
         <div className="px-20 py-10 bg-white rounded-4">
-          <LocationSearch onLocationSearch = {handleLocationSearch} />
+          <LocationSearch onLocationSearch = {handleGolfsLocationFilter} />
           {/* End Location */}
         </div>
       </div>
@@ -44,7 +44,7 @@ const MainFilterSearchBox = ({golfs, onSearch, onDateSearch, onLocationSearch}) 
         <div className="px-20 py-10 bg-white rounded-4">
           <div className="searchMenu-date  js-form-dd js-calendar">
             <h4 className="text-15 fw-500 ls-2 lh-16">Pick your Date</h4>
-            <DateSearch onDateSearch={handleDateSearch} />
+            <DateSearch onDateSearch={handleGolfsDateFilter} />
           </div>
           {/* End check-in-out */}
         </div>
