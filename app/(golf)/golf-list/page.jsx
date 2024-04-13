@@ -16,6 +16,7 @@ const index = () => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
+  const [selectedHolesFilter, setSelectedHolesFilter] = useState("");
   const [golfs, setGolfs] = useState([]); // State for filtered golfs
 
   // const golfs = useGolfsData()
@@ -36,20 +37,20 @@ const index = () => {
     setGolfs({ data: filterByLocation });
   };
 
-  const handleGolfsDateFilter = (date) => {
+  const handleDateFilter = (date) => {
     if (date.length > 1) {
       setSelectedDate(date);
     }
 
   };
 
-  const handleGolfsLocationFilter = (location) => {
+  const handleLocationFilter = (location) => {
     if (location) {
       setSelectedLocation(location);
     }
   };
 
-  const handleGolfsTypeFilter = (selectedTypeFilter) => {
+  const handleTypeFilter = (selectedTypeFilter) => {
 
     console.log("golfs", golfs?.data);
 
@@ -66,8 +67,42 @@ const index = () => {
       });
 
     }
+  };
 
+  const handleHolesFilter = (selectedFilter) => {
 
+    setSelectedHolesFilter(selectedFilter);
+    console.log("selected Type Filter", selectedFilter);
+    console.log("golfs", golfs?.data);
+
+    if (selectedFilter == 1) {
+      console.log("One", selectedFilter)
+      const filterByType = golfs?.data.filter(
+        (golf) => golf.minimum_duration.includes("9")
+      );
+      setGolfs({ data: filterByType });
+    } 
+    if (selectedFilter == 2) {
+      console.log("Two", selectedFilter)
+      const filterByType = golfs?.data.filter(
+        (golf) => golf.minimum_duration.includes("18")
+      );
+      setGolfs({ data: filterByType });
+    }
+    if (selectedFilter == 3) {
+      console.log("Three", selectedFilter)
+      const filterByType = golfs?.data.filter(
+        (golf) => golf.minimum_duration.includes("27")
+      );
+      setGolfs({ data: filterByType });
+    }
+    if (selectedFilter == 0) {
+      console.log("selectedFilter", selectedFilter);
+      axios.get(`${Constants.baseURL}/golfs`).then((response) => {
+        setGolfs(response?.data);
+      });
+
+    }
   };
 
   return (
@@ -87,9 +122,10 @@ const index = () => {
               <aside className="sidebar y-gap-40 xl:d-none">
                 <Sidebar golfs={golfs} 
                     onSearch={handleClick} 
-                    onDateSearch={handleGolfsDateFilter} 
-                    onLocationSearch={handleGolfsLocationFilter} 
-                    onTypeCheckedFilter={handleGolfsTypeFilter}
+                    onDateSearch={handleDateFilter} 
+                    onLocationSearch={handleLocationFilter} 
+                    onTypeCheckedFilter={handleTypeFilter}
+                    onHoleCheckedFilter={handleHolesFilter}
                     />
               </aside>
               {/* End sidebar for desktop */}
@@ -116,9 +152,10 @@ const index = () => {
                   <aside className="sidebar y-gap-40  xl:d-block">
                   <Sidebar golfs={golfs} 
                     onSearch={handleClick} 
-                    onDateSearch={handleGolfsDateFilter} 
-                    onLocationSearch={handleGolfsLocationFilter} 
-                    onTypeCheckedFilter={handleGolfsTypeFilter}
+                    onDateSearch={handleDateFilter} 
+                    onLocationSearch={handleLocationFilter} 
+                    onTypeCheckedFilter={handleTypeFilter}
+                    onHoleCheckedFilter={handleHolesFilter}
                     />
                   </aside>
                 </div>

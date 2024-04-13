@@ -4,7 +4,7 @@ const CategoryTypes = ({golfs, onTypeCheckedFilter}) => {
   const contentTypes = useContentTypesData();
 if (!contentTypes) return null;
 
-const handleGolfsTypeFilter = (event, golf_id) => {
+const handleTypeFilter = (event, golf_id) => {
   if (event.target.checked) {
     onTypeCheckedFilter(golf_id);
   }
@@ -22,7 +22,7 @@ const handleGolfsTypeFilter = (event, golf_id) => {
         >
           <div className="col-auto">
             <div className="form-checkbox d-flex items-center">
-            <input type="checkbox" onChange={(event) => handleGolfsTypeFilter(event, golfType?.id)}  />
+            <input type="checkbox" onChange={(event) => handleTypeFilter(event, golfType?.id)}  />
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>

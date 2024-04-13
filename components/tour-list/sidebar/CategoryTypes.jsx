@@ -3,7 +3,7 @@ import { useContentTypesData } from "@/data/contentTypes_data"
 const CategoryTypes = ({tours, onTypeCheckedFilter}) => {
   const contentTypes = useContentTypesData();
 if (!contentTypes) return null;
-const handleToursTypeFilter = (event, tour_id) => {
+const handleTypeFilter = (event, tour_id) => {
   if (event.target.checked) {
     onTypeCheckedFilter(tour_id);
   }
@@ -23,7 +23,7 @@ const handleToursTypeFilter = (event, tour_id) => {
         >
           <div className="col-auto">
             <div className="form-checkbox d-flex items-center">
-            <input type="checkbox" onChange={(event) => handleToursTypeFilter(event, tourType?.id)}  />
+            <input type="checkbox" onChange={(event) => handleTypeFilter(event, tourType?.id)}  />
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>

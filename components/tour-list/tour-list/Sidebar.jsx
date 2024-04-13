@@ -8,17 +8,17 @@ import MainFilterSearchBox from "./MainFilterSearchBox";
 import { useState } from "react";
 
 
-const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter}) => {
+const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter, onDurationCheckedFilter}) => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
 
-  const handleToursDateFilter = (date) => {
+  const handleDateFilter = (date) => {
 
     setSelectedDate(date);
     onDateSearch(date);
   }
 
-  const handleToursLocationFilter = (location) => {
+  const handleLocationFilter = (location) => {
 
       setSelectedLocation(location);
       onLocationSearch(location);  
@@ -28,10 +28,14 @@ const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch, onTypeChecked
     onSearch(selectedDate, selectedLocation);
   }
 
-  const handleToursTypeFilter = (selectedTypeFilter) => {
+  const handleTypeFilter = (selectedTypeFilter) => {
     console.log("selectedTypeFilter", selectedTypeFilter);
     onTypeCheckedFilter(selectedTypeFilter);
   };
+
+  const handleToursDurationFilter = (selectedDurationFilter) => {
+    onDurationCheckedFilter(selectedDurationFilter);
+  }
 
 
   return (
@@ -43,8 +47,8 @@ const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch, onTypeChecked
           <div className="row y-gap-20 pt-20">
             <MainFilterSearchBox 
               onSearch = {handleClick}  
-              onDateSearch = {handleToursDateFilter} 
-              onLocationSearch = {handleToursLocationFilter}
+              onDateSearch = {handleDateFilter} 
+              onLocationSearch = {handleLocationFilter}
               
               />
           </div>
@@ -55,7 +59,7 @@ const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch, onTypeChecked
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Category Types</h5>
         <div className="sidebar-checkbox">
-          <CategoryTypes tours = {tours} onTypeCheckedFilter = {handleToursTypeFilter}/>
+          <CategoryTypes tours = {tours} onTypeCheckedFilter = {handleTypeFilter}/>
         </div>
         {/* End Sidebar-checkbox */}
       </div>
@@ -77,7 +81,7 @@ const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch, onTypeChecked
       <div className="sidebar__item">
         <h5 className="text-18 fw-500 mb-10">Duration</h5>
         <div className="sidebar-checkbox">
-          <Duration tours = {tours}/>
+          <Duration tours = {tours} onDurationCheckedFilter = {handleToursDurationFilter}/>
         </div>
       </div>
       {/* End style filter */}

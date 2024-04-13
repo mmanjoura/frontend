@@ -15,6 +15,7 @@ const index = () => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
+  const [selectedDurationFilter, setSelectedDurationFilter] = useState("");
   const [activities, setActivities] = useState(null);
 
   useEffect(() => {
@@ -32,20 +33,20 @@ const index = () => {
     setActivities({ data: filterByLocation });
   };
 
-  const handleaAtivitiesDateFilter = (date) => {
+  const handleDateFilter = (date) => {
     if (date.length > 1) {
       setSelectedDate(date);
     }
 
   };
 
-  const handleActivitiesLocationFilter = (location) => {
+  const handleLocationFilter = (location) => {
     if (location) {
       setSelectedLocation(location);
     }
   };
 
-  const handleActivitiesTypeFilter = (selectedTypeFilter) => {
+  const handleTypeFilter = (selectedTypeFilter) => {
 
     if (selectedTypeFilter > 0) {
       const filterByType = activities?.data.filter(
@@ -62,6 +63,22 @@ const index = () => {
 
 
   };
+  const handleDurationFilter = (selectedDurationFilter) => {
+
+    if (selectedDurationFilter > 0) {
+      const filterByDuration = activities?.data.filter(
+        (activity) => activity.minimum_duration == selectedDurationFilter
+      );
+      setActivities({ data: filterByDuration });
+      console.log("selecte dDuration Filter", selectedDurationFilter);
+    } else {
+      console.log("selected Duration Filter", selectedDurationFilter);
+      axios.get(`${Constants.baseURL}/activities`).then((response) => {
+        setActivities(response?.data);
+      });
+    }
+  };
+
 
 
   if (!activities) return null;
@@ -81,9 +98,10 @@ const index = () => {
               <aside className="sidebar y-gap-40 xl:d-none">
                 <Sidebar activities={activities}
                   onSearch={handleClick}
-                  onDateSearch={handleaAtivitiesDateFilter}
-                  onLocationSearch={handleActivitiesLocationFilter}
-                  onTypeCheckedFilter={handleActivitiesTypeFilter}
+                  onDateSearch={handleDateFilter}
+                  onLocationSearch={handleLocationFilter}
+                  onTypeCheckedFilter={handleTypeFilter}
+                  onDurationCheckedFilter={handleDurationFilter}
                 />
               </aside>
               {/* End sidebar for desktop */}
@@ -110,9 +128,10 @@ const index = () => {
                   <aside className="sidebar y-gap-40  xl:d-block">
                     <Sidebar activities={activities}
                       onSearch={handleClick}
-                      onDateSearch={handleaAtivitiesDateFilter}
-                      onLocationSearch={handleActivitiesLocationFilter}
-                      onTypeCheckedFilter={handleActivitiesTypeFilter}
+                      onDateSearch={handleDateFilter}
+                      onLocationSearch={handleLocationFilter}
+                      onTypeCheckedFilter={handleTypeFilter}
+                      onDurationCheckedFilter={handleDurationFilter}
                     />
                   </aside>
                 </div>

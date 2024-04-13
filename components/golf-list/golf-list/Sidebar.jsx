@@ -1,23 +1,23 @@
 'use client';
 import CategoryTypes from "../sidebar/CategoryTypes";
 import OthersFilter from "../sidebar/OthersFilter";
-import Duration from "../sidebar/Duration";
+import Hole from "../sidebar/Hole";
 import PirceSlider from "../sidebar/PirceSlider";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import { useState } from "react";
 
-const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter}) => {
+const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter, onHoleCheckedFilter}) => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
 
 
-  const handleGolfsDateFilter = (date) => {
+  const handleDateFilter = (date) => {
 
       setSelectedDate(date);
       onDateSearch(date);
     }
 
-    const handleGolfsLocationFilter = (location) => {
+    const handleLocationFilter = (location) => {
 
         setSelectedLocation(location);
         onLocationSearch(location);  
@@ -27,10 +27,14 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeChecked
       onSearch(selectedDate, selectedLocation);
     }
     
-  const handleGolfsTypeFilter = (selectedTypeFilter) => {
+  const handleTypeFilter = (selectedTypeFilter) => {
     console.log("selectedTypeFilter", selectedTypeFilter);
     onTypeCheckedFilter(selectedTypeFilter);
   };
+  const handleHolesFilter = (selectedHolesFilter) => {
+    onHoleCheckedFilter(selectedHolesFilter);
+  }
+  
   return (
     <>
       <div className="sidebar__item -no-border">
@@ -40,8 +44,9 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeChecked
           <div className="row y-gap-20 pt-20">
             <MainFilterSearchBox golfs = {golfs} 
                 onSearch = {handleClick}  
-                onDateSearch = {handleGolfsDateFilter} 
-                onLocationSearch = {handleGolfsLocationFilter}
+                onDateSearch = {handleDateFilter} 
+                onLocationSearch = {handleLocationFilter}
+         
                 
                 />
           </div>
@@ -52,7 +57,7 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeChecked
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Category Types</h5>
         <div className="sidebar-checkbox">
-          <CategoryTypes golfs = {golfs} onTypeCheckedFilter = {handleGolfsTypeFilter}/>
+          <CategoryTypes golfs = {golfs} onTypeCheckedFilter = {handleTypeFilter}/>
         </div>
         {/* End Sidebar-checkbox */}
       </div>
@@ -71,9 +76,9 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeChecked
       {/* End Nightly priceslider */}
 
       <div className="sidebar__item">
-        <h5 className="text-18 fw-500 mb-10">Duration</h5>
+        <h5 className="text-18 fw-500 mb-10">Number of Holes</h5>
         <div className="sidebar-checkbox">
-          <Duration golfs = {golfs}/>
+          <Hole golfs = {golfs} onHoleCheckedFilter = {handleHolesFilter}/>
         </div>
       </div>
       {/* End style filter */}

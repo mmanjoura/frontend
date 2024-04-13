@@ -7,9 +7,10 @@ const ActivityTypes = ({activities, onTypeCheckedFilter}) => {
   const contentTypes = useContentTypesData();
   if (!contentTypes) return null;
 
+
 console.log("contentTypes", contentTypes?.data);
 
-  const handleActivitiesTypeFilter = (event, activity_id) => {
+  const handleTypeFilter = (event, activity_id) => {
     if (event.target.checked) {
       onTypeCheckedFilter(activity_id);
     }
@@ -23,7 +24,7 @@ console.log("contentTypes", contentTypes?.data);
         <div key={index} className="row y-gap-10 items-center justify-between">
           <div className="col-auto">
             <div className="form-checkbox d-flex items-center">
-              <input type="checkbox" onChange={(event) => handleActivitiesTypeFilter(event, activityType?.id)}  />
+              <input type="checkbox" onChange={(event) => handleTypeFilter(event, activityType?.id)}  />
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>

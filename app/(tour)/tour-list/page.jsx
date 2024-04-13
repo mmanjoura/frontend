@@ -14,6 +14,7 @@ const index = () => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
+  const [selectedDurationFilter, setSelectedDurationFilter] = useState("");
   const [tours, setTours] = useState([]); // State for filtered golfs
 
 
@@ -22,7 +23,7 @@ const index = () => {
     axios.get(`${Constants.baseURL}/tours`).then((response) => {
       setTours(response?.data);
     });
-  }, [selectedLocation, selectedDate, selectedTypeFilter]);
+  }, [selectedLocation, selectedDate, selectedTypeFilter, selectedDurationFilter]);
   
 if (!tours) return null;
 
@@ -33,20 +34,20 @@ const handleClick = (selectedDate, selectedLocation) => {
   setTours({ data: filterByLocation });
 };
 
-const handleToursDateFilter = (date) => {
+const handleDateFilter = (date) => {
   if (date.length > 1) {
     setSelectedDate(date);
   }
 
 };
 
-const handleToursLocationFilter = (location) => {
+const handleLocationFilter = (location) => {
   if (location) {
     setSelectedLocation(location);
   }
 };
 
-const handleToursTypeFilter = (selectedTypeFilter) => {
+const handleTypeFilter = (selectedTypeFilter) => {
 
   if (selectedTypeFilter > 0) {
     const filterByType = tours?.data.filter(
@@ -60,8 +61,23 @@ const handleToursTypeFilter = (selectedTypeFilter) => {
       setTours(response?.data);
     });
   }
+};
 
+const handleDurationFilter = (selectedDurationFilter) => {
 
+  // setSelectedDurationFilter(selectedDurationFilter);
+  if (selectedDurationFilter > 0) {
+    const filterByDuration = tours?.data.filter(
+      (tour) => tour.minimum_duration == selectedDurationFilter
+    );
+    setTours({ data: filterByDuration });
+    console.log("selecte dDuration Filter", selectedDurationFilter);
+  } else {
+    console.log("selected Duration Filter", selectedDurationFilter);
+    axios.get(`${Constants.baseURL}/tours`).then((response) => {
+      setTours(response?.data);
+    });
+  }
 };
 
 
@@ -83,9 +99,10 @@ const handleToursTypeFilter = (selectedTypeFilter) => {
                 <Sidebar 
                   tours = {tours} 
                   onSearch={handleClick} 
-                  onDateSearch={handleToursDateFilter} 
-                  onLocationSearch={handleToursLocationFilter} 
-                  onTypeCheckedFilter={handleToursTypeFilter}
+                  onDateSearch={handleDateFilter} 
+                  onLocationSearch={handleLocationFilter} 
+                  onTypeCheckedFilter={handleTypeFilter}
+                  onDurationCheckedFilter={handleDurationFilter}
                   />
               </aside>
               {/* End sidebar for desktop */}
@@ -113,9 +130,10 @@ const handleToursTypeFilter = (selectedTypeFilter) => {
                     <Sidebar 
                       tours = {tours} 
                       onSearch={handleClick} 
-                      onDateSearch={handleToursDateFilter} 
-                      onLocationSearch={handleToursLocationFilter} 
-                      onTypeCheckedFilter={handleToursTypeFilter}
+                      onDateSearch={handleDateFilter} 
+                      onLocationSearch={handleLocationFilter} 
+                      onTypeCheckedFilter={handleTypeFilter}
+                      onDurationCheckedFilter={handleDurationFilter}
                       />
                   </aside>
                 </div>
