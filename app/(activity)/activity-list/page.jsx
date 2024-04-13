@@ -5,7 +5,6 @@ import DefaultFooter from "@/components/footer/default";
 import TopHeaderFilter from "@/components/activity-list/activity-list/TopHeaderFilter";
 import ActivityProperties from "@/components/activity-list/activity-list/ActivityProperties";
 import Sidebar from "@/components/activity-list/activity-list/Sidebar";
-import { useActivitiesData } from "@/data/activities-data";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Constants from "@/utils/constants";

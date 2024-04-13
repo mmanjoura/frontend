@@ -6,7 +6,7 @@ import PirceSlider from "../sidebar/PirceSlider";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import { useState } from "react";
 
-const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
+const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter}) => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
 
@@ -28,6 +28,7 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
     }
     
   const handleGolfsTypeFilter = (selectedTypeFilter) => {
+    console.log("selectedTypeFilter", selectedTypeFilter);
     onTypeCheckedFilter(selectedTypeFilter);
   };
   return (

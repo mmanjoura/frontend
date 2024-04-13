@@ -22,7 +22,7 @@ const handleGolfsTypeFilter = (event, golf_id) => {
         >
           <div className="col-auto">
             <div className="form-checkbox d-flex items-center">
-              <input type="checkbox" />
+            <input type="checkbox" onChange={(event) => handleGolfsTypeFilter(event, golfType?.id)}  />
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>

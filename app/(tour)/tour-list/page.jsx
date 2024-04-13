@@ -5,45 +5,65 @@ import DefaultFooter from "@/components/footer/default";
 import TopHeaderFilter from "@/components/tour-list/tour-list/TopHeaderFilter";
 import TourProperties from "@/components/tour-list/tour-list/TourProperties";
 import Sidebar from "@/components/tour-list/tour-list/Sidebar";
-import { useToursData } from "@/data/tours-data";
+import axios from "axios";
+import Constants from "@/utils/constants";
 import { useState, useEffect } from "react";
 
 const index = () => {
 
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [filteredTours, setFilteredTours] = useState([]); // State for filtered golfs
+  const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
+  const [tours, setTours] = useState([]); // State for filtered golfs
 
-  const tours = useToursData();
+
+
+  useEffect(() => {
+    axios.get(`${Constants.baseURL}/tours`).then((response) => {
+      setTours(response?.data);
+    });
+  }, [selectedLocation, selectedDate, selectedTypeFilter]);
+  
 if (!tours) return null;
 
-const handleDateSearch = (date) => {
+const handleClick = (selectedDate, selectedLocation) => {
+  const filterByLocation = tours?.data?.filter(tour =>
+    tour?.location?.includes(selectedLocation)
+  );
+  setTours({ data: filterByLocation });
+};
+
+const handleToursDateFilter = (date) => {
   if (date.length > 1) {
     setSelectedDate(date);
-}
+  }
+
 };
 
-const handleLocationSearch = (location) => {
+const handleToursLocationFilter = (location) => {
   if (location) {
     setSelectedLocation(location);
-}
+  }
 };
 
-const handleClick = (selectedDate, selectedLocation) => {
-console.log("---Handling Filter Only filtering on location for now----");
-// Perform filtering logic here
-console.log("Selected Location: ", selectedLocation);
-console.log("Selected Start Date: ", selectedDate[0]?.format("DD-MM-YYYY"));
-console.log("Selected End Date: ", selectedDate[1]?.format("DD-MM-YYYY"));
+const handleToursTypeFilter = (selectedTypeFilter) => {
 
-//  Get the filtered tours based on the selected location
-const filteredTours = tours?.data?.filter(tour =>
-tour?.location?.toLowerCase().includes(selectedLocation.toLowerCase())
-);
-//  Set the filtered tours
-setFilteredTours(filteredTours);
-console.log("Filtered Tours: ", filteredTours);
+  if (selectedTypeFilter > 0) {
+    const filterByType = tours?.data.filter(
+      (tour) => tour.activity_type == selectedTypeFilter
+    );
+    setTours({ data: filterByType });
+    console.log("selectedTypeFilter", selectedTypeFilter);
+  } else {
+    console.log("selectedTypeFilter", selectedTypeFilter);
+    axios.get(`${Constants.baseURL}/tours`).then((response) => {
+      setTours(response?.data);
+    });
+  }
+
+
 };
+
 
   return (
     <>
@@ -60,7 +80,13 @@ console.log("Filtered Tours: ", filteredTours);
           <div className="row y-gap-30">
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar tours = {tours} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                <Sidebar 
+                  tours = {tours} 
+                  onSearch={handleClick} 
+                  onDateSearch={handleToursDateFilter} 
+                  onLocationSearch={handleToursLocationFilter} 
+                  onTypeCheckedFilter={handleToursTypeFilter}
+                  />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -84,7 +110,13 @@ console.log("Filtered Tours: ", filteredTours);
 
                 <div className="offcanvas-body">
                   <aside className="sidebar y-gap-40  xl:d-block">
-                    <Sidebar tours = {tours} onSearch={handleClick} onDateSearch={handleDateSearch} onLocationSearch={handleLocationSearch} />
+                    <Sidebar 
+                      tours = {tours} 
+                      onSearch={handleClick} 
+                      onDateSearch={handleToursDateFilter} 
+                      onLocationSearch={handleToursLocationFilter} 
+                      onTypeCheckedFilter={handleToursTypeFilter}
+                      />
                   </aside>
                 </div>
                 {/* End offcanvas body */}
@@ -99,7 +131,7 @@ console.log("Filtered Tours: ", filteredTours);
               {/* End mt--30 */}
               <div className="row y-gap-30">
                 {/* <TourProperties tours = {tours} /> */}
-                <TourProperties tours={filteredTours.length > 0 ? filteredTours : tours?.data} />
+                <TourProperties tours={tours} />
               </div>
               {/* End .row */}
               {/* <Pagination tours = {tours} /> */}

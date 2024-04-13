@@ -5,10 +5,11 @@ import DefaultFooter from "@/components/footer/default";
 import TopHeaderFilter from "@/components/golf-list/golf-list/TopHeaderFilter";
 import GolfProperties from "@/components/golf-list/golf-list/GolfProperties";
 import Sidebar from "@/components/golf-list/golf-list/Sidebar";
-import { useGolfsData } from "@/data/golfs-data";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Constants from "@/utils/constants";
+import refreshPage from "@/components/common/PageRefresh";
+
 
 
 const index = () => {
@@ -50,9 +51,11 @@ const index = () => {
 
   const handleGolfsTypeFilter = (selectedTypeFilter) => {
 
+    console.log("golfs", golfs?.data);
+
     if (selectedTypeFilter > 0) {
       const filterByType = golfs?.data.filter(
-        (golf) => golf.golf_type == selectedTypeFilter
+        (golf) => golf.activity_type == selectedTypeFilter
       );
       setGolfs({ data: filterByType });
       console.log("selectedTypeFilter", selectedTypeFilter);
@@ -61,6 +64,7 @@ const index = () => {
       axios.get(`${Constants.baseURL}/golfs`).then((response) => {
         setGolfs(response?.data);
       });
+
     }
 
 

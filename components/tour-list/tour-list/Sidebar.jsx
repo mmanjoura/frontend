@@ -7,16 +7,18 @@ import PirceSlider from "../sidebar/PirceSlider";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import { useState } from "react";
 
-const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch}) => {
+
+const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter}) => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
-  const handleDateSearch = (date) => {
+
+  const handleToursDateFilter = (date) => {
 
     setSelectedDate(date);
     onDateSearch(date);
   }
 
-  const handleLocationSearch = (location) => {
+  const handleToursLocationFilter = (location) => {
 
       setSelectedLocation(location);
       onLocationSearch(location);  
@@ -26,6 +28,11 @@ const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch}) => {
     onSearch(selectedDate, selectedLocation);
   }
 
+  const handleToursTypeFilter = (selectedTypeFilter) => {
+    console.log("selectedTypeFilter", selectedTypeFilter);
+    onTypeCheckedFilter(selectedTypeFilter);
+  };
+
 
   return (
     <>
@@ -34,7 +41,12 @@ const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch}) => {
           <h5 className="text-18 fw-500 mb-10">Search Tours</h5>
 
           <div className="row y-gap-20 pt-20">
-            <MainFilterSearchBox onSearch = {handleClick}  onDateSearch = {handleDateSearch} onLocationSearch = {handleLocationSearch}/>
+            <MainFilterSearchBox 
+              onSearch = {handleClick}  
+              onDateSearch = {handleToursDateFilter} 
+              onLocationSearch = {handleToursLocationFilter}
+              
+              />
           </div>
         </div>
       </div>
@@ -43,7 +55,7 @@ const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch}) => {
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Category Types</h5>
         <div className="sidebar-checkbox">
-          <CategoryTypes tours = {tours} />
+          <CategoryTypes tours = {tours} onTypeCheckedFilter = {handleToursTypeFilter}/>
         </div>
         {/* End Sidebar-checkbox */}
       </div>
