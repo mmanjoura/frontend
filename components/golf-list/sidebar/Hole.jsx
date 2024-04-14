@@ -15,9 +15,9 @@ const Hole = ({golfs, onHoleCheckedFilter}) => {
       if (golf?.minimum_duration.includes("9")) {
         categorizedHoles.nineHoles++;
       } else if (golf?.minimum_duration.includes("18")) {
-        categorizedHoles.twentySevenHoles++;
+           categorizedHoles.eighteenHoles++;
       } else if (golf?.minimum_duration.includes("27")) {
-        categorizedHoles.eighteenHoles++;
+        categorizedHoles.twentySevenHoles++;
       }
     });
   
@@ -32,8 +32,6 @@ const Hole = ({golfs, onHoleCheckedFilter}) => {
     { id: 2, label: "18", count: categorizedHoles.eighteenHoles },
     { id: 3, label: "27", count: categorizedHoles.twentySevenHoles },
   ];
-  
-  console.log(checkboxes);
   
   
   const handleHolesFilter = (event, id) => {

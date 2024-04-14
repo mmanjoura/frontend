@@ -32,13 +32,10 @@ const GolfContent = () => {
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
   const golfTypes = useContentTypes();
-  console.log("golfTypes Types", golfTypes)
 
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    console.log("loading before", loading);
 
     const res = await fetch(baseURL + '/golfs', {
       method: "POST",
@@ -80,15 +77,11 @@ const GolfContent = () => {
     }
       , 1000);
 
-      console.log("Body", body);
-
   };
 
   const handleSelect = (value) => {
     setSelectedOption(value);
     setGolfType(value);
-    console.log("Selected Option", value);
-    // You can perform any additional actions based on the selected option here
   };
 
   return (

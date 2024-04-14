@@ -8,10 +8,6 @@ import { useRouter } from 'next/navigation';
 const MainFilterSearchBox = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
 
   const { push } = useRouter();
-  
-  // if there is data in the golfs array, return null
-  // if (!golfs) return null;
-  // console.log("Golfs: ", golfs);
 
 
   const [selectedDate, setSelectedDate] = useState([]);

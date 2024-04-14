@@ -68,12 +68,9 @@ const ImagesTabContent = (imageType) => {
   const handleUpload = () => {
     const formData = new FormData();
     setLoading(true);
-    console.log("loading before", loading);
     for (let i = 0; i < files.length; i++) {
       formData.append('files', files[i]);
     }
-
-    console.log('imageType:', imageType);
 
     // Adding the image Size to the form data
     // The back end will resize the image to the specified size
@@ -96,7 +93,6 @@ const ImagesTabContent = (imageType) => {
 
       setTimeout(() => {
         setLoading(false);
-        console.log("loading after", loading);
         document.getElementById("SubmitForm").reset();
       }
         , 1000);
@@ -106,7 +102,6 @@ const ImagesTabContent = (imageType) => {
 
    const handleSelect = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log("Selected Option", selectedOption)
   };
 
   return (

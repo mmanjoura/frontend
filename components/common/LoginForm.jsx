@@ -32,7 +32,6 @@ const LoginForm = () => {
       if (res.status === 200) {
         window.localStorage.setItem('firstName', JSON.stringify(body.user.firstName));
         window.localStorage.setItem('isAdmin', JSON.stringify(body.user.isAdmin));
-        console.log('Successful login');
         setRedirect(true);
       } else {
         console.error(body.message);

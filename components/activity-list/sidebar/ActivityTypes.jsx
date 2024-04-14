@@ -2,13 +2,9 @@ import { useContentTypesData } from "@/data/contentTypes_data"
 import { useState } from "react";
 
 const ActivityTypes = ({activities, onTypeCheckedFilter}) => {
-  // const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
 
   const contentTypes = useContentTypesData();
   if (!contentTypes) return null;
-
-
-console.log("contentTypes", contentTypes?.data);
 
   const handleTypeFilter = (event, activity_id) => {
     if (event.target.checked) {

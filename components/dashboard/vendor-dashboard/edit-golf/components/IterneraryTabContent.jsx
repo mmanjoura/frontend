@@ -15,7 +15,6 @@ const IterneraryTabContent = ({params, category}) => {
  
     // Get data for dropdown
     const golfs = useGolfsData();
-    console.log("golfs: ", golfs);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -35,19 +34,15 @@ const IterneraryTabContent = ({params, category}) => {
     });
 
     const body = await res.json();
-    console.log("datas:", body)
     setTimeout(() => {
       setLoading(false);
       document.getElementById("SubmitForm").reset();
     }
       , 1000);
-    // setRedirect(true);
   };
 
   const handleSelect = (value) => {
     setSelectedOption(value);
-    console.log("Selected Option", value)
-    // You can perform any additional actions based on the selected option here
   };
 
   return (

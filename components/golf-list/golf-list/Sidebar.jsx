@@ -6,9 +6,16 @@ import PirceSlider from "../sidebar/PirceSlider";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import { useState } from "react";
 
-const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter, onHoleCheckedFilter}) => {
+const Sidebar = ({  golfs, 
+                    onSearch, 
+                    onDateSearch, 
+                    onLocationSearch, 
+                    onTypeCheckedFilter, 
+                    onHoleCheckedFilter,
+                    onPriceChange}) => {
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedPriceFilter, setSelectedPriceFilter] = useState("");
 
 
   const handleDateFilter = (date) => {
@@ -28,12 +35,16 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeChecked
     }
     
   const handleTypeFilter = (selectedTypeFilter) => {
-    console.log("selectedTypeFilter", selectedTypeFilter);
     onTypeCheckedFilter(selectedTypeFilter);
   };
   const handleHolesFilter = (selectedHolesFilter) => {
     onHoleCheckedFilter(selectedHolesFilter);
   }
+  const handlePriceChange = (priceFilter) => {
+    setSelectedPriceFilter(priceFilter);
+    onPriceChange(priceFilter);
+  }
+  
   
   return (
     <>
@@ -69,7 +80,7 @@ const Sidebar = ({golfs, onSearch, onDateSearch, onLocationSearch, onTypeChecked
         <h5 className="text-18 fw-500 mb-10">Price</h5>
         <div className="row x-gap-10 y-gap-30">
           <div className="col-12">
-            <PirceSlider golfs = {golfs} />
+            <PirceSlider golfs = {golfs} onPriceChange = {handlePriceChange}/>
           </div>
         </div>
       </div>

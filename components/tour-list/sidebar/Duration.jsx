@@ -31,13 +31,7 @@ const Duration = ({tours, onDurationCheckedFilter}) => {
     { id: 2, label: "1 to 4 hours", count: categorizedDurations.oneToFourHours },
     { id: 3, label: "4 hours to 1 day", count: categorizedDurations.fourHoursToOneDay },
   ];
-  
-  console.log(checkboxes);
-  
-  // Create an array of minimum_duration from tours data
 
-
-  
   const handleToursDurationFilter = (event, id) => {
     if (event.target.checked) {
       onDurationCheckedFilter(id);

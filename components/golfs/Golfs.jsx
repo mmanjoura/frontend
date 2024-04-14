@@ -12,7 +12,6 @@ import { Navigation, Pagination } from "swiper";
 const Golfs = () => {
   const golfs = useGolfsData();
   if (!golfs) return null;
-  console.log("Home Page golfs Data: ", golfs)
 
   var itemSettings = {
     dots: true,

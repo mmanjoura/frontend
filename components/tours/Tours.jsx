@@ -13,7 +13,6 @@ const Tours = () => {
 
 const tours = useToursData();
 if (!tours) return null;
-console.log("Home Page Tours Data: ", tours);
 
 var itemSettings = {
   dots: true,

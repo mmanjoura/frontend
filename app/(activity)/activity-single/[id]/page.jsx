@@ -25,7 +25,6 @@ const ActivitySingleV1Dynamic = ({ params }) => {
   const activitiesData = useActivitiesData();
   if (!activitiesData) return null;
 
-  console.log("Activities on Activity-single page: ", activitiesData);
   const activity = activitiesData?.data.find((item) => item.id == id);
 
   return (

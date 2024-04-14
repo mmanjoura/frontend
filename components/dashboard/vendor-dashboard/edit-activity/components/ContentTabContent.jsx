@@ -1,6 +1,5 @@
 import ActivityContent from "./content/ActivityContent";
 const ContentTabContent = ({params}) => {
-  console.log("Param: ", params.id);
 
   return (
     <>

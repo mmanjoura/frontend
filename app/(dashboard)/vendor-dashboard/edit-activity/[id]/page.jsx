@@ -7,23 +7,6 @@ import ProtectAdminRoute from "../../../../../utils/ProtectAdminRoute";
 
 const page = ({params}) => {
   const isAdmin = ProtectAdminRoute();
-  console.log("isAdmain", isAdmin);
-
-  // const router = useRouter();
-  // let isAdmin = window.localStorage.getItem("isAdmin");
-  // if (isAdmin === "1") {
-  //   isAdmin = true;
-  //   console.log("isAdmin", isAdmin);
-  // }
-
-  // const { push } = useRouter();
-
-  // useEffect(() => {
-     
-  //   if (!isAdmin) {
-  //     push('/login');
-  //   }
-  // }, []);
 
   return isAdmin ? (
     <>

@@ -40,7 +40,6 @@ const ActivityContent = ({params}) => {
   }
     // // Get data for dropdown
     const activityTypes = useContentTypes();
-    console.log("Activities", activityTypes)
 
     useEffect(() => {
       // Fetch user data from the API when the component mounts
@@ -90,7 +89,6 @@ const ActivityContent = ({params}) => {
     });
 
     const body = await res.json();
-    console.log("data:", body)
     setTimeout(() => {
       setLoading(false);
     }
@@ -109,13 +107,11 @@ const ActivityContent = ({params}) => {
 
   const handleSelect = (value) => {
     setSelectedOption(value);
-    console.log("Selected Option", value)
-    // You can perform any additional actions based on the selected option here
   };
   if (!formData) {
     return null;
   }
-  console.log("Form Data", formData)
+
   return (
     <form className="row y-gap-20" onSubmit={submit}>
        {loading ? (<LoadingSpinner />) : (

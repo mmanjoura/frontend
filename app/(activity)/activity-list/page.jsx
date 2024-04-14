@@ -16,13 +16,14 @@ const index = () => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
   const [selectedDurationFilter, setSelectedDurationFilter] = useState("");
+  const [selectedPriceFilter, setSelectedPriceFilter] = useState("");
   const [activities, setActivities] = useState(null);
 
   useEffect(() => {
     axios.get(`${Constants.baseURL}/activities`).then((response) => {
       setActivities(response?.data);
     });
-  }, [selectedLocation, selectedDate, selectedTypeFilter]);
+  }, [selectedLocation, selectedDate, selectedTypeFilter, selectedDurationFilter, selectedPriceFilter]);
   
   if (!activities) return null;
 
@@ -53,9 +54,7 @@ const index = () => {
         (activity) => activity.activity_type == selectedTypeFilter
       );
       setActivities({ data: filterByType });
-      console.log("selectedTypeFilter", selectedTypeFilter);
     } else {
-      console.log("selectedTypeFilter", selectedTypeFilter);
       axios.get(`${Constants.baseURL}/activities`).then((response) => {
         setActivities(response?.data);
       });
@@ -63,22 +62,57 @@ const index = () => {
 
 
   };
-  const handleDurationFilter = (selectedDurationFilter) => {
+  const handleDurationFilter = (selectedFilter) => {
 
-    if (selectedDurationFilter > 0) {
-      const filterByDuration = activities?.data.filter(
-        (activity) => activity.minimum_duration == selectedDurationFilter
+    if (selectedFilter == 1) {
+      const filterByType = activities?.data.filter(
+        (activity) => activity?.minimum_duration <= 1
+     
       );
-      setActivities({ data: filterByDuration });
-      console.log("selecte dDuration Filter", selectedDurationFilter);
-    } else {
-      console.log("selected Duration Filter", selectedDurationFilter);
+      setActivities({ data: filterByType });
+    
+    } 
+    if (selectedFilter == 2) {
+      const filterByType = activities?.data.filter(
+        (activity) => activity?.minimum_duration <= 4
+      );
+      setActivities({ data: filterByType });
+  
+    }
+    if (selectedFilter == 3) {
+      const filterByType = activities?.data.filter(
+        (activity) => activity?.minimum_duration > 4
+      );
+      setActivities({ data: filterByType });
+   
+    }
+    if (selectedFilter == 0) {
       axios.get(`${Constants.baseURL}/activities`).then((response) => {
         setActivities(response?.data);
       });
-    }
   };
 
+
+  };
+
+  const handlePriceChange = (priceFilter) => {
+    const filteredActivities = activities.data.filter(
+      (activity) => activity.price <= priceFilter.max && activity.price >= priceFilter.min
+    );
+  
+    if (filteredActivities.length > 0) {
+      setActivities((prevActivities) => ({
+        ...prevActivities,
+        data: filteredActivities,
+      }));
+    } else {
+      axios.get(`${Constants.baseURL}/activities`).then((response) => {
+        setActivities(response.data);
+        setSelectedPriceFilter(priceFilter);
+      });
+    }
+  };
+  
 
 
   if (!activities) return null;
@@ -102,6 +136,7 @@ const index = () => {
                   onLocationSearch={handleLocationFilter}
                   onTypeCheckedFilter={handleTypeFilter}
                   onDurationCheckedFilter={handleDurationFilter}
+                  onPriceChange={handlePriceChange}
                 />
               </aside>
               {/* End sidebar for desktop */}

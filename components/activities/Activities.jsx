@@ -12,7 +12,6 @@ import { useActivitiesData } from "@/data/activities-data";
 const Activities = () => {
   const activities = useActivitiesData();
   if (!activities) return null;
-  console.log("Home Page activities Data: ", activities);
   
   var itemSettings = {
     dots: true,

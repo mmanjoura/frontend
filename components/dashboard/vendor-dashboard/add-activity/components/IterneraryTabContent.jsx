@@ -14,7 +14,6 @@ const IterneraryTabContent = () => {
 
   // // Get data for dropdown
   const activities = useActivitiesData();
-  console.log("activities", activities)
 
   const submit = async (e) => {
     e.preventDefault();
@@ -34,7 +33,6 @@ const IterneraryTabContent = () => {
     });
 
     const body = await res.json();
-    console.log("Itinerary data:", body)
     setTimeout(() => {
       setLoading(false);
       document.getElementById("SubmitForm").reset();
@@ -44,7 +42,6 @@ const IterneraryTabContent = () => {
 
   const handleSelect = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log("Selected Option", selectedOption);
   };
 
 

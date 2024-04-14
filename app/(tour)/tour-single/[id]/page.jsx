@@ -21,8 +21,6 @@ const TourSingleV1Dynamic = ({ params }) => {
   const toursData = useToursData();
   if (!toursData) return null;
 
-
-  console.log("Tours on Tour-single page: ", toursData);
   const tour = toursData?.data.find((item) => item.id == id) || toursData[0];
 
   return (

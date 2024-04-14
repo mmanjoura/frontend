@@ -69,12 +69,9 @@ const ImagesTabContent = (imageType) => {
   const handleUpload = () => {
     const formData = new FormData();
     setLoading(true);
-    console.log("loading before", loading);
     for (let i = 0; i < files.length; i++) {
       formData.append('files', files[i]);
     }
-
-    console.log('imageType:', imageType);
 
     fetch(baseURL + '/uploadImage?image='+imageType.imageType+'&category='+imageType.category+'&id='+selectedOption+'&slide_width='+slide_width+'&slide_height='+slide_height+'&gallery_width='+gallery_width+'&gallery_height='+gallery_height, {
       method: 'POST',
@@ -87,7 +84,6 @@ const ImagesTabContent = (imageType) => {
 
       setTimeout(() => {
         setLoading(false);
-        console.log("loading after", loading);
         document.getElementById("SubmitForm").reset();
       }
         , 1000);
@@ -97,7 +93,6 @@ const ImagesTabContent = (imageType) => {
 
    const handleSelect = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log("Selected Option", selectedOption)
   };
 
   return (

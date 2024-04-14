@@ -13,7 +13,6 @@ const IterneraryTabContent = () => {
 
     // // Get data for dropdown
     const tours = useToursData();
-    console.log("tours", tours)
 
   const submit = async (e) => {
     e.preventDefault();
@@ -33,7 +32,6 @@ const IterneraryTabContent = () => {
     });
 
     const body = await res.json();
-    console.log("Itinerary data:", body)
    
     setTimeout(() => {
       setLoading(false);
@@ -43,8 +41,6 @@ const IterneraryTabContent = () => {
   };
   const handleSelect = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log("Selected Option", selectedOption);
-    // You can perform any additional actions based on the selected option here
   };
 
   return (

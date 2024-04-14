@@ -17,6 +17,7 @@ const index = () => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedTypeFilter, setSelectedTypeFilter] = useState("");
   const [selectedHolesFilter, setSelectedHolesFilter] = useState("");
+  const [selectedPriceFilter, setSelectedPriceFilter] = useState("");
   const [golfs, setGolfs] = useState([]); // State for filtered golfs
 
   // const golfs = useGolfsData()
@@ -24,7 +25,7 @@ const index = () => {
     axios.get(`${Constants.baseURL}/golfs`).then((response) => {
       setGolfs(response?.data);
     });
-  }, [selectedLocation, selectedDate, selectedTypeFilter]);
+  }, [selectedLocation, selectedDate, selectedTypeFilter, selectedPriceFilter]);
   
 
   if (!golfs) return null;
@@ -52,16 +53,12 @@ const index = () => {
 
   const handleTypeFilter = (selectedTypeFilter) => {
 
-    console.log("golfs", golfs?.data);
-
     if (selectedTypeFilter > 0) {
       const filterByType = golfs?.data.filter(
         (golf) => golf.activity_type == selectedTypeFilter
       );
       setGolfs({ data: filterByType });
-      console.log("selectedTypeFilter", selectedTypeFilter);
     } else {
-      console.log("selectedTypeFilter", selectedTypeFilter);
       axios.get(`${Constants.baseURL}/golfs`).then((response) => {
         setGolfs(response?.data);
       });
@@ -72,32 +69,26 @@ const index = () => {
   const handleHolesFilter = (selectedFilter) => {
 
     setSelectedHolesFilter(selectedFilter);
-    console.log("selected Type Filter", selectedFilter);
-    console.log("golfs", golfs?.data);
 
     if (selectedFilter == 1) {
-      console.log("One", selectedFilter)
       const filterByType = golfs?.data.filter(
         (golf) => golf.minimum_duration.includes("9")
       );
       setGolfs({ data: filterByType });
     } 
     if (selectedFilter == 2) {
-      console.log("Two", selectedFilter)
       const filterByType = golfs?.data.filter(
         (golf) => golf.minimum_duration.includes("18")
       );
       setGolfs({ data: filterByType });
     }
     if (selectedFilter == 3) {
-      console.log("Three", selectedFilter)
       const filterByType = golfs?.data.filter(
         (golf) => golf.minimum_duration.includes("27")
       );
       setGolfs({ data: filterByType });
     }
     if (selectedFilter == 0) {
-      console.log("selectedFilter", selectedFilter);
       axios.get(`${Constants.baseURL}/golfs`).then((response) => {
         setGolfs(response?.data);
       });
@@ -105,6 +96,17 @@ const index = () => {
     }
   };
 
+  const handlePriceChange = (priceFilter) => {
+    
+    const filteredGolfs = golfs.data.filter(
+      (golf) => golf.price <= priceFilter.max && golf.price >= priceFilter.min
+    );  
+    if (filteredGolfs.length > 0) {     
+      setGolfs({ data: filteredGolfs });
+      setSelectedPriceFilter(priceFilter);
+    } 
+  };
+  
   return (
     <>
       {/* End Page Title */}
@@ -126,6 +128,7 @@ const index = () => {
                     onLocationSearch={handleLocationFilter} 
                     onTypeCheckedFilter={handleTypeFilter}
                     onHoleCheckedFilter={handleHolesFilter}
+                    onPriceChange={handlePriceChange}
                     />
               </aside>
               {/* End sidebar for desktop */}
@@ -156,6 +159,7 @@ const index = () => {
                     onLocationSearch={handleLocationFilter} 
                     onTypeCheckedFilter={handleTypeFilter}
                     onHoleCheckedFilter={handleHolesFilter}
+                    onPriceChange={handlePriceChange}
                     />
                   </aside>
                 </div>

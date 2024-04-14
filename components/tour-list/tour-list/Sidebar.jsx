@@ -29,7 +29,6 @@ const Sidebar = ({tours, onSearch, onDateSearch, onLocationSearch, onTypeChecked
   }
 
   const handleTypeFilter = (selectedTypeFilter) => {
-    console.log("selectedTypeFilter", selectedTypeFilter);
     onTypeCheckedFilter(selectedTypeFilter);
   };
 

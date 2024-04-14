@@ -92,8 +92,6 @@ const ImagesTabContent = (category) => {
 
   const handleSelect = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log("Selected Option", selectedOption)
-    // You can perform any additional actions based on the selected option here
   };
 
   return (

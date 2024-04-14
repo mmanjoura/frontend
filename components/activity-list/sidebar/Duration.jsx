@@ -31,14 +31,8 @@ const Duration = ({activities, onDurationCheckedFilter}) => {
     { id: 2, label: "1 to 4 hours", count: categorizedDurations.oneToFourHours },
     { id: 3, label: "4 hours to 1 day", count: categorizedDurations.fourHoursToOneDay },
   ];
-  
-  console.log(checkboxes);
-  
-  // Create an array of minimum_duration from activities data
 
-
-  
-  const handleActivitiesDurationFilter = (event, id) => {
+  const handleDurationFilter = (event, id) => {
     if (event.target.checked) {
       onDurationCheckedFilter(id);
     }
@@ -56,7 +50,7 @@ const Duration = ({activities, onDurationCheckedFilter}) => {
         >
           <div className="col-auto">
             <div className="form-checkbox d-flex items-center">
-            <input type="checkbox" onChange={(event) => handleActivitiesDurationFilter(event, checkbox?.id)}  />
+            <input type="checkbox" onChange={(event) => handleDurationFilter(event, checkbox?.id)}  />
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>

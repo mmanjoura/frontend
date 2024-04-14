@@ -31,9 +31,6 @@ const TourContent = () => {
 
   // // Get data for dropdown
   const contentTypes = useContentTypes();
-  console.log("Activity Types", contentTypes)
-
-
 
   const submit = async (e) => {
     e.preventDefault();
@@ -81,8 +78,6 @@ const TourContent = () => {
   const handleSelect = (value) => {
     setSelectedOption(value);
     setTourType(value);
-    console.log("Selected Option", value);
-    // You can perform any additional actions based on the selected option here
   };
   return (
     <form id="SubmitForm" className="row y-gap-20" onSubmit={submit}>

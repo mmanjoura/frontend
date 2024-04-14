@@ -12,7 +12,6 @@ const BookingTable = () => {
   const tours = useToursData();
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
   if (!tours) return null;
-  console.log("Home Page Tours Data: ", tours);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
@@ -30,8 +29,6 @@ const BookingTable = () => {
       });
   
       if (response.ok) {
-        // Handle successful deletion (update local state, show a success message, etc.)
-        console.log('Product deleted successfully');
         window.location.reload();
       } else {
         // Handle deletion failure (show an error message, etc.)

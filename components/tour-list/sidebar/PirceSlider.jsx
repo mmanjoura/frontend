@@ -11,8 +11,6 @@ const PirceSlider = () => {
 
   const handleOnChange = (value) => {
     setPrice({ value });
-
-    console.log("price", value);
   };
 
   return (

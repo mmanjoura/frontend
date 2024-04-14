@@ -9,14 +9,11 @@ const IterneraryTabContent = ({params, category}) => {
   const [selectedOption, setSelectedOption] = useState('');
   const [title, setTitle] = useState("");
   const { push } = useRouter();
-
-  console.log("category:", category)
  
     // Get data for dropdown
     
   const tours = useToursData();
   if (!tours) return null;
-  console.log("Home Page Tours Data: ", tours);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -34,14 +31,10 @@ const IterneraryTabContent = ({params, category}) => {
     });
 
     const body = await res.json();
-    console.log("datas:", body)
-    // setRedirect(true);
   };
 
   const handleSelect = (value) => {
     setSelectedOption(value);
-    console.log("Selected Option", value)
-    // You can perform any additional actions based on the selected option here
   };
 
   return (

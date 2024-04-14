@@ -27,12 +27,6 @@ const index = ({activity}) => {
 
   };
 
-  console.log("Start Date", selectedDates[0]?.format("DD-MM-YYYY"));
-  console.log("End Date", selectedDates[1]?.format("DD-MM-YYYY"));
-
-  console.log("Selected Guess", selectedGuests);
-
-
   const Submit = async (e) => {
     e.preventDefault();
     setLoading(true);

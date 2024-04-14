@@ -40,7 +40,6 @@ const TourContent = ({params}) => {
   }
     // // Get data for dropdown
     const tourTypes = useContentTypes();
-    console.log("Tour types", tourTypes)
 
     useEffect(() => {
       // Fetch user data from the API when the component mounts
@@ -90,7 +89,6 @@ const TourContent = ({params}) => {
     });
 
     const body = await res.json();
-    console.log("data:", body)
     setTimeout(() => {
       setLoading(false);
     }
@@ -109,8 +107,6 @@ const TourContent = ({params}) => {
 
   const handleSelect = (value) => {
     setSelectedOption(value);
-    console.log("Selected Option", value)
-    // You can perform any additional actions based on the selected option here
   };
   return (
     <form className="row y-gap-20" onSubmit={submit}>

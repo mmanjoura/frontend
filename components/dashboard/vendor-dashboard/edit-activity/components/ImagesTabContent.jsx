@@ -17,7 +17,6 @@ const ImagesTabContent = (imageType) => {
 
   // Get data for dropdown
   const activities = useActivitiesData();
-  console.log("activities: ", activities);
 
   const handleFileChange = (event) => {
 
@@ -91,8 +90,6 @@ const ImagesTabContent = (imageType) => {
 
   const handleSelect = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log("Selected Option", selectedOption)
-    // You can perform any additional actions based on the selected option here
   };
 
   return (

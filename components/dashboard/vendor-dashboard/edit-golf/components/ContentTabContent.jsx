@@ -1,6 +1,5 @@
 import GolfContent from "./content/GolfContent";
 const ContentTabContent = ({params}) => {
-  console.log("Param: ", params.id);
 
   return (
     <>

@@ -54,33 +54,40 @@ const handleTypeFilter = (selectedTypeFilter) => {
       (tour) => tour.activity_type == selectedTypeFilter
     );
     setTours({ data: filterByType });
-    console.log("selectedTypeFilter", selectedTypeFilter);
   } else {
-    console.log("selectedTypeFilter", selectedTypeFilter);
     axios.get(`${Constants.baseURL}/tours`).then((response) => {
       setTours(response?.data);
     });
   }
 };
+const handleDurationFilter = (selectedFilter) => {
 
-const handleDurationFilter = (selectedDurationFilter) => {
-
-  // setSelectedDurationFilter(selectedDurationFilter);
-  if (selectedDurationFilter > 0) {
-    const filterByDuration = tours?.data.filter(
-      (tour) => tour.minimum_duration == selectedDurationFilter
+  if (selectedFilter == 1) {
+    const filterByType = tours?.data.filter(
+      (tour) => tour?.minimum_duration <= 1
+   
     );
-    setTours({ data: filterByDuration });
-    console.log("selecte dDuration Filter", selectedDurationFilter);
-  } else {
-    console.log("selected Duration Filter", selectedDurationFilter);
+    setTours({ data: filterByType });  
+  } 
+  if (selectedFilter == 2) {
+    const filterByType = tours?.data.filter(
+      (tour) => tour?.minimum_duration <= 4
+    );
+    setTours({ data: filterByType });
+  }
+  if (selectedFilter == 3) {
+    const filterByType = tours?.data.filter(
+      (tour) => tour?.minimum_duration > 4
+    );
+    setTours({ data: filterByType });
+ 
+  }
+  if (selectedFilter == 0) {
     axios.get(`${Constants.baseURL}/tours`).then((response) => {
       setTours(response?.data);
     });
-  }
 };
-
-
+};
   return (
     <>
       {/* End Page Title */}

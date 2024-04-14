@@ -14,10 +14,6 @@ const ImagesTabContent = (imageType) => {
 
   const tours = useToursData();
   if (!tours) return null;
-  console.log("Home Page Tours Data: ", tours);
-
-  // Get data for dropdown
-  // const tours = getAll();
 
   const handleFileChange = (event) => {
 
@@ -84,8 +80,7 @@ const ImagesTabContent = (imageType) => {
 
   const handleSelect = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log("Selected Option", selectedOption)
-    // You can perform any additional actions based on the selected option here
+
   };
   return (
     <>

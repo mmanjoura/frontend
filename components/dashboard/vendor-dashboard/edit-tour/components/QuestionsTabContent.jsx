@@ -14,7 +14,6 @@ const QuestionsTabContent = ({params, category}) => {
     // Get data for dropdown
     const tours = useToursData();
     if (!tours) return null;
-    console.log("Home Page Tours Data: ", tours);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -33,7 +32,6 @@ const QuestionsTabContent = ({params, category}) => {
     });
 
     const body = await res.json();
-    console.log("datas:", body)
     setTimeout(() => {
       setLoading(false);
       document.getElementById("SubmitForm").reset();
@@ -43,8 +41,6 @@ const QuestionsTabContent = ({params, category}) => {
 
   const handleSelect = (value) => {
     setSelectedOption(value);
-    console.log("Selected Option", value)
-    // You can perform any additional actions based on the selected option here
   };
 
   return (

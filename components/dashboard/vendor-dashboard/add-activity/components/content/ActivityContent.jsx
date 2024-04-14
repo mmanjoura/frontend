@@ -33,15 +33,11 @@ const ActivityContent = () => {
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
   const activityTypes = useContentTypes();
-  console.log("Activity Types", activityTypes)
     const userInfo = GetUserInfo();
-  console.log("userInfo", userInfo);
 
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    console.log("loading before", loading);
 
     const res = await fetch(baseURL + '/activities', {
       method: "POST",
@@ -89,8 +85,6 @@ const ActivityContent = () => {
   const handleSelect = (value) => {
     setSelectedOption(value);
     setActivityType(value);
-    console.log("Selected Option", value);
-    // You can perform any additional actions based on the selected option here
   };
 
   return (

@@ -1,6 +1,5 @@
 import TourContent from "./content/TourContent";
 const ContentTabContent = ({params}) => {
-  console.log("Paramsss: ", params.id);
 
   return (
     <>

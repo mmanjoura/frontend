@@ -12,7 +12,6 @@ const QuestionsTabContent = () => {
   const [loading, setLoading] = useState(false);
 
     const golfs = useGolfsData();
-    console.log("golfs", golfs)
   
     const submit = async (e) => {
       e.preventDefault();
@@ -42,8 +41,6 @@ const QuestionsTabContent = () => {
    
     const handleSelect = (selectedOption) => {
       setSelectedOption(selectedOption);
-      console.log("Selected Option", selectedOption);
-      // You can perform any additional actions based on the selected option here
     };
 
   return (

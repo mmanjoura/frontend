@@ -12,7 +12,6 @@ const BookingTable = () => {
   const golfs = useGolfsData();
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
   if (!golfs) return null;
-  console.log("Home Page golfs Data: ", golfs);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
@@ -30,8 +29,6 @@ const BookingTable = () => {
       });
   
       if (response.ok) {
-        // Handle successful deletion (update local state, show a success message, etc.)
-        console.log('Product deleted successfully');
         window.location.reload();
       } else {
         // Handle deletion failure (show an error message, etc.)

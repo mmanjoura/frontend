@@ -20,8 +20,6 @@ const GofSingleV1Dynamic = ({ params }) => {
   const id = params.id;
   const golfsData = useGolfsData();
   if (!golfsData) return null;
-
-  console.log("Activities on Activity-single page: ", golfsData);
   const golf = golfsData?.data.find((item) => item.id == id);
 
   return (

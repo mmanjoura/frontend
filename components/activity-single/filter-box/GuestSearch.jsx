@@ -71,10 +71,6 @@ const GuestSearch = ({ onGuestChange }) => {
     onGuestChange(guestCounts);
   };
 
-  // const handleGuestChange = (guests) => {
-  //   setGuestCounts(guests);
-  //   console.log("Selected Guests", guests);
-  // }
   return (
     <div className="searchMenu-guests px-20 py-10 border-light rounded-4 js-form-dd js-form-counters">
       <div

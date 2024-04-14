@@ -4,13 +4,14 @@
 import { useState } from "react";
 import InputRange from "react-input-range";
 
-const PirceSlider = () => {
+const PirceSlider = ({onPriceChange}) => {
   const [price, setPrice] = useState({
     value: { min: 0, max: 500 },
   });
 
-  const handleOnChange = (value) => {
+  const handlePriceChange = (value) => {
     setPrice({ value });
+    onPriceChange(value);
   };
 
   return (
@@ -28,9 +29,9 @@ const PirceSlider = () => {
         <InputRange
           formatLabel={(value) => ``}
           minValue={0}
-          maxValue={2000}
+          maxValue={1000}
           value={price.value}
-          onChange={(value) => handleOnChange(value)}
+          onChange={(value) => handlePriceChange(value)}
         />
       </div>
     </div>

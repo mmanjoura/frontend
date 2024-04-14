@@ -14,7 +14,6 @@ const QuestionsTabContent = () => {
 
   const router = useRouter();
   const tours = useToursData();
-  console.log("Tours", tours)
 
   const submit = async (e) => {
     e.preventDefault();
@@ -49,8 +48,6 @@ const QuestionsTabContent = () => {
 
   const handleSelect = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log('Selected Option', selectedOption);
-    // Additional actions based on the selected option can be performed here
   };
 
   return (

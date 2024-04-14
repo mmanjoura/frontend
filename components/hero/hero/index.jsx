@@ -19,9 +19,20 @@ const index = () => {
               prevEl: ".hero4-prev-active",
             }}
           >
-            <SwiperSlide>
+            {/* Add 3 Images into the SwiperSlide */}
+            <SwiperSlide>              
               <div className="masthead__image">
-                <img alt="image" src="/img/masthead/4/assoufid-4-panorama.webp" />
+                <img alt="image" src="/img/masthead/4/marrakech_0.webp" />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>              
+              <div className="masthead__image">
+                <img alt="image" src="/img/masthead/4/marrakech-1.jpg" />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>              
+              <div className="masthead__image">
+                <img alt="image" src="/img/masthead/4/marrkech_2.webp" />
               </div>
             </SwiperSlide>
           </Swiper>
@@ -69,6 +80,7 @@ const index = () => {
         </div>
         {/* End next navigation */}
       </section>
+    
       {/* End section */}
     </>
   );

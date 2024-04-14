@@ -7,11 +7,18 @@ import PopularAttractions from "../sidebar/PopularAttractions";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import { useState } from "react";
 
-const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCheckedFilter, onDurationCheckedFilter}) => {
+const Sidebar = ({  activities, 
+                    onSearch, 
+                    onDateSearch, 
+                    onLocationSearch, 
+                    onTypeCheckedFilter, 
+                    onDurationCheckedFilter,
+                    onPriceChange}) => {
 
   const [selectedDate, setSelectedDate] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedDurationFilter, setSelectedDurationFilter] = useState("");
+  const [selectedPriceFilter, setSelectedPriceFilter] = useState("");
 
   const handleDateFilter = (date) => {
 
@@ -33,8 +40,13 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCh
       onTypeCheckedFilter(selectedTypeFilter);
   };
 
-  const handleActivitiesDurationFilter = (selectedDurationFilter) => {
+  const handleDurationFilter = (selectedDurationFilter) => {
     onDurationCheckedFilter(selectedDurationFilter);
+  }
+
+  const handlePriceChange = (priceFilter) => {
+    setSelectedPriceFilter(priceFilter);
+    onPriceChange(priceFilter);
   }
   
   
@@ -68,7 +80,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCh
         <h5 className="text-18 fw-500 mb-10">Price</h5>
         <div className="row x-gap-10 y-gap-30">
           <div className="col-12">
-            <PirceSlider />
+            <PirceSlider activities = {activities} onPriceChange = {handlePriceChange}/>
           </div>
         </div>
       </div>
@@ -77,7 +89,7 @@ const Sidebar = ({activities, onSearch, onDateSearch, onLocationSearch, onTypeCh
       <div className="sidebar__item">
         <h5 className="text-18 fw-500 mb-10">Duration</h5>
         <div className="sidebar-checkbox">
-          <Duration activities = {activities} onDurationCheckedFilter = {handleActivitiesDurationFilter}/>
+          <Duration activities = {activities} onDurationCheckedFilter = {handleDurationFilter}/>
         </div>
       </div>
       {/* End style filter */}
