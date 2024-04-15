@@ -6,7 +6,6 @@ import Overview from "@/components/activity-single/Overview";
 import TourSnapShot from "@/components/activity-single/TourSnapShot";
 import TopBreadCrumb from "@/components/activity-single/TopBreadCrumb";
 import ReplyForm from "@/components/reply-form/ReplyForm";
-// import ReplyFormReview2 from "@/components/activity-single/ReplyFormReview2";
 import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
 import Tours from "@/components/tours/Tours";
@@ -17,6 +16,7 @@ import SlideGallery from "@/components/activity-single/SlideGallery";
 import { useActivitiesData } from "@/data/activities-data";
 import Itinerary from "@/components/activity-single/itinerary";
 import SidebarRight from "@/components/activity-single/SidebarRight";
+
 
 
 

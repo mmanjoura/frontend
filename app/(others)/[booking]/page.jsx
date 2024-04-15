@@ -1,16 +1,10 @@
-
 import dynamic from "next/dynamic";
 import CallToActions from "@/components/common/CallToActions";
 import ProductHeader from "@/components/header/product-header";
 import DefaultFooter from "@/components/footer/default";
-import WhyChoose from "@/components/block/BlockGuide";
 import Booking from "@/components/booking/page";
-import Image from "next/image";
-import Counter from "@/components/counter/Counter";
-import Team1 from "@/components/team/Team1";
-import Testimonial from "@/components/testimonial/Testimonial";
-import Counter2 from "@/components/counter/Counter2";
-import Brand from "@/components/brand/Brand";
+
+
 
 export const metadata = {
   title: "Niya Voyage - Activities, Tours, Golf in Morocco",

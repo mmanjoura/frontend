@@ -12,8 +12,10 @@ export const useActivitiesData = () => {
   React.useEffect(() => {
     axios.get(`${Constants.baseURL}/activities`).then((response) => {
       setActivities(response.data);
+
     });
   }, []);
+  ;
   return activities;
 }
 

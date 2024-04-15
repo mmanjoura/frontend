@@ -4,13 +4,40 @@ import React, { useState } from "react";
 import CustomerInfo from "@/components/booking-page/CustomerInfo";
 import PaymentInfo from "@/components/booking-page/PaymentInfo";
 import OrderSubmittedInfo from "@/components/booking-page/OrderSubmittedInfo";
-
-
+import { useSearchParams } from  "next/navigation";
+import { useActivityData } from "@/data/activities-data";
 
 
 const Index = () => {
+  const search_params = useSearchParams();
+
+  const [bookingData, setBookingData] = useState({
+    product_id: null,
+    start_date: null,
+    end_date: null,
+    num_adult: null,
+    num_children: null
+  });
+
+  bookingData.product_id = search_params.get('product_id');
+  bookingData.start_date = search_params.get('start_date');
+  bookingData.end_date = search_params.get('end_date');
+  bookingData.num_adult = search_params.get('num_adult');
+  bookingData.num_children = search_params.get('num_children');
+
+
+
+
+
 
   const [currentStep, setCurrentStep] = useState(0);
+
+  const activity = useActivityData(search_params.get('product_id'));
+
+  console.log("Activity Data: ", activity);
+
+
+
   const steps = [
     {
       title: "Personal Details",
@@ -22,7 +49,7 @@ const Index = () => {
           </div>
         </>
       ),
-      content: <CustomerInfo />,
+      content: <CustomerInfo activity = {activity} bookingData = {bookingData}/>,
     },
     {
       title: "Payment Details",

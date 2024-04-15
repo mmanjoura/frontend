@@ -1,7 +1,7 @@
 import Link from "next/link";
 import BookingDetails from "./sidebar/BookingDetails";
 
-const CustomerInfo = () => {
+const CustomerInfo = ({activity, bookingData}) => {
   return (
     <>
       <div className="col-xl-7 col-lg-8 mt-30">
@@ -112,7 +112,7 @@ const CustomerInfo = () => {
 
       <div className="col-xl-5 col-lg-4 mt-30">
         <div className="booking-sidebar">
-          <BookingDetails />
+          <BookingDetails activity = {activity} bookingData = {bookingData}/>
         </div>
       </div>
       {/*  */}

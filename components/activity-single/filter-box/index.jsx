@@ -19,18 +19,21 @@ const index = ({activity}) => {
 
   const handleDateChange = (dates) => {
     setSelectedDates(dates);
+    console.log(dates[0]?.format("DD-MM-YYYY"));
+    console.log(dates[1]?.format("DD-MM-YYYY"));
 
   };
 
-  const handleGuestChange = (guests) => {
+  const handleCounterChange = (guests) => {
     setSelectedGuests(guests);
+    console.log(guests);
 
   };
 
-  const Submit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const res = await fetch(baseURL + `/bookings?product_id=${activity?.id}&start_date=${selectedDates[0]?.format("DD-MM-YYYY")}&end_date=${selectedDates[1]?.format("DD-MM-YYYY")}&num_adult=${selectedGuests.Adults}&num_children=${selectedGuests.Children}`, {
+    const res = await fetch(baseURL + `/booking?product_id=${activity?.id}&start_date=${selectedDates[0]?.format("DD-MM-YYYY")}&end_date=${selectedDates[1]?.format("DD-MM-YYYY")}&num_adult=${selectedGuests.Adults}&num_children=${selectedGuests.Children}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,51 +46,49 @@ const index = ({activity}) => {
       }),
     });
     const data = await res.json();
+    console.log("Response Data: ", data);
     setLoading(false);
-    push('/booking?productType=activity&productId=' + activity?.id);
+
+     push(`/booking?product_id=${activity?.id}&start_date=${selectedDates[0]?.format("DD-MM-YYYY")}&end_date=${selectedDates[1]?.format("DD-MM-YYYY")}&num_adult=${selectedGuests.Adults}&num_children=${selectedGuests.Children}`);
   
    
   };
 
+  
+
   return (
     <>
-      <form onSubmit={Submit}>
-      {loading && <p>Loading...</p>}
-      <div className="col-12">
-        <div className="searchMenu-date px-20 py-10 border-light rounded-4 -right js-form-dd js-calendar">
-          <div>
-            <h4 className="text-15 fw-500 ls-2 lh-16">Date</h4>
-            <DateSearch onDateChange={handleDateChange}/>
-          </div>
+
+    <div className="col-12">
+      <div className="searchMenu-date px-20 py-10 border-light rounded-4 -right js-form-dd js-calendar">
+        <div>
+          <h4 className="text-15 fw-500 ls-2 lh-16">Date</h4>
+          <DateSearch onDateChange={handleDateChange}/>
         </div>
-        {/* End check-in-out */}
       </div>
-      {/* End .col-12 */}
+      {/* End check-in-out */}
+    </div>
+    {/* End .col-12 */}
 
-      <div className="col-12">
-        <GuestSearch onGuestChange={handleGuestChange} />
-        {/* End guest */}
-      </div>
-      {/* End .col-12 */}
+    <div className="col-12">
+    <GuestSearch onGuestChange={handleCounterChange} />
+      {/* End guest */}
+    </div>
+    {/* End .col-12 */}
 
-      <div className="col-12">
-        {/* <Link             
-          href={`/booking/${activity?.id}`}
-          // Add query string to the URL
-          as={`/booking?id=${activity?.id}?start_date=${selectedDates[0]?.format("DD-MM-YYYY")}&end_date=${selectedDates[1]?.format("DD-MM-YYYY")}&guests=${JSON.stringify(selectedGuests)}`}
-          className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white"
-        >
-          Book Now
-        </Link> */}
-        <button
-          className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white"
-          onClick={Submit}
-        >
-        </button>
-      </div>
-      </form>
-      {/* End .col-12 */}
-    </>
+    <div className="col-12">
+      <button type="submit" onClick={handleSubmit} className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
+      <Link
+        href="/activity-single/4"
+        className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white"
+      >
+        Book Now
+      </Link>
+      </button>
+    </div>
+    {/* End .col-12 */}
+
+  </>
   );
 };
 
