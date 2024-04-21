@@ -6,14 +6,16 @@ import { useRouter } from 'next/navigation';
 import ProtectAdminRoute from "../../../../../utils/ProtectAdminRoute";
 
 const page = ({params}) => {
-  const isAdmin = ProtectAdminRoute();
+  const token = ProtectAdminRoute();
 
-  return isAdmin ? (
+  return token ? (
     <>
       <DashboardPage params = {params} />
     </>
   ) : null;
 }
+
+
 
 export default dynamic(() => Promise.resolve(page), {
   ssr: false,

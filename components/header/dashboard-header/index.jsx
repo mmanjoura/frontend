@@ -1,19 +1,19 @@
 
 'use client'
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MainMenu from "../MainMenu";
+import CurrenctyMegaMenu from "../CurrenctyMegaMenu";
+import LanguageMegaMenu from "../LanguageMegaMenu";
+
 import MobileMenu from "../MobileMenu";
 
-const HeaderDashBoard = () => {
+const Header1 = () => {
   const [navbar, setNavbar] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  const [toggle, setToggle] = useState(false);
+  const token = process.env.NEXT_PUBLIC_JWT;
+  
 
   const changeBackground = () => {
     if (window.scrollY >= 10) {
@@ -25,108 +25,128 @@ const HeaderDashBoard = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", changeBackground);
-    const body = document.querySelector("body");
-    if (isOpen) {
-      body.classList.add("-is-sidebar-open");
-    } else {
-      body.classList.remove("-is-sidebar-open");
+    if (window.localStorage.getItem('token') === token) {
+      setToggle(true);
     }
-  }, [isOpen]);
+    return () => {
+      window.removeEventListener("scroll", changeBackground);
+    };
+  }, []);
 
   return (
     <>
-      <header
-        className={`header -dashboard ${navbar ? "is-sticky bg-white" : ""}`}
-      >
+      <header className={`header bg-white ${navbar ? "is-sticky" : ""}`}>
         <div className="header__container px-30 sm:px-20">
-          <div className="-left-side">
-            <Link href="/" className="header-logo">
-              <img src="/img/general/logo.png" alt="logo icon" />
-            </Link>
-            {/* End logo */}
-          </div>
-          {/* End _left-side */}
-
-          <div className="row justify-between items-center pl-60 lg:pl-20">
+          <div className="row justify-between items-center">
             <div className="col-auto">
               <div className="d-flex items-center">
-                <button className="d-flex" onClick={handleToggle}>
-                  <i className="icon-menu-2 text-20"></i>
-                </button>
+                <Link href="/" className="header-logo mr-20">
+                  <img src="/img/general/logo.png" alt="logo icon" />
+                  <img src="/img/general/logo.png" alt="logo icon" />
+                </Link>
+                {/* End logo */}
 
-                <div className="single-field relative d-flex items-center md:d-none ml-30">
-                  <input
-                    className="pl-50 border-light text-dark-1 h-50 rounded-8"
-                    type="email"
-                    placeholder="Search"
-                  />
-                  <button className="absolute d-flex items-center h-full">
-                    <i className="icon-search text-20 px-15 text-dark-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            {/* End .col-auto */}
-
-            <div className="col-auto">
-              <div className="d-flex items-center">
                 <div className="header-menu">
                   <div className="header-menu__content">
                     <MainMenu style="text-dark-1" />
                   </div>
                 </div>
                 {/* End header-menu */}
+              </div>
+              {/* End d-flex */}
+            </div>
+            {/* End col */}
 
-                <div className="row items-center x-gap-5 y-gap-20 pl-20 lg:d-none">
+            <div className="col-auto">
+              <div className="d-flex items-center">
+                <div className="row x-gap-20 items-center xxl:d-none">
+                  <CurrenctyMegaMenu textClass="text-dark-1" />
+                  {/* End Megamenu for Currencty */}
+
+                  {/* Start vertical devider*/}
                   <div className="col-auto">
-                    <button className="button -blue-1-05 size-50 rounded-22 flex-center">
-                      <i className="icon-email-2 text-20"></i>
-                    </button>
+                    <div className="w-1 h-20 bg-white-20" />
                   </div>
-                  {/* End col-auto */}
+                  {/* End vertical devider*/}
 
-                  <div className="col-auto">
-                    <button className="button -blue-1-05 size-50 rounded-22 flex-center">
-                      <i className="icon-notification text-20"></i>
-                    </button>
+                  <LanguageMegaMenu textClass="text-dark-1" />
+                  {/* End Megamenu for Language */}
+                </div>
+                {/* End language and currency selector */}
+
+                {/* Start btn-group */}
+                <div className="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
+                  {/* <Link
+                    href="/login"
+                    className="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white"
+                  >
+                    Become An Expert
+                  </Link> */}
+                       {toggle ? (
+                    <>
+                      <Link
+                        href="/vendor-dashboard/tours"
+                        className="button px-30 fw-400 text-14 -outline-blue-1 h-50 text-blue-1 ml-20"
+                      >
+                        DashBoard
+                      </Link>
+                      {/* Can you add some space betwee these 2 links */}
+                      <span style={{ padding: '10px' }}> </span>
+
+                      <Link
+                      onClick={() => {
+                        window.localStorage.removeItem('token');
+                        window.location.reload();}}
+                        href="/"
+                        className="button px-30 fw-400 text-14 -outline-blue-1 h-50 text-blue-1 ml-20"
+                      >
+                        Logout
+                   
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        href="/login"
+                        className="button px-30 fw-400 text-14 border-white -outline-white h-50 text-white ml-20"
+                      >
+                        Sign In / Register
+                      </Link>
+                    </>
+                  )}
+                </div>
+                {/* End btn-group */}
+
+                {/* Start mobile menu icon */}
+                <div className="d-none xl:d-flex x-gap-20 items-center pl-30 text-dark-1">
+                  <div>
+                    <Link
+                      href="/login"
+                      className="d-flex items-center icon-user text-inherit text-22"
+                    />
                   </div>
-                  {/* End col-auto */}
-                </div>
-                {/* End .row */}
-
-                <div className="pl-15">
-                  <Image
-                    width={50}
-                    height={50}
-                    src="/img/avatars/3.png"
-                    alt="image"
-                    className="size-50 rounded-22 object-cover"
-                  />
-                </div>
-
-                <div className="d-none xl:d-flex x-gap-20 items-center pl-20">
                   <div>
                     <button
-                      className="d-flex items-center icon-menu text-20"
+                      className="d-flex items-center icon-menu text-inherit text-20"
                       data-bs-toggle="offcanvas"
                       aria-controls="mobile-sidebar_menu"
                       data-bs-target="#mobile-sidebar_menu"
-                    ></button>
-                  </div>
+                    />
 
-                  <div
-                    className="offcanvas offcanvas-start  mobile_menu-contnet "
-                    tabIndex="-1"
-                    id="mobile-sidebar_menu"
-                    aria-labelledby="offcanvasMenuLabel"
-                    data-bs-scroll="true"
-                  >
-                    <MobileMenu />
-                    {/* End MobileMenu */}
+                    <div
+                      className="offcanvas offcanvas-start  mobile_menu-contnet"
+                      tabIndex="-1"
+                      id="mobile-sidebar_menu"
+                      aria-labelledby="offcanvasMenuLabel"
+                      data-bs-scroll="true"
+                    >
+                      <MobileMenu />
+                      {/* End MobileMenu */}
+                    </div>
                   </div>
                 </div>
+                {/* End mobile menu icon */}
               </div>
-              {/* End -flex items-center */}
             </div>
             {/* End col-auto */}
           </div>
@@ -134,9 +154,8 @@ const HeaderDashBoard = () => {
         </div>
         {/* End header_container */}
       </header>
-      {/* End header */}
     </>
   );
 };
 
-export default HeaderDashBoard;
+export default Header1;

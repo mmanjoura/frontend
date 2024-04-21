@@ -31,8 +31,11 @@ const Sidebar = () => {
   };
   
   const clearLocalStorage = () => {
-    window.localStorage.removeItem('firstName');
-    window.localStorage.removeItem('isAdmin');
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('user_id');
+    window.localStorage.removeItem('first_name');
+    window.localStorage.removeItem('last_name');
+    window.localStorage.removeItem('user_email');
   };
   
   const redirectToLoginPage = () => {

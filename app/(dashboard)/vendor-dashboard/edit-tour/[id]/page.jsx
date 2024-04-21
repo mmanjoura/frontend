@@ -7,9 +7,9 @@ import ProtectAdminRoute from "../../../../../utils/ProtectAdminRoute";
 
 const page = ({params}) => {
 
-  const isAdmin = ProtectAdminRoute();
+  const token = ProtectAdminRoute();
 
-  return isAdmin ? (
+  return token ? (
     <>
       <DashboardPage params = {params} />
     </>

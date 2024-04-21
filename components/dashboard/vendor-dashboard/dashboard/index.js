@@ -14,23 +14,21 @@ import { useEffect } from "react";
 const index = () => {
 
   const router = useRouter();
+  const token = process.env.NEXT_PUBLIC_JWT;
 
   useEffect(() => {
     const checkAdminStatus = () => {
       
       try {
-        const isAdmin = window.localStorage.getItem('isAdmin') === '1';
-        if (!isAdmin) {
+        if (!window.localStorage.getItem('token') === token) {
+     
           router.push('/login');
         }
       } catch (error) {
-        console.error("Error checking admin status:", error);
+        console.error('Error during login:', error);
       }
     };
-
-    checkAdminStatus(); // Call the function to check admin status
-
-    // Note: Avoid directly updating router state here
+    checkAdminStatus();
   }, [router]); 
 
   return (

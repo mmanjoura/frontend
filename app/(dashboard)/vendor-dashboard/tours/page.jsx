@@ -3,12 +3,13 @@ import React from "react";
 import DashboardPage from "../../../../components/dashboard/vendor-dashboard/tours";
 import ProtectAdminRoute from "@/utils/ProtectAdminRoute";
 
-
 export default function page() {
-  const isAdmin = ProtectAdminRoute();
+  const token = ProtectAdminRoute();
   return (
-    <>
-      <DashboardPage />
-    </>
+    token ? (
+      <>
+        <DashboardPage />
+      </>
+    ) : null
   );
 }

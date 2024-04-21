@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation';
 import ProtectAdminRoute from "../../../../../utils/ProtectAdminRoute";
 
 const page = ({params}) => {
-  const isAdmin = ProtectAdminRoute();
-  return isAdmin ? (
+  const token = ProtectAdminRoute();
+  return token ? (
     <>
       <DashboardPage params = {params} />
     </>

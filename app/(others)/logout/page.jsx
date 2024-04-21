@@ -26,7 +26,7 @@ export const metadata = {
     Travel differently, Discover the authentic Morocco, Create your tailor-made trip, Your travel partner in Morocco, Let our experts guide you
     `,
 };
-const LogIn = () => {
+const Logout = () => {
   return (
     <>
       {/* End Page Title */}
@@ -74,4 +74,4 @@ const LogIn = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(LogIn), { ssr: false });
+export default dynamic(() => Promise.resolve(Logout), { ssr: false });

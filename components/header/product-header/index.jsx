@@ -8,9 +8,14 @@ import CurrenctyMegaMenu from "../CurrenctyMegaMenu";
 import LanguageMegaMenu from "../LanguageMegaMenu";
 
 import MobileMenu from "../MobileMenu";
+import { Button } from "bootstrap";
 
 const ProductHeader = () => {
   const [navbar, setNavbar] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const token = process.env.NEXT_PUBLIC_JWT;
+
+
 
   const changeBackground = () => {
     if (window.scrollY >= 10) {
@@ -21,11 +26,15 @@ const ProductHeader = () => {
   };
 
   useEffect(() => {
+    if (window.localStorage.getItem('token') === token) {
+      setToggle(true);
+
+    }
     window.addEventListener("scroll", changeBackground);
     return () => {
       window.removeEventListener("scroll", changeBackground);
     };
-  }, []);
+  }, [toggle]);
 
   return (
     <>
@@ -76,12 +85,40 @@ const ProductHeader = () => {
                   >
                     Become An Expert
                   </Link> */}
-                  <Link
-                    href="/signup"
-                    className="button px-30 fw-400 text-14 border-white -outline-white h-50 text-white ml-20"
-                  >
-                    Sign In / Register
-                  </Link>
+                  {/* I need to show Logout if toggle is set */}
+                  {toggle ? (
+                    <>
+                      <Link
+                        href="/vendor-dashboard/tours"
+                        className="button px-30 fw-400 text-14 -outline-white h-50 text-white ml-20"
+                      >
+                        DashBoard
+                      </Link>
+                      {/* Can you add some space betwee these 2 links */}
+                      <span style={{ padding: '10px' }}> </span>
+
+                      <Link
+                      onClick={() => {
+                        window.localStorage.removeItem('token');
+                        window.location.reload();}}
+                        href="/"
+                        className="button px-30 fw-400 text-14 -outline-white h-50 text-white ml-20"
+                      >
+                        Logout
+                   
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        href="/login"
+                        className="button px-30 fw-400 text-14 border-white -outline-white h-50 text-white ml-20"
+                      >
+                        Sign In / Register
+                      </Link>
+                    </>
+                  )}
+
                 </div>
                 {/* End btn-group */}
 

@@ -6,6 +6,7 @@ import Constants from "../../utils/constants";
 
 const LoginForm = () => {
 
+  const token = process.env.NEXT_PUBLIC_JWT;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
@@ -30,9 +31,13 @@ const LoginForm = () => {
       const body = await res.json();
   
       if (res.status === 200) {
-        window.localStorage.setItem('firstName', JSON.stringify(body.user.firstName));
-        window.localStorage.setItem('isAdmin', JSON.stringify(body.user.isAdmin));
+        window.localStorage.setItem('first_name', JSON.stringify(body.user.firstName));
+        window.localStorage.setItem('last_name', JSON.stringify(body.user.lastName));        
+        window.localStorage.setItem('token', JSON.stringify(body.user.token));
+        window.localStorage.setItem('user_email', JSON.stringify(body.user.email));
+        window.localStorage.setItem('user_id', JSON.stringify(body.user.id));
         setRedirect(true);
+    
       } else {
         console.error(body.message);
       }
@@ -41,17 +46,17 @@ const LoginForm = () => {
 
     }
   };
-  
+
   useEffect(() => {
     if (redirect) {
-      if (window.localStorage.getItem('isAdmin') === '1') {
+      if (window.localStorage.getItem('token') === token) {
         push('/vendor-dashboard/dashboard');
       }else {
         push('/'); 
       }
     
     }
-  }, [redirect, push]);
+  }, [ redirect, push]);
 
   return (
     <form className="row y-gap-20" onSubmit={submit} >

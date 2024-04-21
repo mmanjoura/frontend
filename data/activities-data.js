@@ -16,7 +16,7 @@ export const useActivitiesData = () => {
     });
   }, []);
   ;
-  return activities_data;
+  return activities;
 }
 
 export const useActivityData = (id) => {

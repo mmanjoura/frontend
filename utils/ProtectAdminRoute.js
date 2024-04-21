@@ -5,24 +5,19 @@ const ProtectAdminRoute = () => {
  
   const router = useRouter();
   const { push } = useRouter();
-  let isAdmin = false;
+  const [isAdmin, setIsAdmin] = useState(false);  
+  const token = process.env.NEXT_PUBLIC_JWT;
 
+  useEffect(() => {
+    if (window.localStorage.getItem('token') !== token) {
+      push('/login');
+    } else {
+      setIsAdmin(true);
+    }
+  }, []);
 
-  try {
-    isAdmin = window.localStorage.getItem('isAdmin') === '1';
-    useEffect(() => {
-      if (!isAdmin) {
-        push('/login');
-      }
+  return isAdmin;
 
-    }, [isAdmin, router]);
-  
-    return isAdmin;
-  } catch (error) {
-    // The catch block is optional or can be left empty to ignore the error
-    // If you want to do nothing or just log the error, you can leave it empty
-  }
-  
 };
 
 export default ProtectAdminRoute;
