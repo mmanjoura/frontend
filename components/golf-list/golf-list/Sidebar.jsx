@@ -75,7 +75,7 @@ const Sidebar = ({  golfs,
       {/* End popular filter */}
 
       {/* End Aminities filter */}
-
+{/* 
       <div className="sidebar__item pb-30">
         <h5 className="text-18 fw-500 mb-10">Price</h5>
         <div className="row x-gap-10 y-gap-30">
@@ -83,7 +83,7 @@ const Sidebar = ({  golfs,
             <PirceSlider golfs = {golfs} onPriceChange = {handlePriceChange}/>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End Nightly priceslider */}
 
       <div className="sidebar__item">

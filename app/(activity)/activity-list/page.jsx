@@ -23,7 +23,7 @@ const index = () => {
     axios.get(`${Constants.baseURL}/activities`).then((response) => {
       setActivities(response?.data);
     });
-  }, [selectedLocation, selectedDate, selectedTypeFilter, selectedDurationFilter, selectedPriceFilter]);
+  }, [selectedLocation, selectedDate, selectedTypeFilter, selectedDurationFilter]);
   
   if (!activities) return null;
 
@@ -58,9 +58,8 @@ const index = () => {
       axios.get(`${Constants.baseURL}/activities`).then((response) => {
         setActivities(response?.data);
       });
+
     }
-
-
   };
   const handleDurationFilter = (selectedFilter) => {
 
@@ -96,22 +95,19 @@ const index = () => {
   };
 
   const handlePriceChange = (priceFilter) => {
+    setSelectedPriceFilter(priceFilter);
     const filteredActivities = activities.data.filter(
       (activity) => activity.price <= priceFilter.max && activity.price >= priceFilter.min
     );
-  
-    if (filteredActivities.length > 0) {
-      setActivities((prevActivities) => ({
-        ...prevActivities,
-        data: filteredActivities,
-      }));
-    } else {
-      axios.get(`${Constants.baseURL}/activities`).then((response) => {
-        setActivities(response.data);
-        setSelectedPriceFilter(priceFilter);
-      });
-    }
+
+    setActivities((prevActivities) => ({
+      ...prevActivities,
+      data: filteredActivities,
+    }));
+
   };
+
+
   
 
 
