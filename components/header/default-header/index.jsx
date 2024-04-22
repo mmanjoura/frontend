@@ -13,7 +13,6 @@ const Header1 = () => {
   const [navbar, setNavbar] = useState(false);
   const [toggle, setToggle] = useState(false);
   const token = process.env.NEXT_PUBLIC_JWT;
-  
 
   const changeBackground = () => {
     if (window.scrollY >= 10) {
@@ -24,10 +23,11 @@ const Header1 = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
     if (window.localStorage.getItem('token') === token) {
       setToggle(true);
     }
+  
+    window.addEventListener("scroll", changeBackground);
     return () => {
       window.removeEventListener("scroll", changeBackground);
     };
@@ -35,20 +35,20 @@ const Header1 = () => {
 
   return (
     <>
-      <header className={`header bg-white ${navbar ? "is-sticky" : ""}`}>
+      <header className={`header bg-dark-3 ${navbar ? "is-sticky" : ""}`}>
         <div className="header__container px-30 sm:px-20">
           <div className="row justify-between items-center">
             <div className="col-auto">
               <div className="d-flex items-center">
                 <Link href="/" className="header-logo mr-20">
-                  <img src="/img/general/logo.png" alt="logo icon" />
-                  <img src="/img/general/logo.png" alt="logo icon" />
+                  <img src="/img/general/logo-light.svg" alt="logo icon" />
+                  <img src="/img/general/logo-dark.svg" alt="logo icon" />
                 </Link>
                 {/* End logo */}
 
                 <div className="header-menu">
                   <div className="header-menu__content">
-                    <MainMenu style="text-dark-1" />
+                    <MainMenu style="text-white" />
                   </div>
                 </div>
                 {/* End header-menu */}
@@ -60,7 +60,7 @@ const Header1 = () => {
             <div className="col-auto">
               <div className="d-flex items-center">
                 <div className="row x-gap-20 items-center xxl:d-none">
-                  <CurrenctyMegaMenu textClass="text-dark-1" />
+                  <CurrenctyMegaMenu textClass="text-white" />
                   {/* End Megamenu for Currencty */}
 
                   {/* Start vertical devider*/}
@@ -69,24 +69,18 @@ const Header1 = () => {
                   </div>
                   {/* End vertical devider*/}
 
-                  <LanguageMegaMenu textClass="text-dark-1" />
+                  <LanguageMegaMenu textClass="text-white" />
                   {/* End Megamenu for Language */}
                 </div>
                 {/* End language and currency selector */}
 
                 {/* Start btn-group */}
                 <div className="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                  {/* <Link
-                    href="/login"
-                    className="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white"
-                  >
-                    Become An Expert
-                  </Link> */}
-                       {toggle ? (
+                {toggle ? (
                     <>
                       <Link
                         href="/vendor-dashboard/tours"
-                        className="button px-30 fw-400 text-14 -outline-blue-1 h-50 text-blue-1 ml-20"
+                        className="button px-30 fw-400 text-14 -outline-white h-50 text-white ml-20"
                       >
                         DashBoard
                       </Link>
@@ -98,7 +92,7 @@ const Header1 = () => {
                         window.localStorage.removeItem('token');
                         window.location.reload();}}
                         href="/"
-                        className="button px-30 fw-400 text-14 -outline-blue-1 h-50 text-blue-1 ml-20"
+                        className="button px-30 fw-400 text-14 -outline-white h-50 text-white ml-20"
                       >
                         Logout
                    
@@ -108,7 +102,7 @@ const Header1 = () => {
                     <>
                       <Link
                         href="/login"
-                        className="button px-30 fw-400 text-14 border-white -outline-white h-50 text-white ml-20"
+                        className="button px-30 fw-400 text-14 -outline-white h-50 text-white ml-20"
                       >
                         Sign In / Register
                       </Link>
@@ -118,7 +112,7 @@ const Header1 = () => {
                 {/* End btn-group */}
 
                 {/* Start mobile menu icon */}
-                <div className="d-none xl:d-flex x-gap-20 items-center pl-30 text-dark-1">
+                <div className="d-none xl:d-flex x-gap-20 items-center pl-30 text-white">
                   <div>
                     <Link
                       href="/login"

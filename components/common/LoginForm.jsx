@@ -50,7 +50,7 @@ const LoginForm = () => {
   useEffect(() => {
     if (redirect) {
       if (window.localStorage.getItem('token') === token) {
-        push('/vendor-dashboard/dashboard');
+        push('/vendor-dashboard/tours');
       }else {
         push('/'); 
       }

@@ -1,11 +1,11 @@
 
 'use client'
-
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MainMenu from "../MainMenu";
 import CurrenctyMegaMenu from "../CurrenctyMegaMenu";
 import LanguageMegaMenu from "../LanguageMegaMenu";
+
 
 import MobileMenu from "../MobileMenu";
 import { Button } from "bootstrap";
@@ -25,11 +25,12 @@ const ProductHeader = () => {
     }
   };
 
-  useEffect(() => {
+  useEffect(() => {    
     if (window.localStorage.getItem('token') === token) {
       setToggle(true);
 
     }
+     
     window.addEventListener("scroll", changeBackground);
     return () => {
       window.removeEventListener("scroll", changeBackground);

@@ -1,7 +1,7 @@
 'use client';
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
-import ProductHeader from "@/components/header/product-header";
+import DefaultHeader from "@/components/header/default-header";
 import Overview from "@/components/activity-single/Overview";
 import TourSnapShot from "@/components/activity-single/TourSnapShot";
 import TopBreadCrumb from "@/components/activity-single/TopBreadCrumb";
@@ -13,19 +13,29 @@ import Faq from "@/components/faq/Faq";
 import Link from "next/link";
 import ImportantInfo from "@/components/activity-single/ImportantInfo";
 import SlideGallery from "@/components/activity-single/SlideGallery";
-import { useActivitiesData } from "@/data/activities-data";
+import axios from "axios";
 import Itinerary from "@/components/activity-single/itinerary";
 import SidebarRight from "@/components/activity-single/SidebarRight";
+import { useEffect, useState } from "react";
+import Constants from "@/utils/constants";
 
 
 
 
 const ActivitySingleV1Dynamic = ({ params }) => {
-  const id = params.id;
-  const activitiesData = useActivitiesData();
-  if (!activitiesData) return null;
 
-  const activity = activitiesData?.data.find((item) => item.id == id);
+  const [activities, setActivities] = useState(null);
+  const id = params.id;
+
+
+  useEffect(() => {
+    axios.get(`${Constants.baseURL}/activities`).then((response) => {
+      setActivities(response?.data);
+    });
+  }, []);
+  if (!activities) return null;
+
+  const activity = activities?.data?.find((item) => item.id == id);
 
   return (
     <>
@@ -34,7 +44,7 @@ const ActivitySingleV1Dynamic = ({ params }) => {
       <div className="header-margin"></div>
       {/* header top margin */}
 
-      <ProductHeader />
+      <DefaultHeader />
       {/* End Header 1 */}
 
       <TopBreadCrumb activity = {activity} />

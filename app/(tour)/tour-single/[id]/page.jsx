@@ -1,7 +1,7 @@
 'use client';
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
-import ProductHeader from "@/components/header/product-header";
+import DefaultHeader from "@/components/header/default-header";
 import TopBreadCrumb from "@/components/tour-single/TopBreadCrumb";
 import ReplyForm from "@/components/reply-form/ReplyForm";
 // import ReplyFormReview2 from "@/components/tour-single/ReplyFormReview2";
@@ -30,7 +30,7 @@ const TourSingleV1Dynamic = ({ params }) => {
       <div className="header-margin"></div>
       {/* header top margin */}
 
-      <ProductHeader />
+      <DefaultHeader />
       {/* End Header 1 */}
 
       <TopBreadCrumb tour = {tour}/>

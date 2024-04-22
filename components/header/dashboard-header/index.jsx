@@ -13,7 +13,7 @@ const Header1 = () => {
   const [navbar, setNavbar] = useState(false);
   const [toggle, setToggle] = useState(false);
   const token = process.env.NEXT_PUBLIC_JWT;
-  
+
 
   const changeBackground = () => {
     if (window.scrollY >= 10) {
@@ -24,10 +24,11 @@ const Header1 = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
     if (window.localStorage.getItem('token') === token) {
       setToggle(true);
     }
+    
+    window.addEventListener("scroll", changeBackground);
     return () => {
       window.removeEventListener("scroll", changeBackground);
     };

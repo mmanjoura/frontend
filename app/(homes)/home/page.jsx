@@ -14,7 +14,7 @@ import TestimonialLeftCol from "@/components/home/home/TestimonialLeftCol";
 import Activities from "@/components/activities/Activities";
 
 export const metadata = {
-  title: "Niya Voyage - Activities, Tours, Golf in Morocco",
+  title: "Niya Voyage - Marrakech Activities, Marrakech Tours, Golf, Holidays in Morocco, Marrakech",
   description: `
   french version:
     Découvrez les meilleures activités au Maroc avec Niya Voyage. Réservez vos billets en ligne pour les meilleures choses à faire au Maroc sur Niya Voyage.
