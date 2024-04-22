@@ -62,7 +62,7 @@ const SearchBar = ({onLocationSearch}) => {
         <div className="shadow-2 dropdown-menu min-width-400">
           <div className="bg-white px-20 py-20 sm:px-0 sm:py-15 rounded-4">
             <ul className="y-gap-5 js-results">
-              {locationSearchContent.map((item) => (
+              {locationSearchContent?.map((item) => (
                 <li
                   className={`-link d-block col-12 text-left rounded-4 px-20 py-15 js-search-option mb-1 ${
                     selectedItem && selectedItem.id === item.id ? "active" : ""

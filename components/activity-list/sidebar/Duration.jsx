@@ -11,11 +11,13 @@ const Duration = ({activities, onDurationCheckedFilter}) => {
     };
   
     activities?.forEach(activity => {
-      if (activity?.minimum_duration <= 60) {
+      if (activity?.minimum_duration <= 1) {
         categorizedDurations.upToOneHour++;
-      } else if (minimum_duration > 60 && minimum_duration <= 240) {
+      } 
+      if (activity?.minimum_duration > 1 && activity?.minimum_duration <= 4) {
         categorizedDurations.oneToFourHours++;
-      } else if (minimum_duration > 240 && minimum_duration <= 1440) {
+      } 
+       if (activity?.minimum_duration > 4 && activity?.minimum_duration <= 24) {
         categorizedDurations.fourHoursToOneDay++;
       }
     });
@@ -35,9 +37,6 @@ const Duration = ({activities, onDurationCheckedFilter}) => {
   const handleDurationFilter = (event, id) => {
     if (event.target.checked) {
       onDurationCheckedFilter(id);
-    }
-    if (!event.target.checked) {
-      onDurationCheckedFilter(0);
     }
   }
 

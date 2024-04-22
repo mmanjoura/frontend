@@ -1,11 +1,10 @@
 import DateSearch from "../common/DateSearch";
 import LocationSearch from "./LocationSearch";
-// import LocationSearch2 from "./LocationSearch2";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 
-const MainFilterSearchBox = ({golfs, onSearch, onDateSearch, onLocationSearch}) => {
+const MainFilterSearchBox = ({onSearch, onDateSearch, onLocationSearch}) => {
 
   const { push } = useRouter();
 

@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import CallToActions from "@/components/common/CallToActions";
-import ProductHeader from "@/components/header/product-header";
+import DefaultHeader from "@/components/header/default-header";
 import DefaultFooter from "@/components/footer/default";
 import Booking from "@/components/booking/page";
 
@@ -36,7 +36,7 @@ const intdex = () => {
       <div className="header-margin"></div>
       {/* header top margin */}
 
-      <ProductHeader />
+      <DefaultHeader />
       {/* End Header 1 */}
 
       {/* End Why Choose Us section */}

@@ -11,11 +11,15 @@ const Duration = ({tours, onDurationCheckedFilter}) => {
     };
   
     tours?.forEach(tour => {
-      if (tour?.minimum_duration <= 60) {
+      if (tour?.minimum_duration <= 1) {
         categorizedDurations.upToOneHour++;
-      } else if (minimum_duration > 60 && minimum_duration <= 240) {
+      } 
+      
+      if (tour?.minimum_duration > 1 && tour?.minimum_duration <= 4) {
         categorizedDurations.oneToFourHours++;
-      } else if (minimum_duration > 240 && minimum_duration <= 1440) {
+      } 
+      
+      if (tour?.minimum_duration > 4 && tour?.minimum_duration <= 24) {
         categorizedDurations.fourHoursToOneDay++;
       }
     });

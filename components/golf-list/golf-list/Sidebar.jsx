@@ -53,7 +53,7 @@ const Sidebar = ({  golfs,
           <h5 className="text-18 fw-500 mb-10">Search Golfs</h5>
 
           <div className="row y-gap-20 pt-20">
-            <MainFilterSearchBox golfs = {golfs} 
+            <MainFilterSearchBox 
                 onSearch = {handleClick}  
                 onDateSearch = {handleDateFilter} 
                 onLocationSearch = {handleLocationFilter}

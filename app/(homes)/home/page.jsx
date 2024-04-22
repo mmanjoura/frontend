@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import ProductHeader from "@/components/header/product-header";
+import DefaultHeader from "@/components/header/default-header";
 import Hero from "@/components/hero/hero";
 import Link from "next/link";
 import Footer4 from "@/components/footer/footer-4";
@@ -41,7 +41,7 @@ const home = () => {
     <>
       {/* End Page Title */}
 
-      <ProductHeader />
+      <DefaultHeader />
       {/* End Header 5 */}
 
       <Hero />

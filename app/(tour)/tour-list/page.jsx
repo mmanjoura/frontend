@@ -1,6 +1,6 @@
 'use client'
 import CallToActions from "@/components/common/CallToActions";
-import ProductHeader from "@/components/header/product-header";
+import DefaultHeader from "@/components/header/default-header";
 import DefaultFooter from "@/components/footer/default";
 import TopHeaderFilter from "@/components/tour-list/tour-list/TopHeaderFilter";
 import TourProperties from "@/components/tour-list/tour-list/TourProperties";
@@ -95,7 +95,7 @@ const handleDurationFilter = (selectedFilter) => {
       <div className="header-margin"></div>
       {/* header top margin */}
 
-      <ProductHeader />
+      <DefaultHeader />
       {/* End Header 1 */}
 
       <section className="layout-pt-md layout-pb-lg">

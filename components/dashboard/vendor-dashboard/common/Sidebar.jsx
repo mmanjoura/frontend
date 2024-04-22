@@ -1,7 +1,6 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import Constants from "@/utils/constants";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -9,10 +8,26 @@ const Sidebar = () => {
   const router = useRouter();
   const [error, setError] = useState(null);
 
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
+  const handleDbBackup = async () => {
+    try {
+      const response = await fetch(`${baseURL}/backup`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
 
   const handleLogout = async () => {
     try {
-      const response = await fetch(`${Constants.baseURL}/logout`, {
+      const response = await fetch(`${baseURL}/logout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,9 +93,17 @@ const Sidebar = () => {
         {
           title: "Add Golf",
           href: "/vendor-dashboard/add-golf",
-        },
+        },        
       ],
     },
+    // {
+    //   icon: "/img/dashboard/sidebar/gear.svg",
+    //   title: "Db Tools",
+    //   links: [
+    //     { title: "Backup Db", href: "/vendor-dashboard/backup" },
+    //   ],
+    // },
+
   ];
 
   return (
@@ -129,6 +152,19 @@ const Sidebar = () => {
           </div>
         ))}
 
+        <div className="sidebar__item ">
+        <button onClick={handleDbBackup} className="sidebar__button d-flex items-center text-15 lh-1 fw-500">
+     
+            <Image
+              width={20}
+              height={20}
+              src="/img/dashboard/sidebar/gear.svg"
+              alt="image"
+              className="mr-15"
+            />
+            Db Backup
+            </button>
+        </div>
         <div className="sidebar__item ">
         <button onClick={handleLogout} className="sidebar__button d-flex items-center text-15 lh-1 fw-500">
      
