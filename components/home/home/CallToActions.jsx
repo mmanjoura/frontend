@@ -35,14 +35,14 @@ const CallToActions = () => {
           <div className="col-auto">
             <div className="row x-gap-20 y-gap-20">
               <div className="col-auto">
-                <button className="button px-40 h-60 -white bg-blue-1 text-white" onClick={handleSignInClick}>
+                <button  aria-label="Close" className="button px-40 h-60 -white bg-blue-1 text-white" onClick={handleSignInClick}>
                   Sign In
                   <i className="icon-arrow-top-right ml-10" />
                 </button>
               </div>
               {/* End col */}
               <div className="col-auto">
-                <button className="button px-40 h-60 -outline-blue-1 text-blue-1" onClick={handleRegisterClick}>
+                <button  aria-label="Close" className="button px-40 h-60 -outline-blue-1 text-blue-1" onClick={handleRegisterClick}>
                   Register
                   <i className="icon-arrow-top-right ml-10" />
                 </button>

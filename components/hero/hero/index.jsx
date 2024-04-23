@@ -27,7 +27,7 @@ const index = () => {
             </SwiperSlide>
             <SwiperSlide>              
               <div className="masthead__image">
-                <img alt="image" src="/img/masthead/4/marrakech-1.jpg" />
+                <img alt="image" src="/img/masthead/4/marrakech_1.webp" />
               </div>
             </SwiperSlide>
             <SwiperSlide>              
@@ -67,14 +67,14 @@ const index = () => {
         {/* End slider */}
 
         <div className="masthead-slider__nav -prev js-prev">
-          <button className="button -outline-white size-50 flex-center text-white rounded-full hero4-prev-active">
+          <button className="button -outline-white size-50 flex-center text-white rounded-full hero4-prev-active"  aria-label="Close">
             <i className="icon-arrow-left" />
           </button>
         </div>
         {/* End prev navigation */}
 
         <div className="masthead-slider__nav -next js-next">
-          <button className="button -outline-white size-50 flex-center text-white rounded-full hero4-next-active">
+          <button className="button -outline-white size-50 flex-center text-white rounded-full hero4-next-active"  aria-label="Close">
             <i className="icon-arrow-right" />
           </button>
         </div>

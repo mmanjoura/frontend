@@ -34,7 +34,7 @@ const Counter = ({ name, defaultValue, onCounterChange }) => {
         <div className="col-auto">
           <div className="d-flex items-center js-counter">
             <button
-              className="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down"
+              className="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down" aria-label="decrement" type="button"
               onClick={decrementCount}
             >
               <i className="icon-minus text-12" />
@@ -44,7 +44,7 @@ const Counter = ({ name, defaultValue, onCounterChange }) => {
               <div className="text-15 js-count">{count}</div>
             </div>
             {/* counter text  */}
-            <button
+            <button  aria-label="Close"
               className="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up"
               onClick={incrementCount}
             >

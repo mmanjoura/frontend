@@ -88,7 +88,7 @@ const AvatarUploader = () => {
           <label
             htmlFor="avatar-upload"
             role="button"
-            className="button h-50 px-24 -dark-1 bg-blue-1 text-white"
+            className="button h-50 px-24 -dark-1 bg-blue-1 text-white" aria-label="Browse" type="button"
           >
             <i className="icon-upload-file text-20 mr-10" />
             Browse

@@ -43,7 +43,7 @@ const LanguageMegaMenu = ({ textClass }) => {
     <>
       {/* Start language currency Selector */}
       <div className="col-auto">
-        <button
+        <button  aria-label="Close"
           className={`d-flex items-center text-14 ${textClass}`}
           onClick={handleCurrency}
         >
@@ -69,7 +69,7 @@ const LanguageMegaMenu = ({ textClass }) => {
           <div className="d-flex items-center justify-between px-30 py-20 sm:px-15 border-bottom-light">
             <div className="text-20 fw-500 lh-15">Select your language</div>
             {/* End title */}
-            <button className="pointer" onClick={handleCurrency}>
+            <button  aria-label="Close" className="pointer" onClick={handleCurrency}>
               <i className="icon-close" />
             </button>
             {/* End colse button */}

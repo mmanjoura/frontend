@@ -39,7 +39,7 @@ const Pagination = () => {
     <div className="border-top-light mt-30 pt-30">
       <div className="row x-gap-10 y-gap-20 justify-between md:justify-center">
         <div className="col-auto md:order-1">
-          <button className="button -blue-1 size-40 rounded-full border-light">
+          <button className="button -blue-1 size-40 rounded-full border-light"  aria-label="Close">
             <i className="icon-chevron-left text-12" />
           </button>
         </div>
@@ -61,7 +61,7 @@ const Pagination = () => {
         </div>
 
         <div className="col-auto md:order-2">
-          <button className="button -blue-1 size-40 rounded-full border-light">
+          <button aria-label="Share" type="button" className="button -blue-1 size-40 rounded-full border-light">
             <i className="icon-chevron-right text-12" />
           </button>
         </div>

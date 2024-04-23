@@ -124,7 +124,7 @@ const ActivityContent = ({params}) => {
         </div>
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" name='tag' onChange={handleChange} value={formData?.tag}   />
+            <input  id=""  type="text" name='tag' onChange={handleChange} value={formData?.tag}   />
             <label className="lh-1 text-16 text-light-1">Tag Optional
             </label>
           </div>
@@ -132,14 +132,14 @@ const ActivityContent = ({params}) => {
         {/* End Tag */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" name='title' required onChange={handleChange} value={formData?.title} />
+            <input id=""  type="text" name='title' required onChange={handleChange} value={formData?.title} />
             <label className="lh-1 text-16 text-light-1">Title</label>
           </div>
         </div>
         {/* End Title */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" name='location' required onChange={handleChange} value={formData?.location} />
+            <input  id=""  type="text" name='location' required onChange={handleChange} value={formData?.location} />
             <label className="lh-1 text-16 text-light-1">Location</label>
           </div>
         </div>
@@ -255,7 +255,7 @@ const ActivityContent = ({params}) => {
         {/* End Content */}
  
         <div className="d-inline-block pt-30">
-          <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+          <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white" aria-label="Save Changes" type="button">
             Save Changes <div className="icon-arrow-top-right ml-15" />
           </button>
         </div>

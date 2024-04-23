@@ -45,7 +45,7 @@ const ReplyForm = () => {
     <form className="row y-gap-30 pt-20" onSubmit={handleSubmit}>
       <div className="col-xl-6">
         <div className="form-input ">
-          <input type="text" required onChange={e => setSubject(e.target.value)}/>
+          <input id="" name="" type="text" required onChange={e => setSubject(e.target.value)}/>
           <label className="lh-1 text-16 text-light-1">Subject</label>
         </div>
       </div>
@@ -53,7 +53,7 @@ const ReplyForm = () => {
 
       <div className="col-xl-6">
         <div className="form-input ">
-          <input type="text" required onChange={e => setEmail(e.target.value)}/>
+          <input id="" name="" type="text" required onChange={e => setEmail(e.target.value)}/>
           <label className="lh-1 text-16 text-light-1">Email</label>
         </div>
       </div>
@@ -61,7 +61,7 @@ const ReplyForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <textarea required rows={4} defaultValue={""} onChange={e => setMessage(e.target.value)}/>
+          <textarea id="" name="" required rows={4} defaultValue={""} onChange={e => setMessage(e.target.value)}/>
           <label className="lh-1 text-16 text-light-1">
             Write Your Comment
           </label>
@@ -72,7 +72,7 @@ const ReplyForm = () => {
       <div className="col-auto">
         <button
           type="submit"
-          className="button -md -dark-1 bg-blue-1 text-white"
+          className="button -md -dark-1 bg-blue-1 text-white" aria-label="Post Comment" 
         >
           Post Comment <div className="icon-arrow-top-right ml-15" />
         </button>

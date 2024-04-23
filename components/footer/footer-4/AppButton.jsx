@@ -23,7 +23,7 @@ const AppButton = () => {
           <div className="d-flex items-center px-20 py-10 rounded-4 bg-white-10">
             <i className={`${item.icon} text-24`} />
 
-            <a href={item.link} className="ml-20">
+            <a href={item.link} className="ml-20" aria-label="Login">
               <div className="text-14 lh-14">{item.text}</div>
               <div className="text-15 lh-14 fw-500">{item.market}</div>
             </a>

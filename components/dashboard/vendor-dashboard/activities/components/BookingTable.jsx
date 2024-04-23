@@ -112,14 +112,14 @@ const BookingTable = () => {
                             </Link>
                           </div>
                           <div className="col-auto">
-                            <button className="flex-center bg-light-2 rounded-4 size-35" >
+                            <button className="flex-center bg-light-2 rounded-4 size-35"  aria-label="Close">
                               <Link href={`./edit-activity/${data.id}`}>
                                 <i className="icon-edit text-16 text-light-1" />
                               </Link>
                             </button>
                           </div>
                           <div className="col-auto">
-                            <button className="flex-center bg-light-2 rounded-4 size-35" onClick={() => handleDelete(data.id)}>
+                            <button className="flex-center bg-light-2 rounded-4 size-35"  aria-label="Close" onClick={() => handleDelete(data.id)}>
                               <i className="icon-trash-2 text-16 text-light-1" />
                             </button>
                           </div>

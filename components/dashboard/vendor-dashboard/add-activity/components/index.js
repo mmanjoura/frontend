@@ -43,7 +43,7 @@ const Index = () => {
       <TabList className="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20">
         {tabs.map((tab, index) => (
           <Tab key={index} className="col-auto">
-            <button className="tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 js-tabs-button">
+            <button  aria-label="Close" className="tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 js-tabs-button">
               {tab.labelNo}. {tab.label}
             </button>
           </Tab>

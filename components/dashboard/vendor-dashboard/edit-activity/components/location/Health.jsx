@@ -46,7 +46,7 @@ const Health = () => {
                 </div>
               </td>
               <td className="col-auto">
-                <button className="flex-center bg-light-2 rounded-4 size-35">
+                <button className="flex-center bg-light-2 rounded-4 size-35"  aria-label="Close">
                   <i className="icon-trash-2 text-16 text-light-1" />
                 </button>
               </td>
@@ -83,7 +83,7 @@ const Health = () => {
                 </div>
               </td>
               <td className="col-auto">
-                <button className="flex-center bg-light-2 rounded-4 size-35">
+                <button className="flex-center bg-light-2 rounded-4 size-35" aria-label="Share" type="button">
                   <i className="icon-trash-2 text-16 text-light-1" />
                 </button>
               </td>
@@ -91,8 +91,8 @@ const Health = () => {
           </tbody>
         </table>
       </div>
-      <div className="d-flex justify-end">
-        <button className="button -md -blue-1 bg-blue-1-05 text-blue-1 mt-20">
+      <div className="d-flex justify-end"> 
+        <button className="button -md -blue-1 bg-blue-1-05 text-blue-1 mt-20" aria-label="add item" type="button">
           Add Item
         </button>
       </div>

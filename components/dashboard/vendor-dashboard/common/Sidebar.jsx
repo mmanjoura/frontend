@@ -140,7 +140,7 @@ const Sidebar = () => {
                   <ul className="list-disc pt-15 pb-5 pl-40">
                     {item.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
-                        <a href={link.href} className="text-15">
+                        <a href={link.href} className="text-15" aria-label="Login">
                           {link.title}
                         </a>
                       </li>
@@ -153,7 +153,7 @@ const Sidebar = () => {
         ))}
 
         <div className="sidebar__item ">
-        <button onClick={handleDbBackup} className="sidebar__button d-flex items-center text-15 lh-1 fw-500">
+        <button onClick={handleDbBackup} className="sidebar__button d-flex items-center text-15 lh-1 fw-500"  aria-label="Close">
      
             <Image
               width={20}
@@ -166,7 +166,7 @@ const Sidebar = () => {
             </button>
         </div>
         <div className="sidebar__item ">
-        <button onClick={handleLogout} className="sidebar__button d-flex items-center text-15 lh-1 fw-500">
+        <button onClick={handleLogout} className="sidebar__button d-flex items-center text-15 lh-1 fw-500"  aria-label="Close">
      
             <Image
               width={20}

@@ -19,7 +19,7 @@ const Subscribe = () => {
       <div className="col-auto">
         <form className="single-field -w-410 d-flex x-gap-10 y-gap-20">
           <div>
-            <input
+            <input name="" id="" 
               className="bg-white h-60"
               type="text"
               placeholder="Your Email"
@@ -29,7 +29,7 @@ const Subscribe = () => {
           {/* End input */}
 
           <div>
-            <button
+            <button  aria-label="Close"
               type="submit"
               className="button -md h-60 bg-yellow-1 text-dark-1"
             >

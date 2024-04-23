@@ -31,11 +31,11 @@ const DetailsReview2 = () => {
         <ReviewGallery />
 
         <div className="d-flex x-gap-30 items-center pt-20">
-          <button className="d-flex items-center text-blue-1">
+          <button className="d-flex items-center text-blue-1" aria-label="Helpful" type="button">
             <i className="icon-like text-16 mr-10" />
             Helpful
           </button>
-          <button className="d-flex items-center text-light-1">
+          <button className="d-flex items-center text-light-1" aria-label="Not helpful" type="button">
             <i className="icon-dislike text-16 mr-10" />
             Not helpful
           </button>
@@ -69,11 +69,11 @@ const DetailsReview2 = () => {
         <ReviewGallery />
 
         <div className="d-flex x-gap-30 items-center pt-20">
-          <button className="d-flex items-center text-blue-1">
+          <button className="d-flex items-center text-blue-1" aria-label="Share" type="button">
             <i className="icon-like text-16 mr-10" />
             Helpful
           </button>
-          <button className="d-flex items-center text-light-1">
+          <button className="d-flex items-center text-light-1" aria-label="Share" type="button">
             <i className="icon-dislike text-16 mr-10" />
             Not helpful
           </button>
@@ -105,11 +105,11 @@ const DetailsReview2 = () => {
           station is short walk, just like two grocery stores.{" "}
         </p>
         <div className="d-flex x-gap-30 items-center pt-20">
-          <button className="d-flex items-center text-blue-1">
+          <button className="d-flex items-center text-blue-1" aria-label="Share" type="button">
             <i className="icon-like text-16 mr-10" />
             Helpful
           </button>
-          <button className="d-flex items-center text-light-1">
+          <button className="d-flex items-center text-light-1" aria-label="Share" type="button">
             <i className="icon-dislike text-16 mr-10" />
             Not helpful
           </button>
@@ -141,11 +141,11 @@ const DetailsReview2 = () => {
           station is short walk, just like two grocery stores.{" "}
         </p>
         <div className="d-flex x-gap-30 items-center pt-20">
-          <button className="d-flex items-center text-blue-1">
+          <button className="d-flex items-center text-blue-1" aria-label="Share" type="button">
             <i className="icon-like text-16 mr-10" />
             Helpful
           </button>
-          <button className="d-flex items-center text-light-1">
+          <button className="d-flex items-center text-light-1" aria-label="Share" type="button">
             <i className="icon-dislike text-16 mr-10" />
             Not helpful
           </button>
@@ -154,7 +154,7 @@ const DetailsReview2 = () => {
       {/* End .col */}
 
       <div className="col-auto">
-        <a href="#" className="button -md -outline-blue-1 text-blue-1">
+        <a href="#" className="button -md -outline-blue-1 text-blue-1" aria-label="show">
           Show all 116 reviews{" "}
           <div className="icon-arrow-top-right ml-15"></div>
         </a>

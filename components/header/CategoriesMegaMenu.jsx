@@ -48,7 +48,7 @@ const CategoriesMegaMenu = ({setIsActiveParent}) => {
       <div className="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 pb-30 js-tabs-controls">
         {itemList.map((item, i) => (
           <div className="col-auto" key={i} onClick={()=>setActiveNestedMenu(i)}>
-            <button className={`tabs__button text-light-1 fw-500 js-tabs-button ${activeNestedMenu == i ? 'nested-menu-active':'nested-menu-inactive'} `}>
+            <button  aria-label="Close" className={`tabs__button text-light-1 fw-500 js-tabs-button ${activeNestedMenu == i ? 'nested-menu-active':'nested-menu-inactive'} `}>
               {item}
             </button>
           </div>

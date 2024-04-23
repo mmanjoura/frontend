@@ -34,7 +34,7 @@ const Logout = () => {
   return (
     <div>
       {error && <p>{error}</p>}
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleLogout}  aria-label="Close">Logout</button>
     </div>
   );
 };

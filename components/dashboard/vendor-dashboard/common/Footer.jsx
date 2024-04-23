@@ -22,7 +22,7 @@ function Footer() {
               <div className="row x-gap-20 y-gap-10 items-center text-14">
                 {linksData.map((link, index) => (
                   <div className="col-auto" key={index}>
-                    <a href={link.url} className="text-13 lh-1">
+                    <a href={link.url} className="text-13 lh-1" aria-label="Login">
                       {link.label}
                     </a>
                   </div>
@@ -35,8 +35,8 @@ function Footer() {
 
         <div className="col-auto">
           <div className="d-flex x-gap-5 y-gap-5 items-center">
-            <button className="text-14 fw-500 underline">English (US)</button>
-            <button className="text-14 fw-500 underline">USD</button>
+            <button aria-label="English" type="button" className="text-14 fw-500 underline">English (US)</button>
+            <button aria-label="USD" type="button" className="text-14 fw-500 underline">USD</button>
           </div>
         </div>
         {/* End .col-auto */}

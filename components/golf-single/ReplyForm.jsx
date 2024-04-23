@@ -53,7 +53,7 @@ const ReplyForm = () => {
 
       <div className="col-xl-6">
         <div className="form-input ">
-          <input type="text" required onChange={e => setEmail(e.target.value)}/>
+          <input name="" id=""  type="text" required onChange={e => setEmail(e.target.value)}/>
           <label className="lh-1 text-16 text-light-1">Email</label>
         </div>
       </div>
@@ -61,7 +61,7 @@ const ReplyForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <textarea required rows={4} defaultValue={""} onChange={e => setMessage(e.target.value)}/>
+          <textarea name="" id=""  required rows={4} defaultValue={""} onChange={e => setMessage(e.target.value)}/>
           <label className="lh-1 text-16 text-light-1">
             Write Your Comment
           </label>
@@ -70,7 +70,7 @@ const ReplyForm = () => {
       {/* End .col */}
 
       <div className="col-auto">
-        <button
+        <button  aria-label="Close"
           type="submit"
           className="button -md -dark-1 bg-blue-1 text-white"
         >

@@ -26,7 +26,7 @@ const LocationTopBar = () => {
             </div>
           </div>
           <div className="col-auto">
-            <a href="#" className="text-14 text-light-1">
+            <a href="#" className="text-14 text-light-1" aria-label="Login">
               Morocco Tourism: Best of Morocco
             </a>
           </div>

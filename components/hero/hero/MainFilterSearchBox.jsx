@@ -31,7 +31,7 @@ const MainFilterSearchBox = () => {
           {/* End guest */}
 
           <div className="button-item">
-            <button
+            <button  aria-label="Close"
               className="mainSearch__submit button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white"
               onClick={() => Router.push("/tour-list-v1")}
             >

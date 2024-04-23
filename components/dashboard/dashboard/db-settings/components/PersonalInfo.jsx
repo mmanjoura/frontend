@@ -13,7 +13,7 @@ const PersonalInfo = () => {
           <div className="row x-gap-20 y-gap-20">
             <div className="col-12">
               <div className="form-input ">
-                <input type="text" required />
+                <input name="" id=""  type="text" required />
                 <label className="lh-1 text-16 text-light-1">
                   Business Name
                 </label>
@@ -22,7 +22,7 @@ const PersonalInfo = () => {
             {/* End col-12 */}
             <div className="col-12">
               <div className="form-input ">
-                <input type="text" required />
+                <input name="" id=""  type="text" required />
                 <label className="lh-1 text-16 text-light-1">User Name</label>
               </div>
             </div>
@@ -30,7 +30,7 @@ const PersonalInfo = () => {
 
             <div className="col-md-6">
               <div className="form-input ">
-                <input type="text" required />
+                <input name="" id=""  type="text" required />
                 <label className="lh-1 text-16 text-light-1">First Name</label>
               </div>
             </div>
@@ -38,7 +38,7 @@ const PersonalInfo = () => {
 
             <div className="col-md-6">
               <div className="form-input ">
-                <input type="text" required />
+                <input name="" id=""  type="text" required />
                 <label className="lh-1 text-16 text-light-1">Last Name</label>
               </div>
             </div>
@@ -46,7 +46,7 @@ const PersonalInfo = () => {
 
             <div className="col-md-6">
               <div className="form-input ">
-                <input type="text" required />
+                <input name="" id=""  type="text" required />
                 <label className="lh-1 text-16 text-light-1">Email</label>
               </div>
             </div>
@@ -54,7 +54,7 @@ const PersonalInfo = () => {
 
             <div className="col-md-6">
               <div className="form-input ">
-                <input type="text" required />
+                <input name="" id=""  type="text" required />
                 <label className="lh-1 text-16 text-light-1">
                   Phone Number
                 </label>
@@ -64,7 +64,7 @@ const PersonalInfo = () => {
 
             <div className="col-12">
               <div className="form-input ">
-                <input type="text" required />
+                <input name="" id=""  type="text" required />
                 <label className="lh-1 text-16 text-light-1">Birthday</label>
               </div>
             </div>
@@ -72,7 +72,7 @@ const PersonalInfo = () => {
 
             <div className="col-12">
               <div className="form-input ">
-                <textarea required rows={5} defaultValue={""} />
+                <textarea name="" id=""  required rows={5} defaultValue={""} />
                 <label className="lh-1 text-16 text-light-1">
                   About Yourself
                 </label>
@@ -83,7 +83,7 @@ const PersonalInfo = () => {
         {/* End col-xl-9 */}
 
         <div className="d-inline-block pt-30">
-          <button
+          <button  aria-label="Close"
             type="submit"
             className="button h-50 px-24 -dark-1 bg-blue-1 text-white"
           >

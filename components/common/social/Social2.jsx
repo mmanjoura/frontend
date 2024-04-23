@@ -14,6 +14,7 @@ const Social2 = () => {
           rel="noopener noreferrer"
           className="flex-center size-40 rounded-full"
           key={item.id}
+          aria-label="social"
         >
           <i className={`${item.icon} text-14`} />
         </a>

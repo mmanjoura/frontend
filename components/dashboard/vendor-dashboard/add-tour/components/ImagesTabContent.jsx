@@ -157,7 +157,7 @@ const ImagesTabContent = (category) => {
         <div className="d-inline-block pt-30">
           <button onClick={handleUpload}
             type="submit"
-            className="button h-50 px-24 -dark-1 bg-blue-1 text-white"
+            className="button h-50 px-24 -dark-1 bg-blue-1 text-white" aria-label="save changes" 
           >
             Save Changes <div className="icon-arrow-top-right ml-15" />
           </button>

@@ -26,7 +26,7 @@ const AppButton = () => {
           key={item.id}
         >
           <i className={`${item.icon} text-24`} />
-          <a href={item.link} className="ml-20 d-block">
+          <a href={item.link} className="ml-20 d-block" aria-label="Login">
             <div className="text-14 text-white">{item.text}</div>
             <div className="text-15 lh-1 fw-500">{item.market}</div>
           </a>

@@ -73,7 +73,7 @@ const LoginForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <input type="text" required value={email} onChange={(e) => setEmail(e.target.value) } />
+          <input type="text"  name="" id="" required value={email} onChange={(e) => setEmail(e.target.value) } />
           <label className="lh-1 text-14 text-light-1">Email</label>
         </div>
       </div>
@@ -81,14 +81,14 @@ const LoginForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <input type="password" required   value={password} onChange={(e) => setPassword(e.target.value) }/>
+          <input type="password" name="" id=""  required   value={password} onChange={(e) => setPassword(e.target.value) }/>
           <label className="lh-1 text-14 text-light-1">Password</label>
         </div>
       </div>
       {/* End .col */}
 
       <div className="col-12">
-        <a href="#" className="text-14 fw-500 text-blue-1 underline">
+        <a href="#" className="text-14 fw-500 text-blue-1 underline" aria-label="Login">
           Forgot your password?
         </a>
       </div>
@@ -98,7 +98,7 @@ const LoginForm = () => {
         <button
           type="submit"
           href="#"
-          className="button py-20 -dark-1 bg-blue-1 text-white w-100"
+          className="button py-20 -dark-1 bg-blue-1 text-white w-100" aria-label="Sign In" 
         >
           Sign In <div className="icon-arrow-top-right ml-15" />
         </button>

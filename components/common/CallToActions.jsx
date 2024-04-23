@@ -32,7 +32,7 @@ const CallToActions = () => {
               {/* End email input */}
 
               <div>
-                <button className="button -md h-60 bg-blue-1 text-white">
+                <button className="button -md h-60 bg-blue-1 text-white" aria-label="Subscribe" type="button">
                   Subscribe
                 </button>
               </div>

@@ -97,7 +97,7 @@ const GolfContent = () => {
           </div>
           <div className="col-12">
             <div className="form-input ">
-              <input type="text" onChange={e => setTag(e.target.value)} />
+              <input name="" id=""  type="text" onChange={e => setTag(e.target.value)} />
               <label className="lh-1 text-16 text-light-1">Optional Tag:
                 "likely to sell out*",
                 "best seller",
@@ -235,7 +235,7 @@ const GolfContent = () => {
           {/* End Content */}
 
           <div className="d-inline-block pt-30">
-            <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+            <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white" aria-label="Save Changes" type="button">
               Save Changes <div className="icon-arrow-top-right ml-15" />
             </button>
           </div>

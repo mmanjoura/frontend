@@ -4,7 +4,7 @@ const PasswordInfo = () => {
       <div className="row x-gap-20 y-gap-20">
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required />
+            <input name="" id=""  type="text" required />
             <label className="lh-1 text-16 text-light-1">
               Current Password
             </label>
@@ -14,7 +14,7 @@ const PasswordInfo = () => {
 
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required />
+            <input name="" id=""  type="text" required />
             <label className="lh-1 text-16 text-light-1">New Password</label>
           </div>
         </div>
@@ -22,7 +22,7 @@ const PasswordInfo = () => {
 
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required />
+            <input name="" id=""  type="text" required />
             <label className="lh-1 text-16 text-light-1">
               New Password Again
             </label>
@@ -33,15 +33,14 @@ const PasswordInfo = () => {
         <div className="col-12">
           <div className="row x-gap-10 y-gap-10">
             <div className="col-auto">
-              <button
-                type="submit"
-                className="button h-50 px-24 -dark-1 bg-blue-1 text-white"
+              <button aria-label="Save Changes" 
+                className="button h-50 px-24 -dark-1 bg-blue-1 text-white"  
               >
                 Save Changes <div className="icon-arrow-top-right ml-15" />
               </button>
             </div>
             <div className="col-auto">
-              <button className="button h-50 px-24 -blue-1 bg-blue-1-05 text-blue-1">
+              <button className="button h-50 px-24 -blue-1 bg-blue-1-05 text-blue-1" aria-label="Cancel" type="button">
                 Cancel
               </button>
             </div>

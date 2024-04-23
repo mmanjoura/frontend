@@ -7,7 +7,7 @@ const Subscribe = () => {
         placeholder="Your Email"
         required
       />
-      <button
+      <button  aria-label="Close"
         type="submit"
         className="absolute px-20 h-full text-15 fw-500 underline text-dark-1"
       >

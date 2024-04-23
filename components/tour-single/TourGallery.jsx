@@ -80,10 +80,10 @@ export default function TourGallery({tour}) {
                 </Gallery>
 
                 <div className="absolute h-full col-11">
-                  <button className="section-slider-nav -prev flex-center button -blue-1 bg-white shadow-1 size-40 rounded-full sm:d-none js-img-prev">
+                  <button  aria-label="Close" className="section-slider-nav -prev flex-center button -blue-1 bg-white shadow-1 size-40 rounded-full sm:d-none js-img-prev">
                     <i className="icon icon-chevron-left text-12" />
                   </button>
-                  <button className="section-slider-nav -next flex-center button -blue-1 bg-white shadow-1 size-40 rounded-full sm:d-none js-img-next">
+                  <button  aria-label="Close" className="section-slider-nav -next flex-center button -blue-1 bg-white shadow-1 size-40 rounded-full sm:d-none js-img-next">
                     <i className="icon icon-chevron-right text-12" />
                   </button>
                 </div>

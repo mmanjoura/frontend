@@ -14,7 +14,7 @@ const Address = () => {
       title: "Customer Care",
       content: (
         <>
-          <a href="tel:+212 6 61 19 94 64">+212 6 61 19 94 64</a>
+          <a href="tel:+212 6 61 19 94 64" aria-label="Login">+212 6 61 19 94 64</a>
         </>
       ),
     },
@@ -25,7 +25,7 @@ const Address = () => {
       content: (
         <>
           {" "}
-          <a href="mailto:i@niya-voyage.com">contact@niyavoyage.com</a>
+          <a href="mailto:i@niya-voyage.com" aria-label="contact">contact@niyavoyage.com</a>
         </>
       ),
     },

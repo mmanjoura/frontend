@@ -33,14 +33,14 @@ const HomeHeader = () => {
               <div className="d-flex items-center">
                 <div className="mr-20 d-flex items-center">
                   <div className="mr-15 d-none md:d-flex">
-                    <Link
+                    <Link aria-label="Login"
                       href="/login"
                       className="icon-user text-inherit text-22 "
                     />
                   </div>
                   {/* End mobile menu icon */}
 
-                  <button
+                  <button  aria-label="Close"
                     className="d-flex items-center icon-menu text-dark-1 text-20"
                     data-bs-toggle="offcanvas"
                     aria-controls="mobile-sidebar_menu"

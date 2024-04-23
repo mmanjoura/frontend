@@ -73,7 +73,7 @@ const IterneraryTabContent = () => {
                     <tr>
                       <td className="col-5">
                         <div className="form-input ">
-                          <input type="text" required onChange={e => setTitle(e.target.value)} />
+                          <input name="" id=""  type="text" required onChange={e => setTitle(e.target.value)} />
                           <label className="lh-1 text-16 text-light-1">
                             Stop: 1
                           </label>
@@ -84,7 +84,7 @@ const IterneraryTabContent = () => {
                       {/* End td */}
                       <td className="col-7">
                         <div className="form-input ">
-                          <textarea required rows={3} defaultValue={""} onChange={e => setContent(e.target.value)} />
+                          <textarea name="" id=""  required rows={3} defaultValue={""} onChange={e => setContent(e.target.value)} />
                           <label className="lh-1 text-16 text-light-1">
                             Descption of the stop: 1
                           </label>
@@ -101,7 +101,7 @@ const IterneraryTabContent = () => {
             </div>
             {/* End hotelpolicy */}
             <div className="d-inline-block pt-30">
-              <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+              <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white"  aria-label="Close">
                 Save Changes <div className="icon-arrow-top-right ml-15" />
               </button>
             </div>

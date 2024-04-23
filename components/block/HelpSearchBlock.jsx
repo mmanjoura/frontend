@@ -2,7 +2,7 @@ const HelpSearchBlock = () => {
   return (
     <form className="single-field d-flex items-center justify-end x-gap-10 y-gap-20 pt-40">
       <div className="col-12">
-        <input
+        <input id="" name=""
           className="border-light bg-white h-68"
           type="text"
           placeholder="Cancellation, meeting point, etc."
@@ -14,6 +14,7 @@ const HelpSearchBlock = () => {
         <button
           type="submit"
           className="button -md -dark-1 h-60 bg-blue-1 text-white"
+          aria-label="Search" 
         >
           Search
         </button>

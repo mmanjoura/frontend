@@ -25,7 +25,7 @@ const TopBreadCrumb = ({golf}) => {
           {/* End .col-auto */}
 
           <div className="col-auto">
-            <a href="#" className="text-14 text-blue-1 underline">
+            <a href="#" className="text-14 text-blue-1 underline" aria-label="Login">
               Golfs in Morocco
             </a>
           </div>

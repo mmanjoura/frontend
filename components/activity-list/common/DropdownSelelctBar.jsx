@@ -77,7 +77,7 @@ const DropdownSelelctBar = () => {
               <div className="text-15 y-gap-15 js-dropdown-list">
                 {dropdown.options.map((item, index) => (
                   <div key={index}>
-                    <button
+                    <button  aria-label="Close"
                       className={`${
                         item === dropdown.value ? "text-blue-1 " : ""
                       }d-block js-dropdown-link`}

@@ -25,7 +25,7 @@ const TopBreadCrumb = ({tour}) => {
           {/* End .col-auto */}
 
           <div className="col-auto">
-            <a href="../tour-list" className="text-14 text-blue-1 underline">
+            <a href="../tour-list" className="text-14 text-blue-1 underline" aria-label="Login">
               All Tours in Morocco
             </a>
           </div>

@@ -30,7 +30,7 @@ const ChartSelect = () => {
         <div className="text-14 y-gap-15 js-dropdown-list">
           {options.map((option, index) => (
             <div key={index}>
-              <button
+              <button  aria-label="Close"
                 className={`d-block js-dropdown-link ${
                   selectedOption === option ? "text-blue-1 " : ""
                 }`}

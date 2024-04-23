@@ -56,12 +56,12 @@ const GalleryGolfSlider = ( {golf}) => {
             </Swiper>
 
             <div className="cruiseSlider__nav -prev js-prev">
-              <button className="button -outline-white size-50 flex-center text-white rounded-full">
+              <button className="button -outline-white size-50 flex-center text-white rounded-full"  aria-label="Close">
                 <i className="icon-arrow-left" />
               </button>
             </div>
             <div className="cruiseSlider__nav -next js-next">
-              <button className="button -outline-white size-50 flex-center text-white rounded-full">
+              <button className="button -outline-white size-50 flex-center text-white rounded-full"  aria-label="Close">
                 <i className="icon-arrow-right" />
               </button>
             </div>

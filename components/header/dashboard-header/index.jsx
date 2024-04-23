@@ -121,13 +121,13 @@ const Header1 = () => {
                 {/* Start mobile menu icon */}
                 <div className="d-none xl:d-flex x-gap-20 items-center pl-30 text-dark-1">
                   <div>
-                    <Link
+                    <Link aria-label="Login"
                       href="/login"
                       className="d-flex items-center icon-user text-inherit text-22"
                     />
                   </div>
                   <div>
-                    <button
+                    <button  aria-label="Close"
                       className="d-flex items-center icon-menu text-inherit text-20"
                       data-bs-toggle="offcanvas"
                       aria-controls="mobile-sidebar_menu"

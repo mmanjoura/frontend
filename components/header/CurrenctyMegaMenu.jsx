@@ -41,7 +41,7 @@ const CurrenctyMegaMenu = ({ textClass }) => {
     <>
       {/* Start currencty dropdown wrapper */}
       <div className="col-auto">
-        <button
+        <button  aria-label="Close"
           className={`d-flex items-center text-14 ${textClass}`}
           onClick={handleCurrency}
         >
@@ -62,7 +62,7 @@ const CurrenctyMegaMenu = ({ textClass }) => {
             <div className="text-20 fw-500 lh-15">Select your currency</div>
             {/* End Title */}
 
-            <button className="pointer" onClick={handleCurrency}>
+            <button className="pointer" onClick={handleCurrency}  aria-label="Close">
               <i className="icon-close" />
             </button>
             {/* End colse button */}

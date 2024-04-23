@@ -33,7 +33,7 @@ export default function InvoiceComponent () {
                 >
                   Back Home
                 </Link>
-                <button
+                <button  aria-label="Close"
                   className="button h-50 px-24 -dark-1 bg-blue-1 text-white"
                   onClick={handlePrintClick}
                 >
@@ -136,7 +136,7 @@ export default function InvoiceComponent () {
                   <div className="row x-gap-60 y-gap-10 justify-center">
                     {contactData.map((contact, index) => (
                       <div className="col-auto" key={index}>
-                        <a href={contact.url} className="text-14">
+                        <a href={contact.url} className="text-14" aria-label="Login">
                           {contact.text}
                         </a>
                       </div>

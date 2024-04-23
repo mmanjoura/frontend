@@ -22,7 +22,7 @@ const Dropdown = ({ title, value, options, onChange }) => {
           <div className="text-15 y-gap-15 js-dropdown-list">
             {options.map((item, index) => (
               <div key={index}>
-                <button
+                <button  aria-label="Close"
                   className={`${
                     item === value ? "text-blue-1 " : ""
                   }d-block js-dropdown-link`}

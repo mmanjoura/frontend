@@ -60,7 +60,7 @@ const ContactForm = () => {
     <form className="row y-gap-20 pt-20" onSubmit={handleSubmit} id = "SubmitForm">
       <div className="col-12">
         <div className="form-input">
-          <input type="text" id="name" required onChange={e => setName(e.target.value)} />
+          <input type="text" id="name" name="" required onChange={e => setName(e.target.value)} />
           <label htmlFor="name" className="lh-1 text-16 text-light-1">
             Full Name
           </label>
@@ -68,7 +68,7 @@ const ContactForm = () => {
       </div>
       <div className="col-12">
         <div className="form-input">
-          <input type="email" id="email" required onChange={e => setEmail(e.target.value)} />
+          <input type="email" id="email" name="" required onChange={e => setEmail(e.target.value)} />
           <label htmlFor="email" className="lh-1 text-16 text-light-1">
             Email
           </label>
@@ -76,7 +76,7 @@ const ContactForm = () => {
       </div>
       <div className="col-12">
         <div className="form-input">
-          <input type="text" id="subject" required onChange={e => setSubject(e.target.value)}  />
+          <input type="text" id="subject" name="" required onChange={e => setSubject(e.target.value)}  />
           <label htmlFor="subject" className="lh-1 text-16 text-light-1">
             Subject
           </label>
@@ -84,14 +84,14 @@ const ContactForm = () => {
       </div>
       <div className="col-12">
         <div className="form-input">
-          <textarea id="message" required rows="4" onChange={e => setMessage(e.target.value)} ></textarea>
+          <textarea id="message" name="" required rows="4" onChange={e => setMessage(e.target.value)} ></textarea>
           <label htmlFor="message" className="lh-1 text-16 text-light-1">
             Your Message
           </label>
         </div>
       </div>
       <div className="col-auto">
-        <button
+        <button  aria-label="Close"
           type="submit"
           className="button px-24 h-50 -dark-1 bg-blue-1 text-white"
         >

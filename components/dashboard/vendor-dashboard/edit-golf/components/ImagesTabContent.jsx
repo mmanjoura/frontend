@@ -153,7 +153,7 @@ const ImagesTabContent = (imageType) => {
         </div>
         {/* End BannerUploader */}
         <div className="d-inline-block pt-30">
-          <button onClick={handleUpload}
+          <button onClick={handleUpload}  aria-label="Close"
             type="submit"
             className="button h-50 px-24 -dark-1 bg-blue-1 text-white"
           >

@@ -12,6 +12,7 @@ const Social = () => {
           target="_blank"
           rel="noopener noreferrer"
           key={item.id}
+          aria-label="social"
         >
           <i className={`${item.icon} text-14`} />
         </a>

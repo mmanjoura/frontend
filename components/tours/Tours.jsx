@@ -39,7 +39,7 @@ function ArrowSlick(props) {
       </>
     );
   return (
-    <button className={className} onClick={props.onClick}>
+    <button className={className} onClick={props.onClick} aria-label="Close">
       {char}
     </button>
   );
@@ -83,7 +83,7 @@ function ArrowSlick(props) {
                 </Slider>
 
                 <div className="cardImage__wishlist">
-                  <button className="button -blue-1 bg-white size-30 rounded-full shadow-2">
+                  <button className="button -blue-1 bg-white size-30 rounded-full shadow-2" aria-label="Close">
                     <i className="icon-heart text-12" />
                   </button>
                 </div>

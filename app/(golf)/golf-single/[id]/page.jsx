@@ -81,7 +81,7 @@ const GofSingleV1Dynamic = ({ params }) => {
             <div className="col-auto">
               <div className="row x-gap-10 y-gap-10">
                 <div className="col-auto">
-                  <button className="button px-15 py-10 -blue-1">
+                  <button className="button px-15 py-10 -blue-1" aria-label="Share" type="button">
                     <i className="icon-share mr-10"></i>
                     Share
                   </button>

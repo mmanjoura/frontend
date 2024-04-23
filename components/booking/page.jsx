@@ -133,7 +133,7 @@ const Index = () => {
       <div className="row x-gap-20 y-gap-20 pt-20">
         <div className="col-auto">
           <button
-            className="button h-60 px-24 -blue-1 bg-light-2"
+            className="button h-60 px-24 -blue-1 bg-light-2" aria-label="Previous" type="button"
             disabled={currentStep === 0}
             onClick={previousStep}
           >
@@ -144,7 +144,7 @@ const Index = () => {
 
         <div className="col-auto">
           <button
-            className="button h-60 px-24 -dark-1 bg-blue-1 text-white"
+            className="button h-60 px-24 -dark-1 bg-blue-1 text-white" aria-label="Next" type="button"
             disabled={currentStep === steps.length - 1}
             onClick={nextStep}
           >

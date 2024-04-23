@@ -77,48 +77,7 @@ const MobileMenu = () => {
     
         <Sidebar width="400" backgroundColor="#fff">
 
-          <Menu>
-            {/* <SubMenu label="Home" className={ homeItems.some((item=>item.routePath?.split('/')[1] == pathname.split('/')[1])) ? "menu-active-link":''}>
-              {homeItems.map((item, i) => (
-                <MenuItem
-                  key={i}
-                  onClick={()=>router.push(item.routePath)}
-                  className={
-                    isActiveLink(item.routePath, pathname)
-                      ? "menu-active-link"
-                      : "inactive-menu"
-                  }
-                 
-                >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </SubMenu> */}
-            {/* End  All Home Menu */}
-
-            {/* <SubMenu label="Categories" className={isActiveParent ? 'menu-active-link':'' }>
-              {categorieMobileItems.map((item) => (
-                <SubMenu label={item.title} key={item.id} className={isActiveNestedParent == item.id ? 'menu-active-link':'inactive-menu'}>
-                  {item.menuItems.map((single) => (
-                    <SubMenu label={single.title} key={single.id}  className={isActiveNestedParentTwo == single.title ? 'menu-active-link':'inactive-menu'} >
-                      {single.menuList.map((menu, i) => (
-                        <MenuItem
-                          key={i}
-                          onClick={()=>router.push(menu.routePath)}
-                          className={
-                            isActiveLink(menu.routePath, pathname)
-                              ? "menu-active-link"
-                              : "inactive-menu"
-                          }
-                        >
-                          {menu.name}
-                        </MenuItem>
-                      ))}
-                    </SubMenu>
-                  ))}
-                </SubMenu>
-              ))}
-            </SubMenu> */}
+          <Menu>     
             {/* End  All Categories Menu */}
             <MenuItem
              onClick={()=>router.push("/golf-list")}
@@ -126,8 +85,7 @@ const MobileMenu = () => {
               pathname === "/golfs"
                 ? "menu-active-link"
                 : ""
-            }
-              
+            }              
             >
               Golfs
             </MenuItem>
@@ -153,61 +111,8 @@ const MobileMenu = () => {
               
             >
               Activities
-            </MenuItem>
-
-      
-            {/* End  Desitinations Menu */}
-
-            {/* <SubMenu label="Blog" className={ blogItems.some((item=>item.routePath?.split('/')[1] == pathname.split('/')[1])) ? "menu-active-link":''}>
-              {blogItems.map((item, i) => (
-                <MenuItem
-                  key={i}
-                  onClick={()=>router.push(item.routePath)}
-                  className={
-                    isActiveLink(item.routePath, pathname)
-                      ? "menu-active-link"
-                      : "inactive-menu"
-                  }
-                >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </SubMenu> */}
-            {/* End  All Blog Menu */}
-
-            {/* <SubMenu label="Pages" className={ pageItems.some((item=>item.routePath?.split('/')[1] == pathname.split('/')[1])) ? "menu-active-link":''}>
-              {pageItems.map((item, i) => (
-                <MenuItem
-                  key={i}
-                  onClick={()=>router.push(item.routePath)}
-                  className={
-                    isActiveLink(item.routePath, pathname)
-                      ? "menu-active-link"
-                      : "inactive-menu"
-                  }
-                >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </SubMenu> */}
-            {/* End  All Pages Menu */}
-
-            {/* <SubMenu label="Dashboard" className={ pathname.split('/')[1] == 'dashboard'  || pathname.split('/')[1] == 'vendor-dashboard' ? "menu-active-link":''}>
-              {dashboardItems.map((item, i) => (
-                <MenuItem
-                  key={i}
-                  onClick={()=>router.push(item.routePath)}
-                  className={
-                    isActiveLink(item.routePath, pathname)
-                      ? "menu-active-link"
-                      : "inactive-menu"
-                  }
-                >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </SubMenu> */}
-            {/* End  All Dashboard Menu */}
+            </MenuItem>  
+  
 
             <MenuItem
              onClick={()=>router.push("/contact")}

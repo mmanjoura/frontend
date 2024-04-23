@@ -253,7 +253,7 @@ const ActivityContent = ({params}) => {
         {/* End Content */}
  
         <div className="d-inline-block pt-30">
-          <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+          <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white"  aria-label="Close">
             Save Changes <div className="icon-arrow-top-right ml-15" />
           </button>
         </div>

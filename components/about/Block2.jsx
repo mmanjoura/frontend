@@ -52,7 +52,7 @@ const Block2 = () => {
             className="d-flex items-center js-gallery"
             role="button"
           >
-            <span className="button -outline-white text-white size-50 rounded-full flex-center">
+            <span className="button -outline-white text-white size-50 rounded-full flex-center" aria-label="Share" type="button">
               <i className="icon-play text-16" />
             </span>
             <span className="fw-500 text-white ml-15">Watch Video</span>

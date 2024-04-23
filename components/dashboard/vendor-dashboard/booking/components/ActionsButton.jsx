@@ -38,7 +38,7 @@ const ActionsButton = () => {
         <div className="text-14 fw-500 js-dropdown-list">
           {filters.map((filter) => (
             <div key={filter.value}>
-              <button
+              <button  aria-label="Close"
                 className={`d-block js-dropdown-link ${
                   activeFilter === filter.value ? "text-blue-1" : ""
                 }`}

@@ -28,7 +28,7 @@ const MainFilterSearchBox = () => {
       {/* End .col-12 */}
 
       <div className="col-12">
-        <button className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
+        <button className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white"  aria-label="Close">
           <i className="icon-search text-20 mr-10" />
           Search
         </button>

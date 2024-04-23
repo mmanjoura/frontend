@@ -70,7 +70,7 @@ const QuestionsTabContent = () => {
               <tr>
                 <td className="col-5">
                   <div className="form-input ">
-                    <input type="text" required onChange={e => setTitle(e.target.value)}/>
+                    <input name="" id=""  type="text" required onChange={e => setTitle(e.target.value)}/>
                     <label className="lh-1 text-16 text-light-1">
                       Eg: Is it Safe to travel wih You?
                     </label>
@@ -80,7 +80,7 @@ const QuestionsTabContent = () => {
                 {/* End td */}
                 <td className="col-7">
                   <div className="form-input ">
-                    <textarea required rows={3} defaultValue={""} onChange={e => setContent(e.target.value)} />
+                    <textarea name="" id=""  required rows={3} defaultValue={""} onChange={e => setContent(e.target.value)} />
                     <label className="lh-1 text-16 text-light-1">No it is not.</label>
                   </div>
                 </td>
@@ -92,7 +92,7 @@ const QuestionsTabContent = () => {
           </table>
         </div>
         <div className="d-inline-block pt-30">
-        <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+        <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white" aria-label="Save Changes" type="button">
           Save Changes <div className="icon-arrow-top-right ml-15" />
         </button>
       </div>

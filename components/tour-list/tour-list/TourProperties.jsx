@@ -33,7 +33,7 @@ const TourProperties = ( {tours}) => {
         </>
       );
     return (
-      <button className={className} onClick={props.onClick}>
+      <button  aria-label="Close" className={className} onClick={props.onClick}>
         {char}
       </button>
     );
@@ -76,7 +76,7 @@ const TourProperties = ( {tours}) => {
                 </Slider>
 
                 <div className="cardImage__wishlist">
-                  <button className="button -blue-1 bg-white size-30 rounded-full shadow-2">
+                  <button  aria-label="Close" className="button -blue-1 bg-white size-30 rounded-full shadow-2">
                     <i className="icon-heart text-12" />
                   </button>
                 </div>

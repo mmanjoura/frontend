@@ -29,7 +29,7 @@ const PaymentInfo = () => {
                   onClick={() => setItemsTabs(item.id)}
                   key={item.id}
                 >
-                  <button
+                  <button aria-label="Share" type="button"
                     className={
                       itemsTabs === item.id
                         ? "button -dark-1 bg-blue-1 text-white px-20 py-15"

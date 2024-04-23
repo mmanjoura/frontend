@@ -21,7 +21,7 @@ const DateSearch = () => {
         format="MMMM DD"
       />
 
-      <button className="absolute d-flex items-center h-full pointer-events-none">
+      <button className="absolute d-flex items-center h-full pointer-events-none" aria-label="Share" type="button">
         <i className="icon-calendar text-20 px-15 text-dark-1" />
       </button>
     </div>

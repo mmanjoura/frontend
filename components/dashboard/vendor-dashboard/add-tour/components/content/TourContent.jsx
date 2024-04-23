@@ -91,7 +91,7 @@ const TourContent = () => {
         </div>
         <div className="col-12">
           <div className="form-input ">
-            <input type="text"  onChange={e => setTag(e.target.value)} />
+            <input name="" id=""  type="text"  onChange={e => setTag(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Optional Tag: 
                                                               "likely to sell out*",
                                                               "best seller",
@@ -103,14 +103,14 @@ const TourContent = () => {
         {/* End Tag */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required onChange={e => setTitle(e.target.value)} />
+            <input name="" id=""  type="text" required onChange={e => setTitle(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Title</label>
           </div>
         </div>
         {/* End Title */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required onChange={e => setLocation(e.target.value)} />
+            <input name="" id=""  type="text" required onChange={e => setLocation(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Location</label>
           </div>
         </div>
@@ -118,7 +118,7 @@ const TourContent = () => {
 
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required onChange={e => setPrice(e.target.value)} />
+            <input name="" id=""  type="text" required onChange={e => setPrice(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Price</label>
           </div>
         </div>
@@ -127,14 +127,14 @@ const TourContent = () => {
 
         <div className="col-12">
           <div className="form-input ">
-            <input type="text"  onChange={e => setLatitude(e.target.value)} />
+            <input name="" id=""  type="text"  onChange={e => setLatitude(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Latitude Optional</label>
           </div>
         </div>
         {/* End Latitude */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text"  onChange={e => setLongitude(e.target.value)} />
+            <input name="" id=""  type="text"  onChange={e => setLongitude(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Longitude Optional</label>
           </div>
         </div>
@@ -147,28 +147,28 @@ const TourContent = () => {
         {/* End Longitude */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required onChange={e => setMinimumDuration(e.target.value)} />
+            <input name="" id=""  type="text" required onChange={e => setMinimumDuration(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Minimum Duration hours</label>
           </div>
         </div>
         {/* End Minimum Duration */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required onChange={e => setGroupSize(e.target.value)} />
+            <input name="" id=""  type="text" required onChange={e => setGroupSize(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Minimum Group Size</label>
           </div>
         </div>
         {/* End Group Size */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required onChange={e => setNumberOfReviews(e.target.value)} />
+            <input name="" id=""  type="text" required onChange={e => setNumberOfReviews(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Number of Reviews</label>
           </div>
         </div>
         {/* End Number of Review */}
         <div className="col-12">
           <div className="form-input ">
-            <input type="text" required onChange={e => setReviewsComment(e.target.value)} />
+            <input name="" id=""  type="text" required onChange={e => setReviewsComment(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Reviews Comment: Excellent</label>
           </div>
         </div>
@@ -176,14 +176,14 @@ const TourContent = () => {
 
         <div className="col-12">
           <div className="form-input ">
-            <textarea required rows={5} defaultValue={""} onChange={e => setOverview(e.target.value)} />
+            <textarea name="" id=""  required rows={5} defaultValue={""} onChange={e => setOverview(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">Overviw</label>
           </div>
         </div>
                {/* End Overview */}
                <div className="col-12">
           <div className="form-input ">
-            <textarea required rows={5} defaultValue={""} onChange={e => setWhatsIncluded(e.target.value)} />
+            <textarea name="" id=""  required rows={5} defaultValue={""} onChange={e => setWhatsIncluded(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">
             What's Included (Use pipe char "|" separated values. The header is the first value)
 
@@ -193,7 +193,7 @@ const TourContent = () => {
         {/* End Whats Included */}
         <div className="col-12">
           <div className="form-input ">
-            <textarea required rows={5} defaultValue={""} onChange={e => setHighlights(e.target.value)} />
+            <textarea name="" id=""  required rows={5} defaultValue={""} onChange={e => setHighlights(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">
             Highlights: (Use pipe char "|" separated values. The header is the first value)
               </label>
@@ -202,7 +202,7 @@ const TourContent = () => {
         {/* End Whats Included */} 
         <div className="col-12">
           <div className="form-input ">
-            <textarea rows={5} defaultValue={""} onChange={e => setImportantInformation(e.target.value)} />
+            <textarea name="" id=""  rows={5} defaultValue={""} onChange={e => setImportantInformation(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">
             Optional Important Information: (Use pipe char "|" separated values. The header is the first value)
             </label>
@@ -210,7 +210,7 @@ const TourContent = () => {
         </div>
         <div className="col-12">
           <div className="form-input ">
-            <textarea  rows={5} defaultValue={""} onChange={e => setAdditionalInformation(e.target.value)} />
+            <textarea name="" id=""   rows={5} defaultValue={""} onChange={e => setAdditionalInformation(e.target.value)} />
             <label className="lh-1 text-16 text-light-1">
             Optional Additional Information: (Use pipe char "|" separated values. The header is the first value)
               </label>
@@ -218,14 +218,14 @@ const TourContent = () => {
         </div>
         <div className="col-12">
             <div className="form-input ">
-              <textarea required rows={5} onChange={e => setCancellationPolicy(e.target.value)} />
+              <textarea name="" id=""  required rows={5} onChange={e => setCancellationPolicy(e.target.value)} />
               <label className="lh-1 text-16 text-light-1">Cancellation Policy: long Text</label>
             </div>
           </div>
         {/* End Content */}
  
         <div className="d-inline-block pt-30">
-          <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white">
+          <button className="button h-50 px-24 -dark-1 bg-blue-1 text-white" aria-label="Save changes" type="button">
             Save Changes <div className="icon-arrow-top-right ml-15" />
           </button>
         </div>

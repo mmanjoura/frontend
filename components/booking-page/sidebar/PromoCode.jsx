@@ -6,7 +6,7 @@ const PromoCode = () => {
         <input type="text" required />
         <label className="lh-1 text-16 text-light-1">Enter promo code</label>
       </div>
-      <button className="button -outline-blue-1 text-blue-1 px-30 py-15 mt-20">
+      <button className="button -outline-blue-1 text-blue-1 px-30 py-15 mt-20" aria-label="Apply" type="button">
         Apply
       </button>
     </div>

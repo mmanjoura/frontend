@@ -41,7 +41,7 @@ const Header1 = () => {
             <div className="col-auto">
               <div className="d-flex items-center">
               <Link href="/" className="header-logo mr-40">
-                  <img src="/img/general/logo.png" alt="logo icon" />
+                  <img src="/img/general/logo.png" alt="logo icon"  />
                   <img src="/img/general/logo.png" alt="logo icon" />
                 </Link>
                 {/* End logo */}
@@ -114,13 +114,13 @@ const Header1 = () => {
                 {/* Start mobile menu icon */}
                 <div className="d-none xl:d-flex x-gap-20 items-center pl-30 text-white">
                   <div>
-                    <Link
+                    <Link aria-label="Login"
                       href="/login"
                       className="d-flex items-center icon-user text-inherit text-22"
                     />
                   </div>
                   <div>
-                    <button
+                    <button  aria-label="Close"
                       className="d-flex items-center icon-menu text-inherit text-20"
                       data-bs-toggle="offcanvas"
                       aria-controls="mobile-sidebar_menu"

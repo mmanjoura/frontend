@@ -31,7 +31,7 @@ const ItineraryContent = ({props}) => {
                   data-bs-toggle="collapse"
                   data-bs-target={`#item_${id + 1}`}
                 >
-                  <button className="d-block lh-15 text-14 text-blue-1 underline fw-500 mt-5">
+                  <button aria-label="Close" className="d-block lh-15 text-14 text-blue-1 underline fw-500 mt-5">
                     See details
                   </button>
                 </div>

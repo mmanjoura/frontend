@@ -64,7 +64,7 @@ const SignUpForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <input type="text" required onChange={ e => setFirstName(e.target.value)}/>
+          <input name="" id=""  type="text" required onChange={ e => setFirstName(e.target.value)}/>
           <label className="lh-1 text-14 text-light-1">First Name</label>
         </div>
       </div>
@@ -72,7 +72,7 @@ const SignUpForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <input type="text" required onChange={ e => setLastName(e.target.value)} />
+          <input name="" id=""  type="text" required onChange={ e => setLastName(e.target.value)} />
           <label className="lh-1 text-14 text-light-1">Last Name</label>
         </div>
       </div>
@@ -80,7 +80,7 @@ const SignUpForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <input type="text" required onChange={ e => setEmail(e.target.value)}/>
+          <input name="" id=""  type="text" required onChange={ e => setEmail(e.target.value)}/>
           <label className="lh-1 text-14 text-light-1">Email</label>
         </div>
       </div>
@@ -88,7 +88,7 @@ const SignUpForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <input type="password" required onChange={ e => setPassword(e.target.value)}/>
+          <input name="" id=""  type="password" required onChange={ e => setPassword(e.target.value)}/>
           <label className="lh-1 text-14 text-light-1">Password</label>
         </div>
       </div>
@@ -96,7 +96,7 @@ const SignUpForm = () => {
 
       <div className="col-12">
         <div className="form-input ">
-          <input type="password" required onChange={ e => setConfirmPassword(e.target.value)}/>
+          <input name="" id=""  type="password" required onChange={ e => setConfirmPassword(e.target.value)}/>
           <label className="lh-1 text-14 text-light-1">Confirm Password</label>
         </div>
       </div>
@@ -105,7 +105,7 @@ const SignUpForm = () => {
       <div className="col-12">
         <div className="d-flex ">
           <div className="form-checkbox mt-5">
-            <input type="checkbox" name="name" />
+            <input id="" type="checkbox" name="name" />
             <div className="form-checkbox__mark">
               <div className="form-checkbox__icon icon-check" />
             </div>
@@ -122,7 +122,7 @@ const SignUpForm = () => {
         <button
           type="submit"
           href="#"
-          className="button py-20 -dark-1 bg-blue-1 text-white w-100"
+          className="button py-20 -dark-1 bg-blue-1 text-white w-100" aria-label="Sign Up" 
         >
           Sign Up <div className="icon-arrow-top-right ml-15" />
         </button>
